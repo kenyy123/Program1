@@ -1,10 +1,10 @@
 
 local text
 
-¼ÙÉèÄãÊÇÓÃµÄ Goagent ·­Ç½£¬
+å‡è®¾ä½ æ˜¯ç”¨çš„ Goagent ç¿»å¢™ï¼Œ
 git config http.proxy http://127.0.0.1:8087
-git config http.sslVerify false
-Ó¦¸Ã¾ÍÄÜÕı³£Ê¹ÓÃÁË
+git config http.sslVerify "false"
+åº”è¯¥å°±èƒ½æ­£å¸¸ä½¿ç”¨äº†
 
 
 Also look at this
