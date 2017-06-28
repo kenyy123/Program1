@@ -10,7 +10,22 @@
 行为型模式，共十一种：策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式。
 
 
+
+二、分类 
+        工厂模式主要是为创建对象提供过渡接口，以便将创建对象的具体过程屏蔽隔离起来，达到提高灵活性的目的。 
+工厂模式可以分为三类： 
+
+1）简单工厂模式（Simple Factory） 
+2）工厂方法模式（Factory Method） 
+3）抽象工厂模式（Abstract Factory） 
+http://blog.csdn.net/liruikqn/article/details/12888511
+
 ======================
+
+http://blog.csdn.net/jason0539/article/details/23020989
+
+
+
 
 http://blog.csdn.net/zhangerqing/article/details/8194653/
 
@@ -311,6 +326,212 @@ print?
 作者：jason0539
 
 微博：http://weibo.com/2553717707
+
+
+===============================
+
+
+抽象工厂模式（Abstract Factory） 
+http://blog.csdn.net/liruikqn/article/details/12888511
+
+ Java 抽象工厂模式
+2013-10-20 21:08 19525人阅读 评论(0) 收藏 举报
+分类：
+Java设计模式（2）
+作者同类文章X
+
+版权声明：本文为博主原创文章，未经博主允许不得转载。
+
+抽象工厂模式（Abstract Factory Pattern）是工厂方法模式的进一步抽象，其英文原话"Provide an interface for creating families of related or dependent objects without specifying their concrete classes",翻译，“为创建一组相关或相互依赖的对象提供一个借口，无需指定它们的具体类”。抽象工厂模式通常是用于创一族产品，并且这族产品分不同的等级；不同的具体工厂类生产不同等级的一族产品。抽象工厂模式也有四种角色：抽象工厂、具体工厂、抽象产品和具体产品，具体解释参见“Java 工厂方法模式”一文。抽象工厂模式的类图如下：
+
+
+
+可以看到产品族包括ProductA和ProductB两种产品，每个具体工厂都能生产这两种产品，只是ConcreteFactory1生产的等级为1的族产品；ConcreteFactory2生产的是等级为2的族产品。下面以上图为模型，写一个demo，测试抽象工厂模式。
+
+抽象工厂：AbstractFactory接口
+
+[html] view plain copy
+
+    //抽象工厂，定义了生产族产品的方法；  
+    public interface AbstractFactory {  
+        public ProductA factoryA();  
+        public ProductB factoryB();  
+    }  
+
+
+抽象产品：ProductA接口
+
+[html] view plain copy
+
+    //抽象产品A定义了产品的公共方法，产品A和B属于一个产品族  
+    public interface ProductA {  
+        public void method1();  
+        public void method2();  
+    }  
+
+
+抽象产品：ProductB接口
+
+[html] view plain copy
+
+    //抽象产品B定义了产品的公共方法，产品A和B属于一个产品族  
+    public interface ProductB {  
+        public void method1();  
+        public void method2();  
+    }  
+
+
+具体工厂（生产等级为2的族产品）：ConcreteFactory1类
+
+[html] view plain copy
+
+    //ConcreateFactory1是用来生产等级为1的产品A，B；  
+    public class ConcreateFactory1 implements AbstractFactory {  
+      
+        //生产等级为1的产品A  
+        @Override  
+        public ProductA factoryA() {  
+            // TODO Auto-generated method stub  
+            return new ConcreateProductA1();  
+        }  
+      
+          
+        //生产等级为1的产品B  
+        @Override  
+        public ProductB factoryB() {  
+            // TODO Auto-generated method stub  
+            return new ConcreateProductB1();  
+        }  
+      
+    }  
+
+
+具体工厂（生产等级为1的族产品）：ConcreteFactory2类
+[html] view plain copy
+
+    public class ConcreateFactory2 implements AbstractFactory {  
+      
+        //生产等级为2的产品A  
+        @Override  
+        public ProductA factoryA() {  
+            // TODO Auto-generated method stub  
+            return new ConcreateProductA2();  
+        }  
+      
+        //生产等级为2的产品B  
+        @Override  
+        public ProductB factoryB() {  
+            // TODO Auto-generated method stub  
+            return new ConcreateProductB2();  
+        }  
+    }  
+
+
+
+具体产品（等级为1的A产品）：ConcreteProductA1类
+
+[html] view plain copy
+
+    //等级为1的具体产品A  
+    public class ConcreateProductA1 implements ProductA {  
+      
+        @Override  
+        public void method1() {  
+            // TODO Auto-generated method stub  
+            System.out.println("等级为1的产品A的method1()");  
+        }  
+      
+        @Override  
+        public void method2() {  
+            // TODO Auto-generated method stub  
+            System.out.println("等级为1的产品A的method2()");  
+        }  
+    }  
+
+
+
+具体产品（等级为2的A产品）：ConcreteProductA2类
+
+[html] view plain copy
+
+    //等级为2的具体产品A  
+    public class ConcreateProductA2 implements ProductA {  
+      
+        @Override  
+        public void method1() {  
+            // TODO Auto-generated method stub  
+            System.out.println("等级为2的产品A的method1()");  
+        }  
+      
+        @Override  
+        public void method2() {  
+            // TODO Auto-generated method stub  
+            System.out.println("等级为2的产品A的method2()");  
+        }  
+    }  
+
+
+
+具体产品（等级为1的B产品）：ConcreteProductB1类
+
+[html] view plain copy
+
+    //等级为1的产品B  
+    public class ConcreateProductB1 implements ProductB{  
+      
+        @Override  
+        public void method1() {  
+            // TODO Auto-generated method stub  
+            System.out.println("等级为1的产品B的method1()");  
+        }  
+      
+        @Override  
+        public void method2() {  
+            // TODO Auto-generated method stub  
+            System.out.println("等级为1的产品B的method2()");  
+        }  
+    }  
+
+
+
+具体产品（等级为2的B产品）：ConcreteProductB2类
+
+[html] view plain copy
+
+    //等级为2的产品B  
+    public class ConcreateProductB2 implements ProductB {  
+      
+        @Override  
+        public void method1() {  
+            // TODO Auto-generated method stub  
+            System.out.println("等级为2的产品B的method1()");  
+        }  
+      
+        @Override  
+        public void method2() {  
+            // TODO Auto-generated method stub  
+            System.out.println("等级为2的产品B的method2()");  
+        }  
+    }  
+
+
+运行结果：
+
+等级为1的产品A的method1()
+等级为1的产品A的method2()
+等级为1的产品B的method1()
+等级为1的产品B的method2()
+等级为2的产品A的method1()
+等级为2的产品A的method2()
+等级为2的产品B的method1()
+等级为2的产品B的method2()
+
+总结：
+
+抽象工厂模式相对于工厂方法模式来说，每个具体工厂可以生产一族产品（即多种产品）；而工厂方法模式是具体工厂生产相应的具体产品，只能生产一种产品。当产品族中只有一种产品时抽象工厂模式退化成工厂方法模式。
+
+
+===========================
 
 
 

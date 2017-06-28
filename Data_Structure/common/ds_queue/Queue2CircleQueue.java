@@ -63,6 +63,9 @@ public class Queue2CircleQueue<E> implements Serializable {
     	return (rear-front)%(a.length-1);   	
     }
 
+    public boolean isEmpty(){  
+        return rear==front;  
+    }  
 
 }
 
