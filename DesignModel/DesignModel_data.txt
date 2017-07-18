@@ -10,6 +10,19 @@
 行为型模式，共十一种：策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式。
 
 
+http://www.cnblogs.com/maowang1991/archive/2013/04/15/3023236.html
+
+http://www.cnblogs.com/Coda/p/4283025.html
+
+http://blog.csdn.net/top_code/article/details/8469297
+
+http://www.cnblogs.com/moonz-wu/archive/2011/01/11/1932473.html
+
+Java设计模式四: 原型模式(Prototype Pattern)
+http://www.cnblogs.com/itTeacher/archive/2012/12/02/2797857.html
+
+
+
 ======================
 
 http://blog.csdn.net/zhangerqing/article/details/8194653/
@@ -312,6 +325,415 @@ print?
 
 微博：http://weibo.com/2553717707
 
+
+==================
+
+
+ Builder模式在Java中的应用
+
+ http://www.cnblogs.com/moonz-wu/archive/2011/01/11/1932473.html
+
+在设计模式中对Builder模式的定义是用于构建复杂对象的一种模式，所构建的对象往往需要多步初始化或赋值才能完成。那么，在实际的开发过程中，我们哪些地方适合用到Builder模式呢？其中使用Builder模式来替代多参数构造函数是一个比较好的实践法则。
+
+我们常常会面临编写一个这样的实现类(假设类名叫DoDoContact)，这个类拥有多个构造函数，
+
+DoDoContact(String name);
+
+DoDoContact(String name, int age);
+
+DoDoContact(String name, int age, String address);
+
+DoDoContact(String name, int age, String address, int cardID);
+
+这样一系列的构造函数主要目的就是为了提供更多的客户调用选择，以处理不同的构造请求。这种方法很常见，也很有效力，但是它的缺点也很多。类的作者不得不书写多种参数组合的构造函数，而且其中还需要设置默认参数值，这是一个需要细心而又枯燥的工作。其次，这样的构造函数灵活性也不高，而且在调用时你不得不提供一些没有意义的参数值，例如，DoDoContact("Ace", -1, "SH")，显然年龄为负数没有意义，但是你又不的不这样做，得以符合Java的规范。如果这样的代码发布后，后面的维护者就会很头痛，因为他根本不知道这个-1是什么含义。对于这样的情况，就非常适合使用Builder模式。Builder模式的要点就是通过一个代理来完成对象的构建过程。这个代理职责就是完成构建的各个步骤，同时它也是易扩展的。下面是改写自Effective Java里面的一段代码：
+	
+public class DoDoContact {
+    private final int    age;
+    private final int    safeID;
+    private final String name;
+    private final String address;
+ 
+    public int getAge() {
+        return age;
+    }
+ 
+    public int getSafeID() {
+        return safeID;
+    }
+ 
+    public String getName() {
+        return name;
+    }
+ 
+    public String getAddress() {
+        return address;
+    }
+ 
+    public static class Builder {
+        private int    age     = 0;
+        private int    safeID  = 0;
+        private String name    = null;
+        private String address = null;
+
+	
+　　　// 构建的步骤
+        public Builder(String name) {
+            this.name = name;
+        }
+ 
+        public Builder age(int val) {
+            age = val;
+            return this;
+        }
+ 
+        public Builder safeID(int val) {
+            safeID = val;
+            return this;
+        }
+ 
+        public Builder address(String val) {
+            address = val;
+            return this;
+        }
+ 
+        public DoDoContact build() { // 构建，返回一个新对象
+            return new DoDoContact(this);
+        }
+    }
+ 
+    private DoDoContact(Builder b) {
+        age = b.age;
+        safeID = b.safeID;
+        name = b.name;
+        address = b.address;
+ 
+    }
+}
+
+最终，客户程序可以很灵活的去构建这个对象。
+	
+DoDoContact ddc = new DoDoContact.Builder("Ace").age(10)
+                .address("beijing").build();
+System.out.println("name=" + ddc.getName() + "age =" + ddc.getAge()
+                + "address" + ddc.getAddress());
+将想法付诸于实践，借此来影响他人是一个人存在的真正价值
+
+===================
+
+
+Java设计模式四: 原型模式(Prototype Pattern)
+Posted on 2012-12-02 00:27 IT随笔 阅读(17496) 评论(0) 编辑 收藏
+
+原型模式是一种创建型设计模式,它通过复制一个已经存在的实例来返回新的实例,而不是新建实例.被复制的实例就是我们所称的原型,这个原型是可定制的.
+原型模式多用于创建复杂的或者耗时的实例, 因为这种情况下,复制一个已经存在的实例可以使程序运行更高效,或者创建值相等,只是命名不一样的同类数据.
+
+原型模式中的拷贝分为"浅拷贝"和"深拷贝":
+浅拷贝: 对值类型的成员变量进行值的复制,对引用类型的成员变量只复制引用,不复制引用的对象.
+深拷贝: 对值类型的成员变量进行值的复制,对引用类型的成员变量也进行引用对象的复制.
+
+类图:
+
+实例一:浅拷贝
+public class Prototype implements Cloneable {
+ private String name;
+
+ public String getName() {
+  return name;
+ }
+
+ public void setName(String name) {
+  this.name = name;
+ }
+
+ public Object clone() {
+  try {
+   return super.clone();
+  } catch (CloneNotSupportedException e) {   
+   e.printStackTrace();
+   return null;
+  }
+ } 
+ 
+}
+
+public class TestMain {
+
+ public static void main(String[] args) {
+  testPrototype();
+ }
+ 
+ private static void testPrototype(){
+  Prototype pro = new Prototype();
+  pro.setName("original object");
+  Prototype pro1 = (Prototype)pro.clone();
+  pro.setName("changed object1");
+  
+  System.out.println("original object:" + pro.getName());
+  System.out.println("cloned object:" + pro1.getName());
+  
+ }
+
+}
+结果:
+original object:changed object1
+cloned object:original object
+
+
+实例二: 浅拷贝
+public class Prototype{
+ private String name;
+
+ public String getName() {
+  return name;
+ }
+
+ public void setName(String name) {
+  this.name = name;
+ } 
+ 
+}
+public class NewPrototype implements Cloneable {
+ 
+ private String id;
+ 
+ public String getId() {
+  return id;
+ }
+
+ public void setId(String id) {
+  this.id = id;
+ }
+
+ private Prototype prototype;
+ 
+ public Prototype getPrototype() {
+  return prototype;
+ }
+
+ public void setPrototype(Prototype prototype) {
+  this.prototype = prototype;
+ }
+
+
+ public Object clone(){ 
+  try {
+   return super.clone();
+  } catch (CloneNotSupportedException e) {
+   e.printStackTrace();
+   return null;
+  }  
+ }
+
+}
+public class TestMain {
+
+ public static void main(String[] args) {
+  // TODO Auto-generated method stub
+  testPrototype();
+ }
+ 
+ private static void testPrototype(){
+  Prototype pro = new Prototype();
+  pro.setName("original object");
+  NewPrototype newObj = new NewPrototype();
+  newObj.setId("test1");
+  newObj.setPrototype(pro);
+  
+  NewPrototype copyObj = (NewPrototype)newObj.clone();
+  copyObj.setId("testCopy");
+  copyObj.getPrototype().setName("changed object");
+  
+  System.out.println("original object id:" + newObj.getId());
+  System.out.println("original object name:" + newObj.getPrototype().getName());
+  
+  System.out.println("cloned object id:" + copyObj.getId());
+  System.out.println("cloned object name:" + copyObj.getPrototype().getName());
+  
+ }
+
+}
+
+结果:
+original object id:test1
+original object name:changed object
+cloned object id:testCopy
+cloned object name:changed object
+
+
+实例三: 深拷贝
+public class Prototype implements Cloneable {
+ private String name;
+
+ public String getName() {
+  return name;
+ }
+
+ public void setName(String name) {
+  this.name = name;
+ }
+
+ public Object clone() {
+  try { 
+   return super.clone();
+  } catch (CloneNotSupportedException e) {   
+   e.printStackTrace();
+   return null;
+  }
+ } 
+ 
+}
+
+public class NewPrototype implements Cloneable {
+ 
+ private String id;
+ 
+ public String getId() {
+  return id;
+ }
+
+ public void setId(String id) {
+  this.id = id;
+ }
+
+ private Prototype prototype;
+ 
+ public Prototype getPrototype() {
+  return prototype;
+ }
+
+ public void setPrototype(Prototype prototype) {
+  this.prototype = prototype;
+ }
+
+
+ public Object clone(){
+  NewPrototype ret = null;
+  try {
+   ret = (NewPrototype)super.clone();
+   ret.prototype = (Prototype)this.prototype.clone();
+   return ret;
+  } catch (CloneNotSupportedException e) {
+   e.printStackTrace();
+   return null;
+  }  
+ }
+
+}
+
+public class TestMain {
+
+ /**
+  * @param args
+  */
+ public static void main(String[] args) {
+  testDeepCopy();
+ }
+ 
+ private static void testDeepCopy(){
+  Prototype pro = new Prototype();
+  pro.setName("original object");
+  NewPrototype newObj = new NewPrototype();
+  newObj.setId("test1");
+  newObj.setPrototype(pro);
+  
+  NewPrototype copyObj = (NewPrototype)newObj.clone();
+  copyObj.setId("testCopy");
+  copyObj.getPrototype().setName("changed object");
+  
+  System.out.println("original object id:" + newObj.getId());
+  System.out.println("original object name:" + newObj.getPrototype().getName());
+  
+  System.out.println("cloned object id:" + copyObj.getId());
+  System.out.println("cloned object name:" + copyObj.getPrototype().getName());
+  
+ }
+
+}
+
+结果:
+original object id:test1
+original object name:original object
+cloned object id:testCopy
+cloned object name:changed object
+
+实例四: 利用串行化来做深复制
+把对象写道流里的过程是串行化(Serilization)过程;把对象从流中读出来是并行化(Deserialization)过程. 写在流里的是对象的一个拷贝,然后再从流里读出来重建对象.
+public class PrototypeSe implements Serializable {
+
+ private String name;
+
+ public String getName() {
+  return name;
+ }
+
+ public void setName(String name) {
+  this.name = name;
+ }
+
+}
+
+public class NewPrototypeSe implements Serializable {
+ 
+ private String id;
+ 
+ public String getId() {
+  return id;
+ }
+
+ public void setId(String id) {
+  this.id = id;
+ }
+
+ private PrototypeSe prototype;
+ 
+ public PrototypeSe getPrototype() {
+  return prototype;
+ }
+
+ public void setPrototype(PrototypeSe prototype) {
+  this.prototype = prototype;
+ }
+ 
+ public Object deepClone(){
+  try {
+   ByteArrayOutputStream bo = new ByteArrayOutputStream();
+   ObjectOutputStream oo = new ObjectOutputStream(bo);   
+   oo.writeObject(this);   
+   
+   ByteArrayInputStream bi = new ByteArrayInputStream(bo.toByteArray());
+   ObjectInputStream oi = new ObjectInputStream(bi);
+   return oi.readObject(); 
+  } catch (IOException | ClassNotFoundException e) {
+   // TODO Auto-generated catch block
+   e.printStackTrace();
+   return null;
+  }
+ }
+
+}
+
+public class TestDeepClone {
+
+ public static void main(String[] args) {
+  // TODO Auto-generated method stub
+  PrototypeSe po = new PrototypeSe();
+  po.setName("test1");
+  NewPrototypeSe se = new NewPrototypeSe();
+  se.setPrototype(po);
+  
+  NewPrototypeSe deepClone = (NewPrototypeSe)se.deepClone();
+  deepClone.getPrototype().setName("test2");
+  
+  System.out.println("original name:" + se.getPrototype().getName());
+  System.out.println("cloned name:" + deepClone.getPrototype().getName());
+
+ }
+}
+结果:
+original name:test1
+cloned name:test2
+
+================
 
 
 
