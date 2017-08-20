@@ -14,6 +14,7 @@ Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer 
 
 package Leetcode;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,5 +40,23 @@ public class LeetCode03SubstringNoRepeat {
 	    
 	    return max;
 	}
+	
+	
+	public int lengthOfLongestSubstring1(String s) {
+        if (s.length()==0) return 0;
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        int max=0;
+        for (int i=0, j=0; i<s.length(); ++i){
+            if (map.containsKey(s.charAt(i))){
+                j = Math.max(j,map.get(s.charAt(i))+1);
+            }
+            map.put(s.charAt(i),i);
+            max = Math.max(max,i-j+1);
+        }
+        return max;
+    }
+	
+	
+	
 
 }
