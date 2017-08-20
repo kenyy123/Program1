@@ -1,5 +1,7 @@
 package ds_tree;
 
+import java.util.ArrayList;
+import java.util.Stack;
 
 public class TreeNode {
 	
@@ -35,7 +37,6 @@ public class TreeNode {
 
 //	    String str = "[3,9,20,null,null,15,7]";
 	    public static TreeNode mkTree(String str) {
-
 	        int []arr = StrToIntArray(str);
 	        TreeNode []nodes = new TreeNode[arr.length + 1];
 	        for (int i = 1; i < nodes.length; i++) {
@@ -63,5 +64,29 @@ public class TreeNode {
 //    public BinaryTree1()
 //     {
 //    }
+	    
+	    public ArrayList<Integer> preorderTraversal(TreeNode root) {
+	        ArrayList<Integer> returnList = new ArrayList<Integer>();
+	 
+	        if(root == null)
+	            return returnList;
+	 
+	        Stack<TreeNode> stack = new Stack<TreeNode>();
+	        stack.push(root);
+	 
+	        while(!stack.empty()){
+	            TreeNode n = stack.pop();
+	            returnList.add(n.val);
+	 
+	            if(n.right != null){
+	                stack.push(n.right);
+	            }
+	            if(n.left != null){
+	                stack.push(n.left);
+	            }
+	 
+	        }
+	        return returnList;
+	    }
     
 }
