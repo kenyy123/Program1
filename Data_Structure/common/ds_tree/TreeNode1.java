@@ -42,7 +42,4 @@ public class TreeNode1<T> {
 		this.right = right;
 	}
 	
-	
-	
-	
 }
