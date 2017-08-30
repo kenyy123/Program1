@@ -1,5 +1,10 @@
 package ds_tree;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
+import ds_tree.Bst1.TreeNode;
+
 public class Bst2 {
 
 	public static void main(String[] args) {
@@ -120,7 +125,31 @@ public class Bst2 {
         }  
     }  
     
-    
+    public void trivalBinTree(TreeNode root) {
+        Queue<TreeNode> nodeQueue = new ArrayDeque<>(); 
+        nodeQueue.add(root);
+        TreeNode temp = null;
+        int currentLevel = 1;    //记录当前层需要打印的节点的数量
+        int nextLevel = 0;//记录下一层需要打印的节点的数量
+        while ((temp = nodeQueue.poll()) != null) {
+            if (temp.leftChild != null) {
+                nodeQueue.add(temp.leftChild);
+                nextLevel++;
+                
+            }
+            if (temp.rightChild != null) {
+                nodeQueue.add(temp.rightChild);
+                nextLevel++;
+            }
+            System.out.print(temp.iData + " ");
+            currentLevel--;
+            if(currentLevel == 0) {
+                System.out.println();
+                currentLevel = nextLevel;
+                nextLevel = 0;
+            }
+        }
+    }
 
 
 }
