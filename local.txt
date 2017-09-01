@@ -1,4 +1,14 @@
 
 local text
 
+假设你是用的 Goagent 翻墙，
+git config http.proxy http://127.0.0.1:8087
+git config http.sslVerify "false"
+应该就能正常使用了
+
+
+Also look at this
+http://www.evincetech.com
+http://www.hospity.com
+http://www.onlinety.com/tourism-management-software.php
 

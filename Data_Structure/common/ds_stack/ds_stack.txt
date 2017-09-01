@@ -1,0 +1,466 @@
+栈：LIFO（后进先出）
+
+队列：FIFO（先进先出）
+
+栈的顺序存储结构实现：
+复制代码
+
+/**
+ * 基于数组实现的顺序栈
+ * @param <E>
+ */
+public class Stack<E> {
+    private Object[] data = null;
+    private int maxSize=0;   //栈容量
+    private int top =-1;  //栈顶指针
+    
+    /**
+     * 构造函数：根据给定的size初始化栈
+     */
+    Stack(){
+        this(10);   //默认栈大小为10
+    }
+    
+    Stack(int initialSize){
+        if(initialSize >=0){
+            this.maxSize = initialSize;
+            data = new Object[initialSize];
+            top = -1;
+        }else{
+            throw new RuntimeException("初始化大小不能小于0：" + initialSize);
+        }
+    }
+    
+    //判空
+    public boolean empty(){
+        return top==-1 ? true : false;
+    }
+    
+    //进栈,第一个元素top=0；
+    public boolean push(E e){
+        if(top == maxSize -1){
+            throw new RuntimeException("栈已满，无法将元素入栈！");
+        }else{
+            data[++top]=e;
+            return true;
+        }    
+    }
+    
+    //查看栈顶元素但不移除
+    public E peek(){
+        if(top == -1){
+            throw new RuntimeException("栈为空！");
+        }else{
+            return (E)data[top];
+        }
+    }
+    
+    //弹出栈顶元素
+    public E pop(){
+        if(top == -1){
+            throw new RuntimeException("栈为空！");
+        }else{
+            return (E)data[top--];
+        }
+    }
+    
+    //返回对象在堆栈中的位置，以 1 为基数
+    public int search(E e){
+        int i=top;
+        while(top != -1){
+            if(peek() != e){
+                top --;
+            }else{
+                break;
+            }
+        }
+        int result = top+1;
+        top = i;
+        return result;      
+    }
+}
+
+复制代码
+
+栈的链式存储结构实现：
+复制代码
+
+public class LinkStack<E> {
+    //链栈的节点
+    private class Node<E>{
+        E e;
+        Node<E> next;
+        
+        public Node(){}
+        public Node(E e, Node next){
+            this.e = e;
+            this.next = next;
+        }
+    }
+    
+    private Node<E> top;   //栈顶元素
+    private int size;  //当前栈大小
+    
+    public LinkStack(){
+        top = null;
+    }
+    
+    //当前栈大小
+    public int length(){
+        return size;
+    }
+    
+    //判空
+    public boolean empty(){
+        return size==0;
+    }
+    
+    //入栈：让top指向新创建的元素，新元素的next引用指向原来的栈顶元素
+    public boolean push(E e){
+        top = new Node(e,top);
+        size ++;
+        return true;
+    }
+    
+    //查看栈顶元素但不删除
+    public Node<E> peek(){
+        if(empty()){
+            throw new RuntimeException("空栈异常！");
+        }else{
+            return top;
+        }
+    }
+    
+    //出栈
+    public Node<E> pop(){
+        if(empty()){
+            throw new RuntimeException("空栈异常！");
+        }else{
+            Node<E> value = top; //得到栈顶元素
+            top = top.next; //让top引用指向原栈顶元素的下一个元素 
+            value.next = null;  //释放原栈顶元素的next引用
+            size --;
+            return value;
+        }
+    }
+}
+
+复制代码
+
+ 
+
+基于LinkedList实现的栈结构：
+复制代码
+
+import java.util.LinkedList;
+
+/**
+ * 基于LinkedList实现栈
+ * 在LinkedList实力中只选择部分基于栈实现的接口
+ */
+public class StackList<E> {
+    private LinkedList<E> ll = new LinkedList<E>();
+    
+    //入栈
+    public void push(E e){
+        ll.addFirst(e);
+    }
+    
+    //查看栈顶元素但不移除
+    public E peek(){
+        return ll.getFirst();
+    }
+    
+    //出栈
+    public E pop(){
+        return ll.removeFirst();
+    }
+    
+    //判空
+    public boolean empty(){
+        return ll.isEmpty();
+    }
+    
+    //打印栈元素
+    public String toString(){
+        return ll.toString();
+    }
+}
+
+复制代码
+
+ 
+
+队列的顺序存储结构实现
+复制代码
+
+public class Queue<E> {
+    private Object[] data=null;
+    private int maxSize; //队列容量
+    private int front;  //队列头，允许删除
+    private int rear;   //队列尾，允许插入
+
+    //构造函数
+    public Queue(){
+        this(10);
+    }
+    
+    public Queue(int initialSize){
+        if(initialSize >=0){
+            this.maxSize = initialSize;
+            data = new Object[initialSize];
+            front = rear =0;
+        }else{
+            throw new RuntimeException("初始化大小不能小于0：" + initialSize);
+        }
+    }
+    
+    //判空
+    public boolean empty(){
+        return rear==front?true:false;
+    }
+    
+    //插入
+    public boolean add(E e){
+        if(rear== maxSize){
+            throw new RuntimeException("队列已满，无法插入新的元素！");
+        }else{
+            data[rear++]=e;
+            return true;
+        }
+    }
+    
+    //返回队首元素，但不删除
+    public E peek(){
+        if(empty()){
+            throw new RuntimeException("空队列异常！");
+        }else{
+            return (E) data[front];
+        }    
+    }
+    
+    //出队
+    public E poll(){
+        if(empty()){
+            throw new RuntimeException("空队列异常！");
+        }else{
+            E value = (E) data[front];  //保留队列的front端的元素的值
+            data[front++] = null;     //释放队列的front端的元素                
+            return value;
+        }            
+    }
+    
+    //队列长度
+    public int length(){
+        return rear-front;
+    }
+}
+
+复制代码
+
+循环队列的顺序存储结构实现
+复制代码
+
+import java.util.Arrays;
+
+public class LoopQueue<E> {
+    public Object[] data = null;
+    private int maxSize; // 队列容量
+    private int rear;// 队列尾，允许插入
+    private int front;// 队列头，允许删除
+    private int size=0; //队列当前长度
+
+    public LoopQueue() {
+        this(10);
+    }
+
+    public LoopQueue(int initialSize) {
+        if (initialSize >= 0) {
+            this.maxSize = initialSize;
+            data = new Object[initialSize];
+            front = rear = 0;
+        } else {
+            throw new RuntimeException("初始化大小不能小于0：" + initialSize);
+        }
+    }
+
+    // 判空
+    public boolean empty() {
+        return size == 0;
+    }
+
+    // 插入
+    public boolean add(E e) {
+        if (size == maxSize) {
+            throw new RuntimeException("队列已满，无法插入新的元素！");
+        } else {
+            data[rear] = e;
+            rear = (rear + 1)%maxSize;
+            size ++;
+            return true;
+        }
+    }
+
+    // 返回队首元素，但不删除
+    public E peek() {
+        if (empty()) {
+            throw new RuntimeException("空队列异常！");
+        } else {
+            return (E) data[front];
+        }
+    }
+
+    // 出队
+    public E poll() {
+        if (empty()) {
+            throw new RuntimeException("空队列异常！");
+        } else {
+            E value = (E) data[front]; // 保留队列的front端的元素的值
+            data[front] = null; // 释放队列的front端的元素
+            front = (front+1)%maxSize;  //队首指针加1
+            size--;
+            return value;
+        }
+    }
+
+    // 队列长度
+    public int length() {
+        return size;
+    }
+
+    //清空循环队列
+    public void clear(){
+        Arrays.fill(data, null);
+        size = 0;
+        front = 0;
+        rear = 0;
+    }
+}
+
+复制代码
+
+队列的链式存储结构实现
+复制代码
+
+public class LinkQueue<E> {
+    // 链栈的节点
+    private class Node<E> {
+        E e;
+        Node<E> next;
+
+        public Node() {
+        }
+
+        public Node(E e, Node next) {
+            this.e = e;
+            this.next = next;
+        }
+    }
+    
+    private Node front;// 队列头，允许删除  
+    private Node rear;// 队列尾，允许插入  
+    private int size; //队列当前长度 
+    
+    public LinkQueue() {
+        front = null;
+        rear = null;
+    }
+    
+    //判空
+      public boolean empty(){
+          return size==0;
+      }
+      
+      //插入
+      public boolean add(E e){
+          if(empty()){    //如果队列为空
+              front = new Node(e,null);//只有一个节点，front、rear都指向该节点
+              rear = front;
+          }else{
+              Node<E> newNode = new Node<E>(e, null);
+              rear.next = newNode; //让尾节点的next指向新增的节点
+              rear = newNode; //以新节点作为新的尾节点
+          }
+          size ++;
+          return true;
+      }
+      
+      //返回队首元素，但不删除
+      public Node<E> peek(){
+          if(empty()){
+              throw new RuntimeException("空队列异常！");
+          }else{
+              return front;
+          }
+      }
+      
+      //出队
+      public Node<E> poll(){
+          if(empty()){
+              throw new RuntimeException("空队列异常！");
+          }else{
+              Node<E> value = front; //得到队列头元素
+              front = front.next;//让front引用指向原队列头元素的下一个元素
+              value.next = null; //释放原队列头元素的next引用
+              size --;
+              return value;
+          }        
+      }
+      
+      //队列长度
+      public int length(){
+          return size;
+      }
+}
+
+复制代码
+
+基于LinkedList实现队列结构
+复制代码
+
+/**
+ * 使用java.util.Queue接口,其底层关联到一个LinkedList（双端队列）实例.
+ */
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueList<E> {
+    private Queue<E> queue = new LinkedList<E>();
+    
+    // 将指定的元素插入此队列（如果立即可行且不会违反容量限制），在成功时返回 true，
+    //如果当前没有可用的空间，则抛出 IllegalStateException。
+    public boolean add(E e){
+        return queue.add(e);
+    }
+    
+    //获取，但是不移除此队列的头。
+    public E element(){
+        return queue.element();
+    }
+    
+    //将指定的元素插入此队列（如果立即可行且不会违反容量限制），当使用有容量限制的队列时，
+    //此方法通常要优于 add(E)，后者可能无法插入元素，而只是抛出一个异常。
+    public boolean offer(E e){
+        return queue.offer(e);
+    }
+    
+    //获取但不移除此队列的头；如果此队列为空，则返回 null
+    public E peek(){
+        return queue.peek();
+    }
+    
+    //获取并移除此队列的头，如果此队列为空，则返回 null
+    public E poll(){
+        return queue.poll();
+    }
+    
+    //获取并移除此队列的头
+    public E remove(){
+        return queue.remove();
+    }
+    
+    //判空
+    public boolean empty() {
+        return queue.isEmpty();
+    }
+}
