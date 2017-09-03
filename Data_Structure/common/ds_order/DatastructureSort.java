@@ -6,9 +6,9 @@ public class DatastructureSort {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 //		System.out.println("per_person_names_f_v".toUpperCase());
-		int[] array= new int[]{8,7,6, 4,5};
+		int[] array= new int[]{8,7,6,5,4};
 //		bubble(c, 0, 4);
-//		shellSort(array);
+		shellSort(array);
 //		insertSort(array);
 //		sort(array, 0, array.length-1);
 //		quickSort(array, 0, array.length-1);
@@ -23,9 +23,9 @@ public class DatastructureSort {
 		
 //        sort2(array, 0, array.length-1);
         
-        mergeSort3(array, 0, array.length-1);
+//        mergeSort3(array, 0, array.length-1);
         
-        
+		
 		for(int num:array){
 	       System.out.print(num + " ");
 	    }
@@ -48,6 +48,22 @@ public class DatastructureSort {
 //	            System.out.print(num+" ");
 //	        }    
 	}
+	
+	 public static void bubbleSort1(){  
+	     int a[]={49,38,65,7,6,13,2};  
+	    int temp=0;  
+	    for(int i=0;i<a.length-1;i++){  
+	        for(int j=0;j<a.length-1-i;j++){  
+	        if(a[j]>a[j+1]){  
+	            temp=a[j];  
+	            a[j]=a[j+1];  
+	            a[j+1]=temp;  
+	        }  
+	        }  
+	    }  
+	    for(int i=0;i<a.length;i++)  
+	        System.out.println(a[i]);     
+	} 
 	
 	 public static void bubble(Integer[] array, int from, int end) {     
 	        //需array.length - 1轮比较     
@@ -96,21 +112,7 @@ public class DatastructureSort {
 		        }
 		    }
 	    
-	 public static void bubbleSort1(){  
-	     int a[]={49,38,65,7,6,13,2};  
-	    int temp=0;  
-	    for(int i=0;i<a.length-1;i++){  
-	        for(int j=0;j<a.length-1-i;j++){  
-	        if(a[j]>a[j+1]){  
-	            temp=a[j];  
-	            a[j]=a[j+1];  
-	            a[j+1]=temp;  
-	        }  
-	        }  
-	    }  
-	    for(int i=0;i<a.length;i++)  
-	        System.out.println(a[i]);     
-	} 
+	
 
 	 ///////////////// insertSort /////////////////
 	 /**  
@@ -217,7 +219,7 @@ public class DatastructureSort {
 		
 	    
 	//////////// shellSort /////////// 
-	 public static void shellSort(Integer[] arrays){
+	 public static void shellSort(int[] arrays){
 	        if(arrays == null || arrays.length <= 1){
 	            return;
 	        }
@@ -238,6 +240,95 @@ public class DatastructureSort {
 	            incrementNum = incrementNum/2;
 	        }
 	    }
+	 
+	 
+	  
+     ////////////shell Sort /////////// 
+	    public static void shellSort6(int[] sortList) {
+	        int i, j, step;
+	        int len = sortList.length;
+	        // 步长除以2
+	        for (step = len / 2; step > 0; step /= 2)
+	            /**
+	            *  分别对每个分组进行直接插入排序
+	            */
+	            for (i = 0; i < step; i++)
+	            {
+	                for (j = i + step; j < len; j += step)
+	                    if (sortList[j] < sortList[j - step]) {
+	                        int temp = sortList[j];
+	                        int k = j - step;
+	                        while (k >= 0 && sortList[k] > temp) {
+	                            sortList[k + step] = sortList[k];
+	                            k -= step;
+	                        }
+	                        sortList[k + step] = temp;
+	                    }
+	            }
+	    }
+	 
+	 
+	/////////////  selectSort ///////////// 
+        static void shellSort3(int[] array) {  
+            int out, in, tmp;  
+            int len = array.length;  
+            int h = 1;   
+            while(h < len / 3) // 计算间隔h最大值  
+                h = h * 3 + 1;  
+              
+            while(h > 0){ // 能否继续通过缩小间隔h来分割数据列的判定  
+                /* 
+                 * out为什么从h开始？你分割后的第一子序列应该是这样一个序列，0, h, 2h, 3h, ... 
+                 * 插入排序的while循环是从1开始的，因为第一个数始终有序，不需要比较，这个需要了解插入排序的算法，所以比较是从第二个数据线，就是数组的第h个下标开始 
+                 * out的判定为什么是out < len？ 
+                 * 控制数组下标，下面的例子会说道 
+                 *  
+                 * 下面举一个例子来解释 
+                 * 假定有一个10个数据项的数组，数组下标从0 ~ 9 表示 
+                 * 当h = 4时的子序列情况是这样的，以下标表示 
+                 * （0 4 8）（1 5 9）（2 6）（3 7） 
+                 * 我第一次是这么理解的，真对每一组分别进行插入排序（当然也可以这样实现，但是下标不好控制），但是对下面的代码来说这是错误的理解。 
+                 * 正确的过程是这样的，外层for循环每次对每一分组的前两个数据项进行插入排序，然后前3个，然后前4个 ... 这个和子序列个数有关 
+                 * 排序过程只真对方括号进行 
+                 * 当out = 4时进行如下过程 （[0 4] 8） 
+                 * 当out = 5时（[1 5] 9） 
+                 * 当out = 6时（[2 6]） 
+                 * 当out = 7时（[3 7]） 
+                 * 当out = 8时（[0 4 8]） 
+                 * 当out = 9时（[1 5 9]） 
+                 * h = 4执行完毕，然后h = (h - 1) / 3 = 1开始新的for循环 
+                 * h = 1时执行过程和h = 4时一样，不过这时的子数列就是原始的数列，蜕变为一个简单的插入排序，这是数组基本有序，数据项移动次数会大大减少 
+                 *  
+                 */  
+                for(out = h; out < len; out++){ // 外层通过out确定每组插入排序的第二个数据项  
+                    // 以下代码就是对子序列进行的插入排序算法  
+                    tmp = array[out];  
+                    in = out;  
+                    /* 
+                     * 比较插入排序while循环的写法，这里的while循环与h有关，所以判定就与h有关，包括 in -= h语句 
+                     * while(in > 0 && array[in - 1] > tmp){ 
+                     * array[in] = array[in - 1]; 
+                     * in--; 
+                     * } 
+                     * array[in] = tmp; 
+                     *  
+                     */  
+                    while(in > h -1 && array[in - h] >= tmp){  
+                        array[in] = array[in - h];  
+                        in -= h;  
+                    }  
+                    array[in] = tmp;  
+    //              for(int i = 0; i < len; i++)  
+    //                  System.out.print(array[i] + " ");  
+    //              System.out.println();  
+                                      
+                }  
+                  
+                // 缩小间隔  
+                h = (h - 1) / 3;  
+            }  
+        }  
+	       
 	 
 	    
    ////////////// quick sort ////////////////////
@@ -270,7 +361,7 @@ public class DatastructureSort {
 	 
 	 
 	    //////////////// quickSort //////////////
-	    public static void quickSort(int[] a,int low,int high){
+	    public static void quickSort(int[] a,int low, int high){
 	         int start = low;
 	         int end = high;
 	         int key = a[low];
@@ -433,7 +524,7 @@ public class DatastructureSort {
 	        }
 	    
 
-	      /////////////  Merge Sort    //////////////////
+	      /////////////  Merge Sort  //////////////////
 	    /** 
 	     * 归并排序 
 	     * 简介:将两个（或两个以上）有序表合并成一个新的有序表 即把待排序序列分为若干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列 
@@ -543,6 +634,34 @@ public class DatastructureSort {
 //	        }
 	        
 	        
-	        
+	      ////////////////////////////////////
+	       
+
+	     //both a and b is ascend.
+	     public void merge(int[] a, int[] b, int[] c){
+	         int i=0,j=0,k=0;
+	         while (i<=a.length && j<=b.length){
+	             if (a[i]<=b[i]){
+	                 c[k++]=a[i++];
+	             }
+	             else{
+	                 c[k++]=b[j++];
+	             }
+	         }
+	         while (i<=a.length){
+	             c[k++]=a[i++]; 
+	         }
+	         while (j<=b.length){
+	             c[k++]=b[j++];
+	         }
+	     }
+	     
+	     
+	   ///////////////////////////////////////
+	     
+	     
+	     
+	     
+
 
 }
