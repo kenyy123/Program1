@@ -3,51 +3,51 @@ grep
 
 http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856896.html
 
-¼ò½é
+ç®€ä»‹
 
-grep (global search regular expression(RE) and print out the line,È«ÃæËÑË÷ÕýÔò±í´ïÊ½²¢°ÑÐÐ´òÓ¡³öÀ´)ÊÇÒ»ÖÖÇ¿´óµÄÎÄ±¾ËÑË÷¹¤¾ß£¬ËüÄÜÊ¹ÓÃÕýÔò±í´ïÊ½ËÑË÷ÎÄ±¾£¬²¢°ÑÆ¥ÅäµÄÐÐ´òÓ¡³öÀ´¡£
+grep (global search regular expression(RE) and print out the line,å…¨é¢æœç´¢æ­£åˆ™è¡¨è¾¾å¼å¹¶æŠŠè¡Œæ‰“å°å‡ºæ¥)æ˜¯ä¸€ç§å¼ºå¤§çš„æ–‡æœ¬æœç´¢å·¥å…·ï¼Œå®ƒèƒ½ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼æœç´¢æ–‡æœ¬ï¼Œå¹¶æŠŠåŒ¹é…çš„è¡Œæ‰“å°å‡ºæ¥ã€‚
 
-UnixµÄgrep¼Ò×å°üÀ¨grep¡¢egrepºÍfgrep¡£egrepºÍfgrepµÄÃüÁîÖ»¸úgrepÓÐºÜÐ¡²»Í¬¡£egrepÊÇgrepµÄÀ©Õ¹£¬Ö§³Ö¸ü¶àµÄreÔª×Ö·û£¬ fgrep¾ÍÊÇfixed grep»òfast grep£¬ËüÃÇ°ÑËùÓÐµÄ×ÖÄ¸¶¼¿´×÷µ¥´Ê£¬Ò²¾ÍÊÇËµ£¬ÕýÔò±í´ïÊ½ÖÐµÄÔª×Ö·û±íÊ¾»ØÆä×ÔÉíµÄ×ÖÃæÒâÒå£¬²»ÔÙÌØÊâ¡£linuxÊ¹ÓÃGNU°æ±¾µÄgrep¡£Ëü¹¦ÄÜ¸üÇ¿£¬¿ÉÒÔÍ¨¹ý-G¡¢-E¡¢-FÃüÁîÐÐÑ¡ÏîÀ´Ê¹ÓÃegrepºÍfgrepµÄ¹¦ÄÜ¡£
-
- 
-grep³£ÓÃÓÃ·¨
-¸´ÖÆ´úÂë
-
-[root@www ~]# grep [-acinv] [--color=auto] 'ËÑÑ°×Ö·û´®' filename
-Ñ¡ÏîÓë²ÎÊý£º
--a £º½« binary ÎÄ¼þÒÔ text ÎÄ¼þµÄ·½Ê½ËÑÑ°Êý¾Ý
--c £º¼ÆËãÕÒµ½ 'ËÑÑ°×Ö·û´®' µÄ´ÎÊý
--i £ººöÂÔ´óÐ¡Ð´µÄ²»Í¬£¬ËùÒÔ´óÐ¡Ð´ÊÓÎªÏàÍ¬
--n £ºË³±ãÊä³öÐÐºÅ
--v £º·´ÏòÑ¡Ôñ£¬Òà¼´ÏÔÊ¾³öÃ»ÓÐ 'ËÑÑ°×Ö·û´®' ÄÚÈÝµÄÄÇÒ»ÐÐ£¡
---color=auto £º¿ÉÒÔ½«ÕÒµ½µÄ¹Ø¼ü´Ê²¿·Ö¼ÓÉÏÑÕÉ«µÄÏÔÊ¾à¸£¡
-
+Unixçš„grepå®¶æ—åŒ…æ‹¬grepã€egrepå’Œfgrepã€‚egrepå’Œfgrepçš„å‘½ä»¤åªè·Ÿgrepæœ‰å¾ˆå°ä¸åŒã€‚egrepæ˜¯grepçš„æ‰©å±•ï¼Œæ”¯æŒæ›´å¤šçš„reå…ƒå­—ç¬¦ï¼Œ fgrepå°±æ˜¯fixed grepæˆ–fast grepï¼Œå®ƒä»¬æŠŠæ‰€æœ‰çš„å­—æ¯éƒ½çœ‹ä½œå•è¯ï¼Œä¹Ÿå°±æ˜¯è¯´ï¼Œæ­£åˆ™è¡¨è¾¾å¼ä¸­çš„å…ƒå­—ç¬¦è¡¨ç¤ºå›žå…¶è‡ªèº«çš„å­—é¢æ„ä¹‰ï¼Œä¸å†ç‰¹æ®Šã€‚linuxä½¿ç”¨GNUç‰ˆæœ¬çš„grepã€‚å®ƒåŠŸèƒ½æ›´å¼ºï¼Œå¯ä»¥é€šè¿‡-Gã€-Eã€-Få‘½ä»¤è¡Œé€‰é¡¹æ¥ä½¿ç”¨egrepå’Œfgrepçš„åŠŸèƒ½ã€‚
 
  
-½«/etc/passwd£¬ÓÐ³öÏÖ root µÄÐÐÈ¡³öÀ´
-¸´ÖÆ´úÂë
+grepå¸¸ç”¨ç”¨æ³•
+å¤åˆ¶ä»£ç 
+
+[root@www ~]# grep [-acinv] [--color=auto] 'æœå¯»å­—ç¬¦ä¸²' filename
+é€‰é¡¹ä¸Žå‚æ•°ï¼š
+-a ï¼šå°† binary æ–‡ä»¶ä»¥ text æ–‡ä»¶çš„æ–¹å¼æœå¯»æ•°æ®
+-c ï¼šè®¡ç®—æ‰¾åˆ° 'æœå¯»å­—ç¬¦ä¸²' çš„æ¬¡æ•°
+-i ï¼šå¿½ç•¥å¤§å°å†™çš„ä¸åŒï¼Œæ‰€ä»¥å¤§å°å†™è§†ä¸ºç›¸åŒ
+-n ï¼šé¡ºä¾¿è¾“å‡ºè¡Œå·
+-v ï¼šåå‘é€‰æ‹©ï¼Œäº¦å³æ˜¾ç¤ºå‡ºæ²¡æœ‰ 'æœå¯»å­—ç¬¦ä¸²' å†…å®¹çš„é‚£ä¸€è¡Œï¼
+--color=auto ï¼šå¯ä»¥å°†æ‰¾åˆ°çš„å…³é”®è¯éƒ¨åˆ†åŠ ä¸Šé¢œè‰²çš„æ˜¾ç¤ºå–”ï¼
+
+
+ 
+å°†/etc/passwdï¼Œæœ‰å‡ºçŽ° root çš„è¡Œå–å‡ºæ¥
+å¤åˆ¶ä»£ç 
 
 # grep root /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 operator:x:11:0:operator:/root:/sbin/nologin
-»ò
+æˆ–
 # cat /etc/passwd | grep root 
 root:x:0:0:root:/root:/bin/bash
 operator:x:11:0:operator:/root:/sbin/nologin
 
 
 
-½«/etc/passwd£¬ÓÐ³öÏÖ root µÄÐÐÈ¡³öÀ´,Í¬Ê±ÏÔÊ¾ÕâÐ©ÐÐÔÚ/etc/passwdµÄÐÐºÅ
+å°†/etc/passwdï¼Œæœ‰å‡ºçŽ° root çš„è¡Œå–å‡ºæ¥,åŒæ—¶æ˜¾ç¤ºè¿™äº›è¡Œåœ¨/etc/passwdçš„è¡Œå·
 
 # grep -n root /etc/passwd
 1:root:x:0:0:root:/root:/bin/bash
 30:operator:x:11:0:operator:/root:/sbin/nologin
 
- ÔÚ¹Ø¼ü×ÖµÄÏÔÊ¾·½Ãæ£¬grep ¿ÉÒÔÊ¹ÓÃ --color=auto À´½«¹Ø¼ü×Ö²¿·ÖÊ¹ÓÃÑÕÉ«ÏÔÊ¾¡£ Õâ¿ÉÊÇ¸öºÜ²»´íµÄ¹¦ÄÜ°¡£¡µ«ÊÇÈç¹ûÃ¿´ÎÊ¹ÓÃ grep ¶¼µÃÒª×ÔÐÐ¼ÓÉÏ --color=auto ÓÖÏÔµÄºÜÂé·³¡« ´ËÊ±ÄÇ¸öºÃÓÃµÄ alias ¾ÍµÃÀ´´¦ÀíÒ»ÏÂÀ²£¡Äã¿ÉÒÔÔÚ ~/.bashrc ÄÚ¼ÓÉÏÕâÐÐ£º¡ºalias grep='grep --color=auto'¡»ÔÙÒÔ¡º source ~/.bashrc ¡»À´Á¢¼´ÉúÐ§¼´¿Éà¸£¡ ÕâÑùÃ¿´ÎÔËÐÐ grep Ëû¶¼»á×Ô¶¯°ïÄã¼ÓÉÏÑÕÉ«ÏÔÊ¾À²
+ åœ¨å…³é”®å­—çš„æ˜¾ç¤ºæ–¹é¢ï¼Œgrep å¯ä»¥ä½¿ç”¨ --color=auto æ¥å°†å…³é”®å­—éƒ¨åˆ†ä½¿ç”¨é¢œè‰²æ˜¾ç¤ºã€‚ è¿™å¯æ˜¯ä¸ªå¾ˆä¸é”™çš„åŠŸèƒ½å•Šï¼ä½†æ˜¯å¦‚æžœæ¯æ¬¡ä½¿ç”¨ grep éƒ½å¾—è¦è‡ªè¡ŒåŠ ä¸Š --color=auto åˆæ˜¾çš„å¾ˆéº»çƒ¦ï½ž æ­¤æ—¶é‚£ä¸ªå¥½ç”¨çš„ alias å°±å¾—æ¥å¤„ç†ä¸€ä¸‹å•¦ï¼ä½ å¯ä»¥åœ¨ ~/.bashrc å†…åŠ ä¸Šè¿™è¡Œï¼šã€Žalias grep='grep --color=auto'ã€å†ä»¥ã€Ž source ~/.bashrc ã€æ¥ç«‹å³ç”Ÿæ•ˆå³å¯å–”ï¼ è¿™æ ·æ¯æ¬¡è¿è¡Œ grep ä»–éƒ½ä¼šè‡ªåŠ¨å¸®ä½ åŠ ä¸Šé¢œè‰²æ˜¾ç¤ºå•¦
 
  
 
-½«/etc/passwd£¬½«Ã»ÓÐ³öÏÖ root µÄÐÐÈ¡³öÀ´
+å°†/etc/passwdï¼Œå°†æ²¡æœ‰å‡ºçŽ° root çš„è¡Œå–å‡ºæ¥
 
 # grep -v root /etc/passwd
 root:x:0:0:root:/root:/bin/bash
@@ -55,7 +55,7 @@ operator:x:11:0:operator:/root:/sbin/nologin
 
  
 
-½«/etc/passwd£¬½«Ã»ÓÐ³öÏÖ root ºÍnologinµÄÐÐÈ¡³öÀ´
+å°†/etc/passwdï¼Œå°†æ²¡æœ‰å‡ºçŽ° root å’Œnologinçš„è¡Œå–å‡ºæ¥
 
 # grep -v root /etc/passwd | grep -v nologin
 root:x:0:0:root:/root:/bin/bash
@@ -63,20 +63,20 @@ operator:x:11:0:operator:/root:/sbin/nologin
 
  
 
-ÓÃ dmesg ÁÐ³öºËÐÄÐÅÏ¢£¬ÔÙÒÔ grep ÕÒ³öÄÚº¬ eth ÄÇÐÐ,Òª½«×½µ½µÄ¹Ø¼ü×ÖÏÔÉ«£¬ÇÒ¼ÓÉÏÐÐºÅÀ´±íÊ¾£º
+ç”¨ dmesg åˆ—å‡ºæ ¸å¿ƒä¿¡æ¯ï¼Œå†ä»¥ grep æ‰¾å‡ºå†…å« eth é‚£è¡Œ,è¦å°†æ‰åˆ°çš„å…³é”®å­—æ˜¾è‰²ï¼Œä¸”åŠ ä¸Šè¡Œå·æ¥è¡¨ç¤ºï¼š
 
 [root@www ~]# dmesg | grep -n --color=auto 'eth'
 247:eth0: RealTek RTL8139 at 0xee846000, 00:90:cc:a6:34:84, IRQ 10
 248:eth0: Identified 8139 chip type 'RTL-8139C'
 294:eth0: link up, 100Mbps, full-duplex, lpa 0xC5E1
 305:eth0: no IPv6 routers present
-# Äã»á·¢ÏÖ³ýÁË eth »áÓÐÌØÊâÑÕÉ«À´±íÊ¾Ö®Íâ£¬×îÇ°Ãæ»¹ÓÐÐÐºÅà¸£¡
+# ä½ ä¼šå‘çŽ°é™¤äº† eth ä¼šæœ‰ç‰¹æ®Šé¢œè‰²æ¥è¡¨ç¤ºä¹‹å¤–ï¼Œæœ€å‰é¢è¿˜æœ‰è¡Œå·å–”ï¼
 
-ÔÚ¹Ø¼ü×ÖµÄÏÔÊ¾·½Ãæ£¬grep ¿ÉÒÔÊ¹ÓÃ --color=auto À´½«¹Ø¼ü×Ö²¿·ÖÊ¹ÓÃÑÕÉ«ÏÔÊ¾¡£ Õâ¿ÉÊÇ¸öºÜ²»´íµÄ¹¦ÄÜ°¡£¡µ«ÊÇÈç¹ûÃ¿´ÎÊ¹ÓÃ grep ¶¼µÃÒª×ÔÐÐ¼ÓÉÏ --color=auto ÓÖÏÔµÄºÜÂé·³¡« ´ËÊ±ÄÇ¸öºÃÓÃµÄ alias ¾ÍµÃÀ´´¦ÀíÒ»ÏÂÀ²£¡Äã¿ÉÒÔÔÚ ~/.bashrc ÄÚ¼ÓÉÏÕâÐÐ£º¡ºalias grep='grep --color=auto'¡»ÔÙÒÔ¡º source ~/.bashrc ¡»À´Á¢¼´ÉúÐ§¼´¿Éà¸£¡ ÕâÑùÃ¿´ÎÔËÐÐ grep Ëû¶¼»á×Ô¶¯°ïÄã¼ÓÉÏÑÕÉ«ÏÔÊ¾À²
+åœ¨å…³é”®å­—çš„æ˜¾ç¤ºæ–¹é¢ï¼Œgrep å¯ä»¥ä½¿ç”¨ --color=auto æ¥å°†å…³é”®å­—éƒ¨åˆ†ä½¿ç”¨é¢œè‰²æ˜¾ç¤ºã€‚ è¿™å¯æ˜¯ä¸ªå¾ˆä¸é”™çš„åŠŸèƒ½å•Šï¼ä½†æ˜¯å¦‚æžœæ¯æ¬¡ä½¿ç”¨ grep éƒ½å¾—è¦è‡ªè¡ŒåŠ ä¸Š --color=auto åˆæ˜¾çš„å¾ˆéº»çƒ¦ï½ž æ­¤æ—¶é‚£ä¸ªå¥½ç”¨çš„ alias å°±å¾—æ¥å¤„ç†ä¸€ä¸‹å•¦ï¼ä½ å¯ä»¥åœ¨ ~/.bashrc å†…åŠ ä¸Šè¿™è¡Œï¼šã€Žalias grep='grep --color=auto'ã€å†ä»¥ã€Ž source ~/.bashrc ã€æ¥ç«‹å³ç”Ÿæ•ˆå³å¯å–”ï¼ è¿™æ ·æ¯æ¬¡è¿è¡Œ grep ä»–éƒ½ä¼šè‡ªåŠ¨å¸®ä½ åŠ ä¸Šé¢œè‰²æ˜¾ç¤ºå•¦
 
  
 
-ÓÃ dmesg ÁÐ³öºËÐÄÐÅÏ¢£¬ÔÙÒÔ grep ÕÒ³öÄÚº¬ eth ÄÇÐÐ,ÔÚ¹Ø¼ü×ÖËùÔÚÐÐµÄÇ°Á½ÐÐÓëºóÈýÐÐÒ²Ò»Æð×½³öÀ´ÏÔÊ¾
+ç”¨ dmesg åˆ—å‡ºæ ¸å¿ƒä¿¡æ¯ï¼Œå†ä»¥ grep æ‰¾å‡ºå†…å« eth é‚£è¡Œ,åœ¨å…³é”®å­—æ‰€åœ¨è¡Œçš„å‰ä¸¤è¡Œä¸ŽåŽä¸‰è¡Œä¹Ÿä¸€èµ·æ‰å‡ºæ¥æ˜¾ç¤º
 
 
 [root@www ~]# dmesg | grep -n -A3 -B2 --color=auto 'eth'
@@ -87,40 +87,40 @@ operator:x:11:0:operator:/root:/sbin/nologin
 249-input: PC Speaker as /class/input/input2
 250-ACPI: PCI Interrupt 0000:00:01.4[B] -> Link [LNKB] ...
 251-hdb: ATAPI 48X DVD-ROM DVD-R-RAM CD-R/RW drive, 2048kB Cache, UDMA(66)
-# ÈçÉÏËùÊ¾£¬Äã»á·¢ÏÖ¹Ø¼ü×Ö 247 ËùÔÚµÄÇ°Á½ÐÐ¼° 248 ºóÈýÐÐÒ²¶¼±»ÏÔÊ¾³öÀ´£¡
-# ÕâÑù¿ÉÒÔÈÃÄã½«¹Ø¼ü×ÖÇ°ºóÊý¾Ý×½³öÀ´½øÐÐ·ÖÎöÀ²£¡
+# å¦‚ä¸Šæ‰€ç¤ºï¼Œä½ ä¼šå‘çŽ°å…³é”®å­— 247 æ‰€åœ¨çš„å‰ä¸¤è¡ŒåŠ 248 åŽä¸‰è¡Œä¹Ÿéƒ½è¢«æ˜¾ç¤ºå‡ºæ¥ï¼
+# è¿™æ ·å¯ä»¥è®©ä½ å°†å…³é”®å­—å‰åŽæ•°æ®æ‰å‡ºæ¥è¿›è¡Œåˆ†æžå•¦ï¼
 
 
 
  
 
-¸ù¾ÝÎÄ¼þÄÚÈÝµÝ¹é²éÕÒÄ¿Â¼
+æ ¹æ®æ–‡ä»¶å†…å®¹é€’å½’æŸ¥æ‰¾ç›®å½•
 
-# grep ¡®energywise¡¯ *           #ÔÚµ±Ç°Ä¿Â¼ËÑË÷´ø'energywise'ÐÐµÄÎÄ¼þ
+# grep â€˜energywiseâ€™ *           #åœ¨å½“å‰ç›®å½•æœç´¢å¸¦'energywise'è¡Œçš„æ–‡ä»¶
 
-# grep -r ¡®energywise¡¯ *        #ÔÚµ±Ç°Ä¿Â¼¼°Æä×ÓÄ¿Â¼ÏÂËÑË÷'energywise'ÐÐµÄÎÄ¼þ
+# grep -r â€˜energywiseâ€™ *        #åœ¨å½“å‰ç›®å½•åŠå…¶å­ç›®å½•ä¸‹æœç´¢'energywise'è¡Œçš„æ–‡ä»¶
 
-# grep -l -r ¡®energywise¡¯ *     #ÔÚµ±Ç°Ä¿Â¼¼°Æä×ÓÄ¿Â¼ÏÂËÑË÷'energywise'ÐÐµÄÎÄ¼þ£¬µ«ÊÇ²»ÏÔÊ¾Æ¥ÅäµÄÐÐ£¬Ö»ÏÔÊ¾Æ¥ÅäµÄÎÄ¼þ
+# grep -l -r â€˜energywiseâ€™ *     #åœ¨å½“å‰ç›®å½•åŠå…¶å­ç›®å½•ä¸‹æœç´¢'energywise'è¡Œçš„æ–‡ä»¶ï¼Œä½†æ˜¯ä¸æ˜¾ç¤ºåŒ¹é…çš„è¡Œï¼Œåªæ˜¾ç¤ºåŒ¹é…çš„æ–‡ä»¶
 
-Õâ¼¸¸öÃüÁîºÜÊ¹ÓÃ£¬ÊÇ²éÕÒÎÄ¼þµÄÀûÆ÷¡£
+è¿™å‡ ä¸ªå‘½ä»¤å¾ˆä½¿ç”¨ï¼Œæ˜¯æŸ¥æ‰¾æ–‡ä»¶çš„åˆ©å™¨ã€‚
 
  
-grepÓëÕý¹æ±í´ïÊ½
+grepä¸Žæ­£è§„è¡¨è¾¾å¼
 
- ×Ö·ûÀà
+ å­—ç¬¦ç±»
 
-×Ö·ûÀàµÄËÑË÷£ºÈç¹ûÎÒÏëÒªËÑÑ° test »ò taste ÕâÁ½¸öµ¥×ÖÊ±£¬¿ÉÒÔ·¢ÏÖµ½£¬ÆäÊµËýÃÇÓÐ¹²Í¨µÄ 't?st' ´æÔÚ¡«Õâ¸öÊ±ºò£¬ÎÒ¿ÉÒÔÕâÑùÀ´ËÑÑ°£º
+å­—ç¬¦ç±»çš„æœç´¢ï¼šå¦‚æžœæˆ‘æƒ³è¦æœå¯» test æˆ– taste è¿™ä¸¤ä¸ªå•å­—æ—¶ï¼Œå¯ä»¥å‘çŽ°åˆ°ï¼Œå…¶å®žå¥¹ä»¬æœ‰å…±é€šçš„ 't?st' å­˜åœ¨ï½žè¿™ä¸ªæ—¶å€™ï¼Œæˆ‘å¯ä»¥è¿™æ ·æ¥æœå¯»ï¼š
 
 [root@www ~]# grep -n 't[ae]st' regular_express.txt
 8:I can't finish the test.
 9:Oh! The soup taste good.
 
 
-ÆäÊµ [] ÀïÃæ²»ÂÛÓÐ¼¸¸ö×Ö½Ú£¬Ëû¶¼½÷´ú±íÄ³¡ºÒ»¸ö¡»×Ö½Ú£¬ ËùÒÔ£¬ÉÏÃæµÄÀý×ÓËµÃ÷ÁË£¬ÎÒÐèÒªµÄ×Ö´®ÊÇ¡ºtast¡»»ò¡ºtest¡»Á½¸ö×Ö´®¶øÒÑ£¡
+å…¶å®ž [] é‡Œé¢ä¸è®ºæœ‰å‡ ä¸ªå­—èŠ‚ï¼Œä»–éƒ½è°¨ä»£è¡¨æŸã€Žä¸€ä¸ªã€å­—èŠ‚ï¼Œ æ‰€ä»¥ï¼Œä¸Šé¢çš„ä¾‹å­è¯´æ˜Žäº†ï¼Œæˆ‘éœ€è¦çš„å­—ä¸²æ˜¯ã€Žtastã€æˆ–ã€Žtestã€ä¸¤ä¸ªå­—ä¸²è€Œå·²ï¼
 
  
 
-×Ö·ûÀàµÄ·´ÏòÑ¡Ôñ [^] £ºÈç¹ûÏëÒªËÑË÷µ½ÓÐ oo µÄÐÐ£¬µ«²»ÏëÒª oo Ç°ÃæÓÐ g£¬ÈçÏÂ
+å­—ç¬¦ç±»çš„åå‘é€‰æ‹© [^] ï¼šå¦‚æžœæƒ³è¦æœç´¢åˆ°æœ‰ oo çš„è¡Œï¼Œä½†ä¸æƒ³è¦ oo å‰é¢æœ‰ gï¼Œå¦‚ä¸‹
 
 [root@www ~]# grep -n '[^g]oo' regular_express.txt
 2:apple is my favorite food.
@@ -128,22 +128,22 @@ grepÓëÕý¹æ±í´ïÊ½
 18:google is the best tools for search keyword.
 19:goooooogle yes!
 
-µÚ 2,3 ÐÐÃ»ÓÐÒÉÎÊ£¬ÒòÎª foo Óë Foo ¾ù¿É±»½ÓÊÜ£¡
+ç¬¬ 2,3 è¡Œæ²¡æœ‰ç–‘é—®ï¼Œå› ä¸º foo ä¸Ž Foo å‡å¯è¢«æŽ¥å—ï¼
 
-µ«ÊÇµÚ 18 ÐÐÃ÷Ã÷ÓÐ google µÄ goo °¡¡«±ðÍü¼ÇÁË£¬ÒòÎª¸ÃÐÐºóÃæ³öÏÖÁË tool µÄ too °¡£¡ËùÒÔ¸ÃÐÐÒ²±»ÁÐ³öÀ´¡« Ò²¾ÍÊÇËµ£¬ 18 ÐÐÀïÃæËäÈ»³öÏÖÁËÎÒÃÇËù²»ÒªµÄÏîÄ¿ (goo) µ«ÊÇÓÉì¶ÓÐÐèÒªµÄÏîÄ¿ (too) £¬ Òò´Ë£¬ÊÇ·ûºÏ×Ö´®ËÑÑ°µÄà¸£¡
+ä½†æ˜¯ç¬¬ 18 è¡Œæ˜Žæ˜Žæœ‰ google çš„ goo å•Šï½žåˆ«å¿˜è®°äº†ï¼Œå› ä¸ºè¯¥è¡ŒåŽé¢å‡ºçŽ°äº† tool çš„ too å•Šï¼æ‰€ä»¥è¯¥è¡Œä¹Ÿè¢«åˆ—å‡ºæ¥ï½ž ä¹Ÿå°±æ˜¯è¯´ï¼Œ 18 è¡Œé‡Œé¢è™½ç„¶å‡ºçŽ°äº†æˆ‘ä»¬æ‰€ä¸è¦çš„é¡¹ç›® (goo) ä½†æ˜¯ç”±æ–¼æœ‰éœ€è¦çš„é¡¹ç›® (too) ï¼Œ å› æ­¤ï¼Œæ˜¯ç¬¦åˆå­—ä¸²æœå¯»çš„å–”ï¼
 
-ÖÁì¶µÚ 19 ÐÐ£¬Í¬ÑùµÄ£¬ÒòÎª goooooogle ÀïÃæµÄ oo Ç°Ãæ¿ÉÄÜÊÇ o £¬ÀýÈç£º go(ooo)oogle £¬ËùÒÔ£¬ÕâÒ»ÐÐÒ²ÊÇ·ûºÏÐèÇóµÄ£¡
+è‡³æ–¼ç¬¬ 19 è¡Œï¼ŒåŒæ ·çš„ï¼Œå› ä¸º goooooogle é‡Œé¢çš„ oo å‰é¢å¯èƒ½æ˜¯ o ï¼Œä¾‹å¦‚ï¼š go(ooo)oogle ï¼Œæ‰€ä»¥ï¼Œè¿™ä¸€è¡Œä¹Ÿæ˜¯ç¬¦åˆéœ€æ±‚çš„ï¼
 
  
 
-×Ö·ûÀàµÄÁ¬Ðø£ºÔÙÀ´£¬¼ÙÉèÎÒ oo Ç°Ãæ²»ÏëÒªÓÐÐ¡Ð´×Ö½Ú£¬ËùÒÔ£¬ÎÒ¿ÉÒÔÕâÑùÐ´ [^abcd....z]oo £¬ µ«ÊÇÕâÑùËÆºõ²»ÔõÃ´·½±ã£¬ÓÉì¶Ð¡Ð´×Ö½ÚµÄ ASCII ÉÏ±àÂëµÄË³ÐòÊÇÁ¬ÐøµÄ£¬ Òò´Ë£¬ÎÒÃÇ¿ÉÒÔ½«Ö®¼ò»¯Îªµ×ÏÂÕâÑù£º
+å­—ç¬¦ç±»çš„è¿žç»­ï¼šå†æ¥ï¼Œå‡è®¾æˆ‘ oo å‰é¢ä¸æƒ³è¦æœ‰å°å†™å­—èŠ‚ï¼Œæ‰€ä»¥ï¼Œæˆ‘å¯ä»¥è¿™æ ·å†™ [^abcd....z]oo ï¼Œ ä½†æ˜¯è¿™æ ·ä¼¼ä¹Žä¸æ€Žä¹ˆæ–¹ä¾¿ï¼Œç”±æ–¼å°å†™å­—èŠ‚çš„ ASCII ä¸Šç¼–ç çš„é¡ºåºæ˜¯è¿žç»­çš„ï¼Œ å› æ­¤ï¼Œæˆ‘ä»¬å¯ä»¥å°†ä¹‹ç®€åŒ–ä¸ºåº•ä¸‹è¿™æ ·ï¼š
 
 [root@www ~]# grep -n '[^a-z]oo' regular_express.txt
 3:Football game is not use feet only.
 
-Ò²¾ÍÊÇËµ£¬µ±ÎÒÃÇÔÚÒ»×é¼¯ºÏ×Ö½ÚÖÐ£¬Èç¹û¸Ã×Ö½Ú×éÊÇÁ¬ÐøµÄ£¬ÀýÈç´óÐ´Ó¢ÎÄ/Ð¡Ð´Ó¢ÎÄ/Êý×ÖµÈµÈ£¬ ¾Í¿ÉÒÔÊ¹ÓÃ[a-z],[A-Z],[0-9]µÈ·½Ê½À´ÊéÐ´£¬ÄÇÃ´Èç¹ûÎÒÃÇµÄÒªÇó×Ö´®ÊÇÊý×ÖÓëÓ¢ÎÄÄØ£¿ ºÇºÇ£¡¾Í½«ËûÈ«²¿Ð´ÔÚÒ»Æð£¬±ä³É£º[a-zA-Z0-9]¡£
+ä¹Ÿå°±æ˜¯è¯´ï¼Œå½“æˆ‘ä»¬åœ¨ä¸€ç»„é›†åˆå­—èŠ‚ä¸­ï¼Œå¦‚æžœè¯¥å­—èŠ‚ç»„æ˜¯è¿žç»­çš„ï¼Œä¾‹å¦‚å¤§å†™è‹±æ–‡/å°å†™è‹±æ–‡/æ•°å­—ç­‰ç­‰ï¼Œ å°±å¯ä»¥ä½¿ç”¨[a-z],[A-Z],[0-9]ç­‰æ–¹å¼æ¥ä¹¦å†™ï¼Œé‚£ä¹ˆå¦‚æžœæˆ‘ä»¬çš„è¦æ±‚å­—ä¸²æ˜¯æ•°å­—ä¸Žè‹±æ–‡å‘¢ï¼Ÿ å‘µå‘µï¼å°±å°†ä»–å…¨éƒ¨å†™åœ¨ä¸€èµ·ï¼Œå˜æˆï¼š[a-zA-Z0-9]ã€‚
 
-ÎÒÃÇÒªÈ¡µÃÓÐÊý×ÖµÄÄÇÒ»ÐÐ£¬¾ÍÕâÑù£º
+æˆ‘ä»¬è¦å–å¾—æœ‰æ•°å­—çš„é‚£ä¸€è¡Œï¼Œå°±è¿™æ ·ï¼š
 
 [root@www ~]# grep -n '[0-9]' regular_express.txt
 5:However, this dress is about $ 3183 dollars.
@@ -151,8 +151,8 @@ grepÓëÕý¹æ±í´ïÊ½
 
  
 
-ÐÐÊ×ÓëÐÐÎ²×Ö½Ú ^ $
-ÐÐÊ××Ö·û£ºÈç¹ûÎÒÏëÒªÈÃ the Ö»ÔÚÐÐÊ×ÁÐ³öÄØ£¿ Õâ¸öÊ±ºò¾ÍµÃÒªÊ¹ÓÃ¶¨Î»×Ö½ÚÁË£¡ÎÒÃÇ¿ÉÒÔÕâÑù×ö£º
+è¡Œé¦–ä¸Žè¡Œå°¾å­—èŠ‚ ^ $
+è¡Œé¦–å­—ç¬¦ï¼šå¦‚æžœæˆ‘æƒ³è¦è®© the åªåœ¨è¡Œé¦–åˆ—å‡ºå‘¢ï¼Ÿ è¿™ä¸ªæ—¶å€™å°±å¾—è¦ä½¿ç”¨å®šä½å­—èŠ‚äº†ï¼æˆ‘ä»¬å¯ä»¥è¿™æ ·åšï¼š
 
 [root@www ~]# grep -n '^the' regular_express.txt
 12:the symbol '*' is represented as start.
@@ -160,7 +160,7 @@ grepÓëÕý¹æ±í´ïÊ½
  
 
 
-´ËÊ±£¬¾ÍÖ»Ê£ÏÂµÚ 12 ÐÐ£¬ÒòÎªÖ»ÓÐµÚ 12 ÐÐµÄÐÐÊ×ÊÇ the ¿ªÍ·°¡¡«´ËÍâ£¬ Èç¹ûÎÒÏëÒª¿ªÍ·ÊÇÐ¡Ð´×Ö½ÚµÄÄÇÒ»ÐÐ¾ÍÁÐ³öÄØ£¿¿ÉÒÔÕâÑù£º
+æ­¤æ—¶ï¼Œå°±åªå‰©ä¸‹ç¬¬ 12 è¡Œï¼Œå› ä¸ºåªæœ‰ç¬¬ 12 è¡Œçš„è¡Œé¦–æ˜¯ the å¼€å¤´å•Šï½žæ­¤å¤–ï¼Œ å¦‚æžœæˆ‘æƒ³è¦å¼€å¤´æ˜¯å°å†™å­—èŠ‚çš„é‚£ä¸€è¡Œå°±åˆ—å‡ºå‘¢ï¼Ÿå¯ä»¥è¿™æ ·ï¼š
 
 
 [root@www ~]# grep -n '^[a-z]' regular_express.txt
@@ -176,17 +176,17 @@ grepÓëÕý¹æ±í´ïÊ½
 
  
 
-Èç¹ûÎÒ²»ÏëÒª¿ªÍ·ÊÇÓ¢ÎÄ×ÖÄ¸£¬Ôò¿ÉÒÔÊÇÕâÑù£º
+å¦‚æžœæˆ‘ä¸æƒ³è¦å¼€å¤´æ˜¯è‹±æ–‡å­—æ¯ï¼Œåˆ™å¯ä»¥æ˜¯è¿™æ ·ï¼š
 
 [root@www ~]# grep -n '^[^a-zA-Z]' regular_express.txt
 1:"Open Source" is a good mechanism to develop programs.
 21:# I am VBird
 
-^ ·ûºÅ£¬ÔÚ×Ö·ûÀà·ûºÅ(À¨ºÅ[])Ö®ÄÚÓëÖ®ÍâÊÇ²»Í¬µÄ£¡ ÔÚ [] ÄÚ´ú±í¡º·´ÏòÑ¡Ôñ¡»£¬ÔÚ [] Ö®ÍâÔò´ú±í¶¨Î»ÔÚÐÐÊ×µÄÒâÒå£¡
+^ ç¬¦å·ï¼Œåœ¨å­—ç¬¦ç±»ç¬¦å·(æ‹¬å·[])ä¹‹å†…ä¸Žä¹‹å¤–æ˜¯ä¸åŒçš„ï¼ åœ¨ [] å†…ä»£è¡¨ã€Žåå‘é€‰æ‹©ã€ï¼Œåœ¨ [] ä¹‹å¤–åˆ™ä»£è¡¨å®šä½åœ¨è¡Œé¦–çš„æ„ä¹‰ï¼
 
  
 
-ÄÇÈç¹ûÎÒÏëÒªÕÒ³öÀ´£¬ÐÐÎ²½áÊøÎªÐ¡Êýµã (.) µÄÄÇÒ»ÐÐ£º
+é‚£å¦‚æžœæˆ‘æƒ³è¦æ‰¾å‡ºæ¥ï¼Œè¡Œå°¾ç»“æŸä¸ºå°æ•°ç‚¹ (.) çš„é‚£ä¸€è¡Œï¼š
 
 
 [root@www ~]# grep -n '\.$' regular_express.txt
@@ -205,42 +205,42 @@ grepÓëÕý¹æ±í´ïÊ½
 
 
 
-ÌØ±ð×¢Òâµ½£¬ÒòÎªÐ¡Êýµã¾ßÓÐÆäËûÒâÒå(µ×ÏÂ»á½éÉÜ)£¬ËùÒÔ±ØÐëÒªÊ¹ÓÃ×ªÒå×Ö·û(\)À´¼ÓÒÔ½â³ýÆäÌØÊâÒâÒå£¡
+ç‰¹åˆ«æ³¨æ„åˆ°ï¼Œå› ä¸ºå°æ•°ç‚¹å…·æœ‰å…¶ä»–æ„ä¹‰(åº•ä¸‹ä¼šä»‹ç»)ï¼Œæ‰€ä»¥å¿…é¡»è¦ä½¿ç”¨è½¬ä¹‰å­—ç¬¦(\)æ¥åŠ ä»¥è§£é™¤å…¶ç‰¹æ®Šæ„ä¹‰ï¼
 
  
 
-ÕÒ³ö¿Õ°×ÐÐ£º
+æ‰¾å‡ºç©ºç™½è¡Œï¼š
 
 [root@www ~]# grep -n '^$' regular_express.txt
 22:
 
-ÒòÎªÖ»ÓÐÐÐÊ×¸úÐÐÎ² (^$)£¬ËùÒÔ£¬ÕâÑù¾Í¿ÉÒÔÕÒ³ö¿Õ°×ÐÐÀ²£¡
+å› ä¸ºåªæœ‰è¡Œé¦–è·Ÿè¡Œå°¾ (^$)ï¼Œæ‰€ä»¥ï¼Œè¿™æ ·å°±å¯ä»¥æ‰¾å‡ºç©ºç™½è¡Œå•¦ï¼
 
  
 
-ÈÎÒâÒ»¸ö×Ö½Ú . ÓëÖØ¸´×Ö½Ú *
-ÕâÁ½¸ö·ûºÅÔÚÕýÔò±í´ïÊ½µÄÒâÒåÈçÏÂ£º
+ä»»æ„ä¸€ä¸ªå­—èŠ‚ . ä¸Žé‡å¤å­—èŠ‚ *
+è¿™ä¸¤ä¸ªç¬¦å·åœ¨æ­£åˆ™è¡¨è¾¾å¼çš„æ„ä¹‰å¦‚ä¸‹ï¼š
 
-. (Ð¡Êýµã)£º´ú±í¡ºÒ»¶¨ÓÐÒ»¸öÈÎÒâ×Ö½Ú¡»µÄÒâË¼£»
-* (ÐÇºÅ)£º´ú±í¡ºÖØ¸´Ç°Ò»¸ö×Ö·û£¬ 0 µ½ÎÞÇî¶à´Î¡»µÄÒâË¼£¬Îª×éºÏÐÎÌ¬
+. (å°æ•°ç‚¹)ï¼šä»£è¡¨ã€Žä¸€å®šæœ‰ä¸€ä¸ªä»»æ„å­—èŠ‚ã€çš„æ„æ€ï¼›
+* (æ˜Ÿå·)ï¼šä»£è¡¨ã€Žé‡å¤å‰ä¸€ä¸ªå­—ç¬¦ï¼Œ 0 åˆ°æ— ç©·å¤šæ¬¡ã€çš„æ„æ€ï¼Œä¸ºç»„åˆå½¢æ€
 
-¼ÙÉèÎÒÐèÒªÕÒ³ö g??d µÄ×Ö´®£¬Òà¼´¹²ÓÐËÄ¸ö×Ö½Ú£¬ ÆðÍ·ÊÇ g ¶ø½áÊøÊÇ d £¬ÎÒ¿ÉÒÔÕâÑù×ö£º
+å‡è®¾æˆ‘éœ€è¦æ‰¾å‡º g??d çš„å­—ä¸²ï¼Œäº¦å³å…±æœ‰å››ä¸ªå­—èŠ‚ï¼Œ èµ·å¤´æ˜¯ g è€Œç»“æŸæ˜¯ d ï¼Œæˆ‘å¯ä»¥è¿™æ ·åšï¼š
 
 [root@www ~]# grep -n 'g..d' regular_express.txt
 1:"Open Source" is a good mechanism to develop programs.
 9:Oh! The soup taste good.
 16:The world <Happy> is the same with "glad".
 
-ÒòÎªÇ¿µ÷ g Óë d Ö®¼äÒ»¶¨Òª´æÔÚÁ½¸ö×Ö½Ú£¬Òò´Ë£¬µÚ 13 ÐÐµÄ god ÓëµÚ 14 ÐÐµÄ gd ¾Í²»»á±»ÁÐ³öÀ´À²£¡
+å› ä¸ºå¼ºè°ƒ g ä¸Ž d ä¹‹é—´ä¸€å®šè¦å­˜åœ¨ä¸¤ä¸ªå­—èŠ‚ï¼Œå› æ­¤ï¼Œç¬¬ 13 è¡Œçš„ god ä¸Žç¬¬ 14 è¡Œçš„ gd å°±ä¸ä¼šè¢«åˆ—å‡ºæ¥å•¦ï¼
 
  
 
-Èç¹ûÎÒÏëÒªÁÐ³öÓÐ oo, ooo, oooo µÈµÈµÄÊý¾Ý£¬ Ò²¾ÍÊÇËµ£¬ÖÁÉÙÒªÓÐÁ½¸ö(º¬) o ÒÔÉÏ£¬¸ÃÈçºÎÊÇºÃ£¿
+å¦‚æžœæˆ‘æƒ³è¦åˆ—å‡ºæœ‰ oo, ooo, oooo ç­‰ç­‰çš„æ•°æ®ï¼Œ ä¹Ÿå°±æ˜¯è¯´ï¼Œè‡³å°‘è¦æœ‰ä¸¤ä¸ª(å«) o ä»¥ä¸Šï¼Œè¯¥å¦‚ä½•æ˜¯å¥½ï¼Ÿ
 
-ÒòÎª * ´ú±íµÄÊÇ¡ºÖØ¸´ 0 ¸ö»ò¶à¸öÇ°ÃæµÄ RE ×Ö·û¡»µÄÒâÒå£¬ Òò´Ë£¬¡ºo*¡»´ú±íµÄÊÇ£º¡ºÓµÓÐ¿Õ×Ö½Ú»òÒ»¸ö o ÒÔÉÏµÄ×Ö½Ú¡»£¬Òò´Ë£¬¡º grep -n 'o*' regular_express.txt ¡»½«»á°ÑËùÓÐµÄÊý¾Ý¶¼ÁÐÓ¡³öÀ´ÖÕ¶ËÉÏ£¡
+å› ä¸º * ä»£è¡¨çš„æ˜¯ã€Žé‡å¤ 0 ä¸ªæˆ–å¤šä¸ªå‰é¢çš„ RE å­—ç¬¦ã€çš„æ„ä¹‰ï¼Œ å› æ­¤ï¼Œã€Žo*ã€ä»£è¡¨çš„æ˜¯ï¼šã€Žæ‹¥æœ‰ç©ºå­—èŠ‚æˆ–ä¸€ä¸ª o ä»¥ä¸Šçš„å­—èŠ‚ã€ï¼Œå› æ­¤ï¼Œã€Ž grep -n 'o*' regular_express.txt ã€å°†ä¼šæŠŠæ‰€æœ‰çš„æ•°æ®éƒ½åˆ—å°å‡ºæ¥ç»ˆç«¯ä¸Šï¼
 
-µ±ÎÒÃÇÐèÒª¡ºÖÁÉÙÁ½¸ö o ÒÔÉÏµÄ×Ö´®¡»Ê±£¬¾ÍÐèÒª ooo* £¬Òà¼´ÊÇ£º
-¸´ÖÆ´úÂë
+å½“æˆ‘ä»¬éœ€è¦ã€Žè‡³å°‘ä¸¤ä¸ª o ä»¥ä¸Šçš„å­—ä¸²ã€æ—¶ï¼Œå°±éœ€è¦ ooo* ï¼Œäº¦å³æ˜¯ï¼š
+å¤åˆ¶ä»£ç 
 
 [root@www ~]# grep -n 'ooo*' regular_express.txt
 1:"Open Source" is a good mechanism to develop programs.
@@ -252,7 +252,7 @@ grepÓëÕý¹æ±í´ïÊ½
 
 
 
-Èç¹ûÎÒÏëÒª×Ö´®¿ªÍ·Óë½áÎ²¶¼ÊÇ g£¬µ«ÊÇÁ½¸ö g Ö®¼ä½öÄÜ´æÔÚÖÁÉÙÒ»¸ö o £¬Òà¼´ÊÇ gog, goog, gooog.... µÈµÈ£¬ÄÇ¸ÃÈçºÎ£¿
+å¦‚æžœæˆ‘æƒ³è¦å­—ä¸²å¼€å¤´ä¸Žç»“å°¾éƒ½æ˜¯ gï¼Œä½†æ˜¯ä¸¤ä¸ª g ä¹‹é—´ä»…èƒ½å­˜åœ¨è‡³å°‘ä¸€ä¸ª o ï¼Œäº¦å³æ˜¯ gog, goog, gooog.... ç­‰ç­‰ï¼Œé‚£è¯¥å¦‚ä½•ï¼Ÿ
 
 [root@www ~]# grep -n 'goo*g' regular_express.txt
 18:google is the best tools for search keyword.
@@ -260,7 +260,7 @@ grepÓëÕý¹æ±í´ïÊ½
 
  
 
-Èç¹ûÎÒÏëÒªÕÒ³ö g ¿ªÍ·Óë g ½áÎ²µÄÐÐ£¬µ±ÖÐµÄ×Ö·û¿ÉÓÐ¿ÉÎÞ
+å¦‚æžœæˆ‘æƒ³è¦æ‰¾å‡º g å¼€å¤´ä¸Ž g ç»“å°¾çš„è¡Œï¼Œå½“ä¸­çš„å­—ç¬¦å¯æœ‰å¯æ— 
 
 [root@www ~]# grep -n 'g.*g' regular_express.txt
 1:"Open Source" is a good mechanism to develop programs.
@@ -270,11 +270,11 @@ grepÓëÕý¹æ±í´ïÊ½
 20:go! go! Let's go.
 
 
-ÒòÎªÊÇ´ú±í g ¿ªÍ·Óë g ½áÎ²£¬ÖÐ¼äÈÎÒâ×Ö½Ú¾ù¿É½ÓÊÜ£¬ËùÒÔ£¬µÚ 1, 14, 20 ÐÐÊÇ¿É½ÓÊÜµÄà¸£¡ Õâ¸ö .* µÄ RE ±íÊ¾ÈÎÒâ×Ö·ûÊÇºÜ³£¼ûµÄ.
+å› ä¸ºæ˜¯ä»£è¡¨ g å¼€å¤´ä¸Ž g ç»“å°¾ï¼Œä¸­é—´ä»»æ„å­—èŠ‚å‡å¯æŽ¥å—ï¼Œæ‰€ä»¥ï¼Œç¬¬ 1, 14, 20 è¡Œæ˜¯å¯æŽ¥å—çš„å–”ï¼ è¿™ä¸ª .* çš„ RE è¡¨ç¤ºä»»æ„å­—ç¬¦æ˜¯å¾ˆå¸¸è§çš„.
 
  
 
-Èç¹ûÎÒÏëÒªÕÒ³ö¡ºÈÎÒâÊý×Ö¡»µÄÐÐ£¿ÒòÎª½öÓÐÊý×Ö£¬ËùÒÔ¾Í³ÉÎª£º
+å¦‚æžœæˆ‘æƒ³è¦æ‰¾å‡ºã€Žä»»æ„æ•°å­—ã€çš„è¡Œï¼Ÿå› ä¸ºä»…æœ‰æ•°å­—ï¼Œæ‰€ä»¥å°±æˆä¸ºï¼š
 
 [root@www ~]# grep -n '[0-9][0-9]*' regular_express.txt
 5:However, this dress is about $ 3183 dollars.
@@ -284,11 +284,11 @@ grepÓëÕý¹æ±í´ïÊ½
 
  
 
-ÏÞ¶¨Á¬Ðø RE ×Ö·û·¶Î§ {}
-ÎÒÃÇ¿ÉÒÔÀûÓÃ . Óë RE ×Ö·û¼° * À´ÅäÖÃ 0 ¸öµ½ÎÞÏÞ¶à¸öÖØ¸´×Ö½Ú£¬ ÄÇÈç¹ûÎÒÏëÒªÏÞÖÆÒ»¸ö·¶Î§Çø¼äÄÚµÄÖØ¸´×Ö½ÚÊýÄØ£¿
+é™å®šè¿žç»­ RE å­—ç¬¦èŒƒå›´ {}
+æˆ‘ä»¬å¯ä»¥åˆ©ç”¨ . ä¸Ž RE å­—ç¬¦åŠ * æ¥é…ç½® 0 ä¸ªåˆ°æ— é™å¤šä¸ªé‡å¤å­—èŠ‚ï¼Œ é‚£å¦‚æžœæˆ‘æƒ³è¦é™åˆ¶ä¸€ä¸ªèŒƒå›´åŒºé—´å†…çš„é‡å¤å­—èŠ‚æ•°å‘¢ï¼Ÿ
 
-¾ÙÀýÀ´Ëµ£¬ÎÒÏëÒªÕÒ³öÁ½¸öµ½Îå¸ö o µÄÁ¬Ðø×Ö´®£¬¸ÃÈçºÎ×÷£¿ÕâÊ±ºò¾ÍµÃÒªÊ¹ÓÃµ½ÏÞ¶¨·¶Î§µÄ×Ö·û {} ÁË¡£ µ«ÒòÎª { Óë } µÄ·ûºÅÔÚ shell ÊÇÓÐÌØÊâÒâÒåµÄ£¬Òò´Ë£¬ ÎÒÃÇ±ØÐëÒªÊ¹ÓÃ×Ö·û   \ À´ÈÃËûÊ§È¥ÌØÊâÒâÒå²ÅÐÐ¡£ ÖÁì¶ {} µÄÓï·¨ÊÇÕâÑùµÄ£¬¼ÙÉèÎÒÒªÕÒµ½Á½¸ö o µÄ×Ö´®£¬¿ÉÒÔÊÇ£º
-¸´ÖÆ´úÂë
+ä¸¾ä¾‹æ¥è¯´ï¼Œæˆ‘æƒ³è¦æ‰¾å‡ºä¸¤ä¸ªåˆ°äº”ä¸ª o çš„è¿žç»­å­—ä¸²ï¼Œè¯¥å¦‚ä½•ä½œï¼Ÿè¿™æ—¶å€™å°±å¾—è¦ä½¿ç”¨åˆ°é™å®šèŒƒå›´çš„å­—ç¬¦ {} äº†ã€‚ ä½†å› ä¸º { ä¸Ž } çš„ç¬¦å·åœ¨ shell æ˜¯æœ‰ç‰¹æ®Šæ„ä¹‰çš„ï¼Œå› æ­¤ï¼Œ æˆ‘ä»¬å¿…é¡»è¦ä½¿ç”¨å­—ç¬¦   \ æ¥è®©ä»–å¤±åŽ»ç‰¹æ®Šæ„ä¹‰æ‰è¡Œã€‚ è‡³æ–¼ {} çš„è¯­æ³•æ˜¯è¿™æ ·çš„ï¼Œå‡è®¾æˆ‘è¦æ‰¾åˆ°ä¸¤ä¸ª o çš„å­—ä¸²ï¼Œå¯ä»¥æ˜¯ï¼š
+å¤åˆ¶ä»£ç 
 
 [root@www ~]# grep -n 'o\{2\}' regular_express.txt
 1:"Open Source" is a good mechanism to develop programs.
@@ -298,18 +298,18 @@ grepÓëÕý¹æ±í´ïÊ½
 18:google is the best tools for search ke
 19:goooooogle yes!
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
  
 
-¼ÙÉèÎÒÃÇÒªÕÒ³ö g ºóÃæ½Ó 2 µ½ 5 ¸ö o £¬È»ºóÔÙ½ÓÒ»¸ö g µÄ×Ö´®£¬Ëû»áÊÇÕâÑù£º
+å‡è®¾æˆ‘ä»¬è¦æ‰¾å‡º g åŽé¢æŽ¥ 2 åˆ° 5 ä¸ª o ï¼Œç„¶åŽå†æŽ¥ä¸€ä¸ª g çš„å­—ä¸²ï¼Œä»–ä¼šæ˜¯è¿™æ ·ï¼š
 
 [root@www ~]# grep -n 'go\{2,5\}g' regular_express.txt
 18:google is the best tools for search keyword.
 
  
 
-Èç¹ûÎÒÏëÒªµÄÊÇ 2 ¸ö o ÒÔÉÏµÄ goooo....g ÄØ£¿³ýÁË¿ÉÒÔÊÇ gooo*g £¬Ò²¿ÉÒÔÊÇ£º
+å¦‚æžœæˆ‘æƒ³è¦çš„æ˜¯ 2 ä¸ª o ä»¥ä¸Šçš„ goooo....g å‘¢ï¼Ÿé™¤äº†å¯ä»¥æ˜¯ gooo*g ï¼Œä¹Ÿå¯ä»¥æ˜¯ï¼š
 
 [root@www ~]# grep -n 'go\{2,\}g' regular_express.txt
 18:google is the best tools for search keyword.
@@ -317,12 +317,12 @@ grepÓëÕý¹æ±í´ïÊ½
 
  
 
-À©Õ¹grep(grep -E »òÕß egrep)£º
-Ê¹ÓÃÀ©Õ¹grepµÄÖ÷ÒªºÃ´¦ÊÇÔö¼ÓÁË¶îÍâµÄÕýÔò±í´ïÊ½Ôª×Ö·û¼¯¡£
+æ‰©å±•grep(grep -E æˆ–è€… egrep)ï¼š
+ä½¿ç”¨æ‰©å±•grepçš„ä¸»è¦å¥½å¤„æ˜¯å¢žåŠ äº†é¢å¤–çš„æ­£åˆ™è¡¨è¾¾å¼å…ƒå­—ç¬¦é›†ã€‚
 
  
 
-´òÓ¡ËùÓÐ°üº¬NW»òEAµÄÐÐ¡£Èç¹û²»ÊÇÊ¹ÓÃegrep£¬¶øÊÇgrep£¬½«²»»áÓÐ½á¹û²é³ö¡£
+æ‰“å°æ‰€æœ‰åŒ…å«NWæˆ–EAçš„è¡Œã€‚å¦‚æžœä¸æ˜¯ä½¿ç”¨egrepï¼Œè€Œæ˜¯grepï¼Œå°†ä¸ä¼šæœ‰ç»“æžœæŸ¥å‡ºã€‚
 
     # egrep 'NW|EA' testfile     
     northwest       NW      Charles Main        3.0     .98     3       34
@@ -330,7 +330,7 @@ grepÓëÕý¹æ±í´ïÊ½
 
  
 
-¶ÔÓÚ±ê×¼grep£¬Èç¹ûÔÚÀ©Õ¹Ôª×Ö·ûÇ°Ãæ¼Ó\£¬grep»á×Ô¶¯ÆôÓÃÀ©Õ¹Ñ¡Ïî-E¡£
+å¯¹äºŽæ ‡å‡†grepï¼Œå¦‚æžœåœ¨æ‰©å±•å…ƒå­—ç¬¦å‰é¢åŠ \ï¼Œgrepä¼šè‡ªåŠ¨å¯ç”¨æ‰©å±•é€‰é¡¹-Eã€‚
 
 #grep 'NW\|EA' testfile
 northwest       NW      Charles Main        3.0     .98     3       34
@@ -338,214 +338,211 @@ eastern         EA      TB Savage           4.4     .84     5       20
 
  
 
-ËÑË÷ËùÓÐ°üº¬Ò»¸ö»ò¶à¸ö3µÄÐÐ¡£
-¸´ÖÆ´úÂë
+æœç´¢æ‰€æœ‰åŒ…å«ä¸€ä¸ªæˆ–å¤šä¸ª3çš„è¡Œã€‚
+
 
 # egrep '3+' testfile
 # grep -E '3+' testfile
 # grep '3\+' testfile        
-#Õâ3ÌõÃüÁî½«»á
+#è¿™3æ¡å‘½ä»¤å°†ä¼š
 northwest       NW      Charles Main          3.0     .98     3       34
 western         WE      Sharon Gray           5.3     .97     5       23
 northeast       NE      AM Main Jr.           5.1     .94     3       13
 central         CT      Ann Stephens          5.7     .94     5       13
-
-¸´ÖÆ´úÂë
-
  
 
-ËÑË÷ËùÓÐ°üº¬0¸ö»ò1¸öÐ¡Êýµã×Ö·ûµÄÐÐ¡£
+æœç´¢æ‰€æœ‰åŒ…å«0ä¸ªæˆ–1ä¸ªå°æ•°ç‚¹å­—ç¬¦çš„è¡Œã€‚
     
-¸´ÖÆ´úÂë
+
 
 # egrep '2\.?[0-9]' testfile 
 # grep -E '2\.?[0-9]' testfile
 # grep '2\.\?[0-9]' testfile 
-#Ê×ÏÈº¬ÓÐ2×Ö·û£¬Æäºó½ô¸ú×Å0¸ö»ò1¸öµã£¬ºóÃæÔÙÊÇ0ºÍ9Ö®¼äµÄÊý×Ö¡£
+#é¦–å…ˆå«æœ‰2å­—ç¬¦ï¼Œå…¶åŽç´§è·Ÿç€0ä¸ªæˆ–1ä¸ªç‚¹ï¼ŒåŽé¢å†æ˜¯0å’Œ9ä¹‹é—´çš„æ•°å­—ã€‚
 western         WE       Sharon Gray          5.3     .97     5       23
 southwest       SW      Lewis Dalsass         2.7     .8      2       18
 eastern         EA       TB Savage             4.4     .84     5       20
 
-¸´ÖÆ´úÂë
+
 
  
 
-ËÑË÷Ò»¸ö»òÕß¶à¸öÁ¬ÐøµÄnoµÄÐÐ¡£
+æœç´¢ä¸€ä¸ªæˆ–è€…å¤šä¸ªè¿žç»­çš„noçš„è¡Œã€‚
     
 
 # egrep '(no)+' testfile
 # grep -E '(no)+' testfile
-# grep '\(no\)\+' testfile   #3¸öÃüÁî·µ»ØÏàÍ¬½á¹û£¬
+# grep '\(no\)\+' testfile   #3ä¸ªå‘½ä»¤è¿”å›žç›¸åŒç»“æžœï¼Œ
 northwest       NW      Charles Main        3.0     .98     3       34
 northeast       NE       AM Main Jr.        5.1     .94     3       13
 north           NO      Margot Weber        4.5     .89     5       9
 
  
 
-²»Ê¹ÓÃÕýÔò±í´ïÊ½
+ä¸ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼
 
-fgrep ²éÑ¯ËÙ¶È±ÈgrepÃüÁî¿ì£¬µ«ÊÇ²»¹»Áé»î£ºËüÖ»ÄÜÕÒ¹Ì¶¨µÄÎÄ±¾£¬¶ø²»ÊÇ¹æÔò±í´ïÊ½¡£
+fgrep æŸ¥è¯¢é€Ÿåº¦æ¯”grepå‘½ä»¤å¿«ï¼Œä½†æ˜¯ä¸å¤Ÿçµæ´»ï¼šå®ƒåªèƒ½æ‰¾å›ºå®šçš„æ–‡æœ¬ï¼Œè€Œä¸æ˜¯è§„åˆ™è¡¨è¾¾å¼ã€‚
 
-Èç¹ûÄãÏëÔÚÒ»¸öÎÄ¼þ»òÕßÊä³öÖÐÕÒµ½°üº¬ÐÇºÅ×Ö·ûµÄÐÐ
+å¦‚æžœä½ æƒ³åœ¨ä¸€ä¸ªæ–‡ä»¶æˆ–è€…è¾“å‡ºä¸­æ‰¾åˆ°åŒ…å«æ˜Ÿå·å­—ç¬¦çš„è¡Œ
 
 fgrep  '*' /etc/profile
 for i in /etc/profile.d/*.sh ; do
 
-»ò
+æˆ–
 grep -F '*' /etc/profile
 for i in /etc/profile.d/*.sh ; do
 
  
 
-²Î¿¼ http://vbird.dic.ksu.edu.tw/linux_basic/0330regularex_2.php
+å‚è€ƒ http://vbird.dic.ksu.edu.tw/linux_basic/0330regularex_2.php
 
        http://www.cnblogs.com/stephen-liu74/archive/2011/11/14/2243694.html
 
 
 =========================
 
-ÕÒ³öÎÄ¼þ¼ÐÏÂ°üº¬ ¡°aaa¡± Í¬Ê±²»°üº¬ ¡°bbb¡±µÄÎÄ¼þ£¬È»ºó°ÑËûÃÇÖØÐÂÉú³ÉÒ»ÏÂ¡£ÒªÇóÖ»ÄÜÓÃÒ»ÐÐÃüÁî¡£
+æ‰¾å‡ºæ–‡ä»¶å¤¹ä¸‹åŒ…å« â€œaaaâ€ åŒæ—¶ä¸åŒ…å« â€œbbbâ€çš„æ–‡ä»¶ï¼Œç„¶åŽæŠŠä»–ä»¬é‡æ–°ç”Ÿæˆä¸€ä¸‹ã€‚è¦æ±‚åªèƒ½ç”¨ä¸€è¡Œå‘½ä»¤ã€‚
 
-ÎÒ¶ÔLinux ÊÇ¸ö°×³Õ£¬¹¤×÷ÁËÖ®ºó²Å¿ªÊ¼½Ó´¥µÄ£¬»áÓÃµÄÃüÁîÖ»ÓÐÄÇ¼¸¸ö³£ÓÃµÄ¡£Õâ¸öÎÊÌâ¶ÔÎÒÀ´Ëµ¾ÍÓÐµãÄÑ¶È£¬ÎÒÖ»ÊÇ´ó¸ÅÖªµÀ²éÕÒÎÄ¼þÓÃ grep £¬ÆäËûµÄ¾Í²»ÖªµÀÁË¡£²»¹ýÃ»¹ØÏµ£¬ÓÃGoogle £¬²éÕÒµ½ grep µÄÍêÕûÓÃ·¨£º
+æˆ‘å¯¹Linux æ˜¯ä¸ªç™½ç—´ï¼Œå·¥ä½œäº†ä¹‹åŽæ‰å¼€å§‹æŽ¥è§¦çš„ï¼Œä¼šç”¨çš„å‘½ä»¤åªæœ‰é‚£å‡ ä¸ªå¸¸ç”¨çš„ã€‚è¿™ä¸ªé—®é¢˜å¯¹æˆ‘æ¥è¯´å°±æœ‰ç‚¹éš¾åº¦ï¼Œæˆ‘åªæ˜¯å¤§æ¦‚çŸ¥é“æŸ¥æ‰¾æ–‡ä»¶ç”¨ grep ï¼Œå…¶ä»–çš„å°±ä¸çŸ¥é“äº†ã€‚ä¸è¿‡æ²¡å…³ç³»ï¼Œç”¨Google ï¼ŒæŸ¥æ‰¾åˆ° grep çš„å®Œæ•´ç”¨æ³•ï¼š
 
-1¡¢grep -l ¡®boss¡¯ * ÏÔÊ¾ËùÓÐ°üº¬bossµÄÎÄ¼þÃû¡£
-2¡¢grep -n ¡®boss¡¯ fileÔÚÆ¥ÅäÐÐÖ®Ç°¼ÓÐÐºÅ¡£
-3¡¢grep -i ¡®boss¡¯ fileÏÔÊ¾Æ¥ÅäÐÐ£¬boss²»Çø·Ö´óÐ¡Ð´¡£
-4¡¢grep -v ¡®boss¡¯ fileÏÔÊ¾ËùÓÐ²»Æ¥ÅäÐÐ¡£
-5¡¢grep -q ¡®boss¡¯ fileÕÒµ½Æ¥ÅäÐÐ£¬µ«²»ÏÔÊ¾£¬µ«¿ÉÒÔ¼ì²égrepµÄÍË³ö×´Ì¬¡££¨0ÎªÆ¥Åä³É¹¦£©
-6¡¢grep -c ¡®boss¡¯ fileÖ»ÏÔÊ¾Æ¥ÅäÐÐÊý£¨°üÀ¨0£©¡£
-7¡¢grep ¡°$boss¡± fileÀ©Õ¹±äÁ¿bossµÄÖµÔÙÖ´ÐÐÃüÁî¡£
-8¡¢ps -ef|grep ¡°^*user1¡å ËÑË÷user1µÄÃüÁî£¬¼´Ê¹ËüÇ°ÃæÓÐÁã¸ö»ò¶à¸ö¿Õ¸ñ¡£
-9¡¢ps -e|grep -E ¡®grant_server|commsvr|tcpsvr|dainfo¡¯ ²éÕÒ¶à¸ö×Ö·û´®µÄÆ¥Åä£¨grep -EÏàµ±ÓÚegrep£©
+1ã€grep -l â€˜bossâ€™ * æ˜¾ç¤ºæ‰€æœ‰åŒ…å«bossçš„æ–‡ä»¶åã€‚
+2ã€grep -n â€˜bossâ€™ fileåœ¨åŒ¹é…è¡Œä¹‹å‰åŠ è¡Œå·ã€‚
+3ã€grep -i â€˜bossâ€™ fileæ˜¾ç¤ºåŒ¹é…è¡Œï¼Œbossä¸åŒºåˆ†å¤§å°å†™ã€‚
+4ã€grep -v â€˜bossâ€™ fileæ˜¾ç¤ºæ‰€æœ‰ä¸åŒ¹é…è¡Œã€‚
+5ã€grep -q â€˜bossâ€™ fileæ‰¾åˆ°åŒ¹é…è¡Œï¼Œä½†ä¸æ˜¾ç¤ºï¼Œä½†å¯ä»¥æ£€æŸ¥grepçš„é€€å‡ºçŠ¶æ€ã€‚ï¼ˆ0ä¸ºåŒ¹é…æˆåŠŸï¼‰
+6ã€grep -c â€˜bossâ€™ fileåªæ˜¾ç¤ºåŒ¹é…è¡Œæ•°ï¼ˆåŒ…æ‹¬0ï¼‰ã€‚
+7ã€grep â€œ$bossâ€ fileæ‰©å±•å˜é‡bossçš„å€¼å†æ‰§è¡Œå‘½ä»¤ã€‚
+8ã€ps -ef|grep â€œ^*user1â€³ æœç´¢user1çš„å‘½ä»¤ï¼Œå³ä½¿å®ƒå‰é¢æœ‰é›¶ä¸ªæˆ–å¤šä¸ªç©ºæ ¼ã€‚
+9ã€ps -e|grep -E â€˜grant_server|commsvr|tcpsvr|dainfoâ€™ æŸ¥æ‰¾å¤šä¸ªå­—ç¬¦ä¸²çš„åŒ¹é…ï¼ˆgrep -Eç›¸å½“äºŽegrepï¼‰
 
 
-ÁË½âÁËgrepµÄ²ÎÊýÖ®ºó£¬ÎÊÌâ¾Í½â¾öÁËÒ»°ëÁË£¬ÒòÎª¿ÉÒÔËÑË÷³ö·ûºÏÌõ¼þµÄÎÄ¼þÁË¡£²»¹ý¹âÓÐgrep »¹ÊÇ²»ÐÐ£¬ÒòÎªÒª°ÑËÑË÷³öÀ´µÄÎÄ¼þÃû×÷Îª²ÎÊý´«¸ø generate ÃüÁî¡£OK£¬½ÓÏÂÀ´¸Ã¹ÜµÀ·û³ö³¡ÁË¡£
+äº†è§£äº†grepçš„å‚æ•°ä¹‹åŽï¼Œé—®é¢˜å°±è§£å†³äº†ä¸€åŠäº†ï¼Œå› ä¸ºå¯ä»¥æœç´¢å‡ºç¬¦åˆæ¡ä»¶çš„æ–‡ä»¶äº†ã€‚ä¸è¿‡å…‰æœ‰grep è¿˜æ˜¯ä¸è¡Œï¼Œå› ä¸ºè¦æŠŠæœç´¢å‡ºæ¥çš„æ–‡ä»¶åä½œä¸ºå‚æ•°ä¼ ç»™ generate å‘½ä»¤ã€‚OKï¼ŒæŽ¥ä¸‹æ¥è¯¥ç®¡é“ç¬¦å‡ºåœºäº†ã€‚
 
-¼´Ê¹ÊÇÏñÎÒÕâÑù¶ÔlinuxÖ»ÊÇÓÐÒ»µãÁË½âµÄÈËÒ²¾­³£ÓÃµ½¹ÜµÀ·û£¬±ÈÈç¡°|¡±£¬Ê¾Àý£º ls -a | more ¡£µ«ÊÇ¶ÔÓÚ¹ÜµÀ·ûµÄ¾ßÌåÒâÒåºÍËü×öÁËÊ²Ã´ÎÒ¾Í²»ÖªµÀÁË£¬Ã»¹ØÏµ£¬Google Ò»ÏÂ£¬ÕÒµ½Ò»Ð©×ÊÁÏ£º
+å³ä½¿æ˜¯åƒæˆ‘è¿™æ ·å¯¹linuxåªæ˜¯æœ‰ä¸€ç‚¹äº†è§£çš„äººä¹Ÿç»å¸¸ç”¨åˆ°ç®¡é“ç¬¦ï¼Œæ¯”å¦‚â€œ|â€ï¼Œç¤ºä¾‹ï¼š ls -a | more ã€‚ä½†æ˜¯å¯¹äºŽç®¡é“ç¬¦çš„å…·ä½“æ„ä¹‰å’Œå®ƒåšäº†ä»€ä¹ˆæˆ‘å°±ä¸çŸ¥é“äº†ï¼Œæ²¡å…³ç³»ï¼ŒGoogle ä¸€ä¸‹ï¼Œæ‰¾åˆ°ä¸€äº›èµ„æ–™ï¼š
 
-ÀûÓÃLinuxËùÌá¹©µÄ¹ÜµÀ·û¡°|¡±½«Á½¸öÃüÁî¸ô¿ª£¬¹ÜµÀ·û×ó±ßÃüÁîµÄÊä³ö¾Í»á×÷Îª¹ÜµÀ·ûÓÒ±ßÃüÁîµÄÊäÈë¡£Á¬ÐøÊ¹ÓÃ¹ÜµÀÒâÎ¶×ÅµÚÒ»¸öÃüÁîµÄÊä³ö»á×÷ÎªµÚ¶þ¸öÃüÁîµÄÊäÈë£¬µÚ¶þ¸öÃüÁîµÄÊä³öÓÖ»á×÷ÎªµÚÈý¸öÃüÁîµÄÊäÈë£¬ÒÀ´ËÀàÍÆ¡£
+åˆ©ç”¨Linuxæ‰€æä¾›çš„ç®¡é“ç¬¦â€œ|â€å°†ä¸¤ä¸ªå‘½ä»¤éš”å¼€ï¼Œç®¡é“ç¬¦å·¦è¾¹å‘½ä»¤çš„è¾“å‡ºå°±ä¼šä½œä¸ºç®¡é“ç¬¦å³è¾¹å‘½ä»¤çš„è¾“å…¥ã€‚è¿žç»­ä½¿ç”¨ç®¡é“æ„å‘³ç€ç¬¬ä¸€ä¸ªå‘½ä»¤çš„è¾“å‡ºä¼šä½œä¸ºç¬¬äºŒä¸ªå‘½ä»¤çš„è¾“å…¥ï¼Œç¬¬äºŒä¸ªå‘½ä»¤çš„è¾“å‡ºåˆä¼šä½œä¸ºç¬¬ä¸‰ä¸ªå‘½ä»¤çš„è¾“å…¥ï¼Œä¾æ­¤ç±»æŽ¨ã€‚
 
-ËùÒÔ²éÕÒµÄÊ±ºò¿ÉÒÔÕâÑùÐ´£º
+æ‰€ä»¥æŸ¥æ‰¾çš„æ—¶å€™å¯ä»¥è¿™æ ·å†™ï¼š
 
-grep -rl ¡°aaa¡± * | grep -v ¡°bbb¡±
+grep -rl â€œaaaâ€ * | grep -v â€œbbbâ€
 
-ÕâÑùÓÒ±ßµÄÃüÁî¾Í¿ÉÒÔ´ÓÇ°ÃæµÄ½á¹ûÖÐÉ¸Ñ¡ÁË¡£È»ºó»¹ÓÐ generate ÃüÁî£¬ÒòÎªÉú³ÉÎÄ¼þµÄÃüÁî¸ñÊ½ÊÇÕâÑùµÄ£º
+è¿™æ ·å³è¾¹çš„å‘½ä»¤å°±å¯ä»¥ä»Žå‰é¢çš„ç»“æžœä¸­ç­›é€‰äº†ã€‚ç„¶åŽè¿˜æœ‰ generate å‘½ä»¤ï¼Œå› ä¸ºç”Ÿæˆæ–‡ä»¶çš„å‘½ä»¤æ ¼å¼æ˜¯è¿™æ ·çš„ï¼š
 
-generate ÎÄ¼þÃû
+generate æ–‡ä»¶å
 
-²»¹ýÈç¹ûÖ±½ÓÊ¹ÓÃ generate grep -rl ¡°aaa¡± * | grep -v ¡°bbb¡± µÄ»°»á³ö´í£¬ÒòÎªÃüÁî»á´Ó×óÏòÓÒÖ´ÐÐ£¬ÕâÌõÃüÁî¾Í»á°Ñgrep×÷ÎªÒ»¸öÎÄ¼þÃûÀ´¿´´ý¡£ÔõÃ´°ìÄØ£¿Õâ¸öÊ±ºò¾ÍÒªÊ¹ÓÃ ¡¤ (¼üÅÌÉÏÊý×Ö¼ü1 ÅÔ±ßµÄÄÇ¸ö·ûºÅ£¬ºÍ¡°~¡±ÔÚÒ»¸ö°´¼üÉÏ)À´×öÃüÁîÌæ»»ÁË£¬ÓÃ ¡¤ °ÑºóÃæµÄ grep ÃüÁî°üÆðÀ´¾ÍºÃÁË£¬ÕâÑù£º
+ä¸è¿‡å¦‚æžœç›´æŽ¥ä½¿ç”¨ generate grep -rl â€œaaaâ€ * | grep -v â€œbbbâ€ çš„è¯ä¼šå‡ºé”™ï¼Œå› ä¸ºå‘½ä»¤ä¼šä»Žå·¦å‘å³æ‰§è¡Œï¼Œè¿™æ¡å‘½ä»¤å°±ä¼šæŠŠgrepä½œä¸ºä¸€ä¸ªæ–‡ä»¶åæ¥çœ‹å¾…ã€‚æ€Žä¹ˆåŠžå‘¢ï¼Ÿè¿™ä¸ªæ—¶å€™å°±è¦ä½¿ç”¨ Â· (é”®ç›˜ä¸Šæ•°å­—é”®1 æ—è¾¹çš„é‚£ä¸ªç¬¦å·ï¼Œå’Œâ€œ~â€åœ¨ä¸€ä¸ªæŒ‰é”®ä¸Š)æ¥åšå‘½ä»¤æ›¿æ¢äº†ï¼Œç”¨ Â· æŠŠåŽé¢çš„ grep å‘½ä»¤åŒ…èµ·æ¥å°±å¥½äº†ï¼Œè¿™æ ·ï¼š
 
-generate ¡¤grep -rl ¡°aaa¡± * | grep -v ¡°bbb¡±¡¤
+generate Â·grep -rl â€œaaaâ€ * | grep -v â€œbbbâ€Â·
 
-È»ºó¾Í¸ã¶¨ÁË¡£
+ç„¶åŽå°±æžå®šäº†ã€‚
 
  ==================
 
-  linux grepÃüÁî
+  linux grepå‘½ä»¤
 
   http://www.cnblogs.com/end/archive/2012/02/21/2360965.html
 
-1.×÷ÓÃ
-LinuxÏµÍ³ÖÐgrepÃüÁîÊÇÒ»ÖÖÇ¿´óµÄÎÄ±¾ËÑË÷¹¤¾ß£¬ËüÄÜÊ¹ÓÃÕýÔò±í´ïÊ½ËÑË÷ÎÄ±¾£¬²¢°ÑÆ¥ ÅäµÄÐÐ´òÓ¡³öÀ´¡£grepÈ«³ÆÊÇGlobal Regular Expression Print£¬±íÊ¾È«¾ÖÕýÔò±í´ïÊ½°æ±¾£¬ËüµÄÊ¹ÓÃÈ¨ÏÞÊÇËùÓÐÓÃ»§¡£
+1.ä½œç”¨
+Linuxç³»ç»Ÿä¸­grepå‘½ä»¤æ˜¯ä¸€ç§å¼ºå¤§çš„æ–‡æœ¬æœç´¢å·¥å…·ï¼Œå®ƒèƒ½ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼æœç´¢æ–‡æœ¬ï¼Œå¹¶æŠŠåŒ¹ é…çš„è¡Œæ‰“å°å‡ºæ¥ã€‚grepå…¨ç§°æ˜¯Global Regular Expression Printï¼Œè¡¨ç¤ºå…¨å±€æ­£åˆ™è¡¨è¾¾å¼ç‰ˆæœ¬ï¼Œå®ƒçš„ä½¿ç”¨æƒé™æ˜¯æ‰€æœ‰ç”¨æˆ·ã€‚
 
-2.¸ñÊ½
+2.æ ¼å¼
 grep [options]
 
-3.Ö÷Òª²ÎÊý
-[options]Ö÷Òª²ÎÊý£º
-£­c£ºÖ»Êä³öÆ¥ÅäÐÐµÄ¼ÆÊý¡£
-£­I£º²»Çø·Ö´ó Ð¡Ð´(Ö»ÊÊÓÃÓÚµ¥×Ö·û)¡£
-£­h£º²éÑ¯¶àÎÄ¼þÊ±²»ÏÔÊ¾ÎÄ¼þÃû¡£
-£­l£º²éÑ¯¶àÎÄ¼þÊ±Ö»Êä³ö°üº¬Æ¥Åä×Ö·ûµÄÎÄ¼þÃû¡£
-£­n£ºÏÔÊ¾Æ¥ÅäÐÐ¼° ÐÐºÅ¡£
-£­s£º²»ÏÔÊ¾²»´æÔÚ»òÎÞÆ¥ÅäÎÄ±¾µÄ´íÎóÐÅÏ¢¡£
-£­v£ºÏÔÊ¾²»°üº¬Æ¥ÅäÎÄ±¾µÄËùÓÐÐÐ¡£
-patternÕýÔò±í´ïÊ½Ö÷Òª²ÎÊý£º
-\£º ºöÂÔÕýÔò±í´ïÊ½ÖÐÌØÊâ×Ö·ûµÄÔ­ÓÐº¬Òå¡£
-^£ºÆ¥ÅäÕýÔò±í´ïÊ½µÄ¿ªÊ¼ÐÐ¡£
-$: Æ¥ÅäÕýÔò±í´ïÊ½µÄ½áÊøÐÐ¡£
-\<£º´ÓÆ¥ÅäÕýÔò±í´ï Ê½µÄÐÐ¿ªÊ¼¡£
-\>£ºµ½Æ¥ÅäÕýÔò±í´ïÊ½µÄÐÐ½áÊø¡£
-[ ]£ºµ¥¸ö×Ö·û£¬Èç[A]¼´A·ûºÏÒªÇó ¡£
-[ - ]£º·¶Î§£¬Èç[A-Z]£¬¼´A¡¢B¡¢CÒ»Ö±µ½Z¶¼·ûºÏÒªÇó ¡£
-¡££ºËùÓÐµÄµ¥¸ö×Ö·û¡£
-* £ºÓÐ×Ö·û£¬³¤¶È¿ÉÒÔÎª0¡£
+3.ä¸»è¦å‚æ•°
+[options]ä¸»è¦å‚æ•°ï¼š
+ï¼cï¼šåªè¾“å‡ºåŒ¹é…è¡Œçš„è®¡æ•°ã€‚
+ï¼Iï¼šä¸åŒºåˆ†å¤§ å°å†™(åªé€‚ç”¨äºŽå•å­—ç¬¦)ã€‚
+ï¼hï¼šæŸ¥è¯¢å¤šæ–‡ä»¶æ—¶ä¸æ˜¾ç¤ºæ–‡ä»¶åã€‚
+ï¼lï¼šæŸ¥è¯¢å¤šæ–‡ä»¶æ—¶åªè¾“å‡ºåŒ…å«åŒ¹é…å­—ç¬¦çš„æ–‡ä»¶åã€‚
+ï¼nï¼šæ˜¾ç¤ºåŒ¹é…è¡ŒåŠ è¡Œå·ã€‚
+ï¼sï¼šä¸æ˜¾ç¤ºä¸å­˜åœ¨æˆ–æ— åŒ¹é…æ–‡æœ¬çš„é”™è¯¯ä¿¡æ¯ã€‚
+ï¼vï¼šæ˜¾ç¤ºä¸åŒ…å«åŒ¹é…æ–‡æœ¬çš„æ‰€æœ‰è¡Œã€‚
+patternæ­£åˆ™è¡¨è¾¾å¼ä¸»è¦å‚æ•°ï¼š
+\ï¼š å¿½ç•¥æ­£åˆ™è¡¨è¾¾å¼ä¸­ç‰¹æ®Šå­—ç¬¦çš„åŽŸæœ‰å«ä¹‰ã€‚
+^ï¼šåŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„å¼€å§‹è¡Œã€‚
+$: åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„ç»“æŸè¡Œã€‚
+\<ï¼šä»ŽåŒ¹é…æ­£åˆ™è¡¨è¾¾ å¼çš„è¡Œå¼€å§‹ã€‚
+\>ï¼šåˆ°åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„è¡Œç»“æŸã€‚
+[ ]ï¼šå•ä¸ªå­—ç¬¦ï¼Œå¦‚[A]å³Aç¬¦åˆè¦æ±‚ ã€‚
+[ - ]ï¼šèŒƒå›´ï¼Œå¦‚[A-Z]ï¼Œå³Aã€Bã€Cä¸€ç›´åˆ°Zéƒ½ç¬¦åˆè¦æ±‚ ã€‚
+ã€‚ï¼šæ‰€æœ‰çš„å•ä¸ªå­—ç¬¦ã€‚
+* ï¼šæœ‰å­—ç¬¦ï¼Œé•¿åº¦å¯ä»¥ä¸º0ã€‚
 
-4.grepÃüÁîÊ¹ÓÃ¼òµ¥ÊµÀý
-$ grep ¡®test¡¯ d*
-ÏÔÊ¾ËùÓÐÒÔd¿ªÍ·µÄÎÄ¼þÖÐ°üº¬ testµÄÐÐ¡£
-$ grep ¡®test¡¯ aa bb cc
-ÏÔÊ¾ÔÚaa£¬bb£¬ccÎÄ¼þÖÐÆ¥ÅätestµÄÐÐ¡£
-$ grep ¡®[a-z]\{5\}¡¯ aa
-ÏÔÊ¾ËùÓÐ°üº¬Ã¿¸ö×Ö·û´®ÖÁÉÙÓÐ5¸öÁ¬ÐøÐ¡Ð´×Ö·ûµÄ×Ö·û´®µÄÐÐ¡£
-$ grep ¡®w\(es\)t.*\1¡ä aa
-Èç¹ûwest±»Æ¥Åä£¬Ôòes¾Í±»´æ´¢µ½ÄÚ´æÖÐ£¬²¢±ê¼ÇÎª1£¬È»ºóËÑË÷ÈÎÒâ¸ö×Ö·û(.*)£¬ÕâÐ©×Ö·ûºóÃæ½ô¸ú×Å ÁíÍâÒ»¸öes(\1)£¬ÕÒµ½¾ÍÏÔÊ¾¸ÃÐÐ¡£Èç¹ûÓÃegrep»ògrep -E£¬¾Í²»ÓÃ¡±\¡±ºÅ½øÐÐ×ªÒå£¬Ö±½ÓÐ´³É¡¯w(es)t.*\1¡ä¾Í¿ÉÒÔÁË¡£
+4.grepå‘½ä»¤ä½¿ç”¨ç®€å•å®žä¾‹
+$ grep â€˜testâ€™ d*
+æ˜¾ç¤ºæ‰€æœ‰ä»¥då¼€å¤´çš„æ–‡ä»¶ä¸­åŒ…å« testçš„è¡Œã€‚
+$ grep â€˜testâ€™ aa bb cc
+æ˜¾ç¤ºåœ¨aaï¼Œbbï¼Œccæ–‡ä»¶ä¸­åŒ¹é…testçš„è¡Œã€‚
+$ grep â€˜[a-z]\{5\}â€™ aa
+æ˜¾ç¤ºæ‰€æœ‰åŒ…å«æ¯ä¸ªå­—ç¬¦ä¸²è‡³å°‘æœ‰5ä¸ªè¿žç»­å°å†™å­—ç¬¦çš„å­—ç¬¦ä¸²çš„è¡Œã€‚
+$ grep â€˜w\(es\)t.*\1â€² aa
+å¦‚æžœwestè¢«åŒ¹é…ï¼Œåˆ™eså°±è¢«å­˜å‚¨åˆ°å†…å­˜ä¸­ï¼Œå¹¶æ ‡è®°ä¸º1ï¼Œç„¶åŽæœç´¢ä»»æ„ä¸ªå­—ç¬¦(.*)ï¼Œè¿™äº›å­—ç¬¦åŽé¢ç´§è·Ÿç€ å¦å¤–ä¸€ä¸ªes(\1)ï¼Œæ‰¾åˆ°å°±æ˜¾ç¤ºè¯¥è¡Œã€‚å¦‚æžœç”¨egrepæˆ–grep -Eï¼Œå°±ä¸ç”¨â€\â€å·è¿›è¡Œè½¬ä¹‰ï¼Œç›´æŽ¥å†™æˆâ€™w(es)t.*\1â€²å°±å¯ä»¥äº†ã€‚
 
-5.grepÃüÁîÊ¹ÓÃ¸´ÔÓÊµÀý
-¼ÙÉèÄúÕýÔÚ¡¯/usr/src/Linux/Doc¡¯Ä¿Â¼ÏÂËÑË÷´ø×Ö·û ´®¡¯magic¡¯µÄÎÄ¼þ£º
+5.grepå‘½ä»¤ä½¿ç”¨å¤æ‚å®žä¾‹
+å‡è®¾æ‚¨æ­£åœ¨â€™/usr/src/Linux/Docâ€™ç›®å½•ä¸‹æœç´¢å¸¦å­—ç¬¦ ä¸²â€™magicâ€™çš„æ–‡ä»¶ï¼š
 $ grep magic /usr/src/Linux/Doc/*
 sysrq.txt:* How do I enable the magic SysRQ key?
 sysrq.txt:* How do I use the magic SysRQ key?
-ÆäÖÐÎÄ¼þ¡¯sysrp.txt¡¯°üº¬¸Ã×Ö·û´®£¬ÌÖÂÛµÄÊÇ SysRQ µÄ¹¦ÄÜ¡£
-Ä¬ÈÏÇé¿öÏÂ£¬¡¯grep¡¯Ö»ËÑË÷µ±Ç°Ä¿Â¼¡£Èç¹û ´ËÄ¿Â¼ÏÂÓÐÐí¶à×ÓÄ¿Â¼£¬¡¯grep¡¯»áÒÔÈçÏÂÐÎÊ½ÁÐ³ö£º
+å…¶ä¸­æ–‡ä»¶â€™sysrp.txtâ€™åŒ…å«è¯¥å­—ç¬¦ä¸²ï¼Œè®¨è®ºçš„æ˜¯ SysRQ çš„åŠŸèƒ½ã€‚
+é»˜è®¤æƒ…å†µä¸‹ï¼Œâ€™grepâ€™åªæœç´¢å½“å‰ç›®å½•ã€‚å¦‚æžœ æ­¤ç›®å½•ä¸‹æœ‰è®¸å¤šå­ç›®å½•ï¼Œâ€™grepâ€™ä¼šä»¥å¦‚ä¸‹å½¢å¼åˆ—å‡ºï¼š
 grep: sound: Is a directory
-Õâ¿ÉÄÜ»áÊ¹¡¯grep¡¯ µÄÊä³öÄÑÓÚÔÄ¶Á¡£ÕâÀïÓÐÁ½ÖÖ½â¾öµÄ°ì·¨£º
-Ã÷È·ÒªÇóËÑË÷×ÓÄ¿Â¼£ºgrep -r
-»òºöÂÔ×ÓÄ¿Â¼£ºgrep -d skip
-Èç¹ûÓÐºÜ¶à Êä³öÊ±£¬Äú¿ÉÒÔÍ¨¹ý¹ÜµÀ½«Æä×ªµ½¡¯less¡¯ÉÏÔÄ¶Á£º
+è¿™å¯èƒ½ä¼šä½¿â€™grepâ€™ çš„è¾“å‡ºéš¾äºŽé˜…è¯»ã€‚è¿™é‡Œæœ‰ä¸¤ç§è§£å†³çš„åŠžæ³•ï¼š
+æ˜Žç¡®è¦æ±‚æœç´¢å­ç›®å½•ï¼šgrep -r
+æˆ–å¿½ç•¥å­ç›®å½•ï¼šgrep -d skip
+å¦‚æžœæœ‰å¾ˆå¤š è¾“å‡ºæ—¶ï¼Œæ‚¨å¯ä»¥é€šè¿‡ç®¡é“å°†å…¶è½¬åˆ°â€™lessâ€™ä¸Šé˜…è¯»ï¼š
 $ grep magic /usr/src/Linux/Documentation/* | less
-ÕâÑù£¬Äú¾Í¿ÉÒÔ¸ü·½±ãµØÔÄ¶Á¡£
+è¿™æ ·ï¼Œæ‚¨å°±å¯ä»¥æ›´æ–¹ä¾¿åœ°é˜…è¯»ã€‚
 
-ÓÐÒ»µãÒª×¢Òâ£¬Äú±ØÐèÌá¹©Ò»¸öÎÄ¼þ¹ýÂË·½Ê½(ËÑË÷È«²¿ÎÄ¼þµÄ»°ÓÃ *)¡£Èç¹ûÄúÍüÁË£¬¡¯grep¡¯»áÒ»Ö±µÈ×Å£¬Ö±µ½¸Ã³ÌÐò±»ÖÐ¶Ï¡£Èç¹ûÄúÓöµ½ÁËÕâÑùµÄÇé¿ö£¬°´ <CTRL c> £¬È»ºóÔÙÊÔ¡£
+æœ‰ä¸€ç‚¹è¦æ³¨æ„ï¼Œæ‚¨å¿…éœ€æä¾›ä¸€ä¸ªæ–‡ä»¶è¿‡æ»¤æ–¹å¼(æœç´¢å…¨éƒ¨æ–‡ä»¶çš„è¯ç”¨ *)ã€‚å¦‚æžœæ‚¨å¿˜äº†ï¼Œâ€™grepâ€™ä¼šä¸€ç›´ç­‰ç€ï¼Œç›´åˆ°è¯¥ç¨‹åºè¢«ä¸­æ–­ã€‚å¦‚æžœæ‚¨é‡åˆ°äº†è¿™æ ·çš„æƒ…å†µï¼ŒæŒ‰ <CTRL c> ï¼Œç„¶åŽå†è¯•ã€‚
 
-ÏÂÃæ»¹ÓÐÒ»Ð©ÓÐÒâË¼µÄÃüÁîÐÐ²ÎÊý£º
-grep -i pattern files £º²»Çø·Ö´óÐ¡Ð´µØËÑË÷¡£Ä¬ÈÏÇé¿öÇø·Ö´óÐ¡Ð´£¬
-grep -l pattern files £ºÖ»ÁÐ³öÆ¥ÅäµÄÎÄ¼þÃû£¬
-grep -L pattern files £ºÁÐ³ö²»Æ¥ÅäµÄÎÄ¼þÃû£¬
-grep -w pattern files £ºÖ»Æ¥ÅäÕû¸öµ¥´Ê£¬¶ø²»ÊÇ×Ö·û´®µÄÒ»²¿·Ö(ÈçÆ¥Åä¡¯magic¡¯£¬¶ø²»ÊÇ¡¯magical¡¯)£¬
-grep -C number pattern files £ºÆ¥ÅäµÄÉÏÏÂÎÄ·Ö±ðÏÔÊ¾[number]ÐÐ£¬
-grep pattern1 | pattern2 files £ºÏÔÊ¾Æ¥Åä pattern1 »ò pattern2 µÄÐÐ£¬
-grep pattern1 files | grep pattern2 £ºÏÔÊ¾¼ÈÆ¥Åä pattern1 ÓÖÆ¥Åä pattern2 µÄÐÐ¡£
+ä¸‹é¢è¿˜æœ‰ä¸€äº›æœ‰æ„æ€çš„å‘½ä»¤è¡Œå‚æ•°ï¼š
+grep -i pattern files ï¼šä¸åŒºåˆ†å¤§å°å†™åœ°æœç´¢ã€‚é»˜è®¤æƒ…å†µåŒºåˆ†å¤§å°å†™ï¼Œ
+grep -l pattern files ï¼šåªåˆ—å‡ºåŒ¹é…çš„æ–‡ä»¶åï¼Œ
+grep -L pattern files ï¼šåˆ—å‡ºä¸åŒ¹é…çš„æ–‡ä»¶åï¼Œ
+grep -w pattern files ï¼šåªåŒ¹é…æ•´ä¸ªå•è¯ï¼Œè€Œä¸æ˜¯å­—ç¬¦ä¸²çš„ä¸€éƒ¨åˆ†(å¦‚åŒ¹é…â€™magicâ€™ï¼Œè€Œä¸æ˜¯â€™magicalâ€™)ï¼Œ
+grep -C number pattern files ï¼šåŒ¹é…çš„ä¸Šä¸‹æ–‡åˆ†åˆ«æ˜¾ç¤º[number]è¡Œï¼Œ
+grep pattern1 | pattern2 files ï¼šæ˜¾ç¤ºåŒ¹é… pattern1 æˆ– pattern2 çš„è¡Œï¼Œ
+grep pattern1 files | grep pattern2 ï¼šæ˜¾ç¤ºæ—¢åŒ¹é… pattern1 åˆåŒ¹é… pattern2 çš„è¡Œã€‚
 
-grep -n pattern files  ¼´¿ÉÏÔÊ¾ÐÐºÅÐÅÏ¢
+grep -n pattern files  å³å¯æ˜¾ç¤ºè¡Œå·ä¿¡æ¯
 
-grep -c pattern files  ¼´¿É²éÕÒ×ÜÐÐÊý
+grep -c pattern files  å³å¯æŸ¥æ‰¾æ€»è¡Œæ•°
 
-ÕâÀï»¹ÓÐÐ©ÓÃÓÚËÑË÷µÄÌØÊâ·ûºÅ£º
-\< ºÍ \> ·Ö±ð±ê×¢µ¥´ÊµÄ¿ªÊ¼Óë½áÎ²¡£
-ÀýÈç£º
-grep man * »áÆ¥Åä ¡®Batman¡¯¡¢¡¯manic¡¯¡¢¡¯man¡¯µÈ£¬
-grep ¡®\<man¡¯ * Æ¥Åä¡¯manic¡¯ºÍ¡¯man¡¯£¬µ«²»ÊÇ¡¯Batman¡¯£¬
-grep ¡®\<man\>¡¯ Ö»Æ¥Åä¡¯man¡¯£¬¶ø²»ÊÇ¡¯Batman¡¯»ò¡¯manic¡¯µÈÆäËûµÄ×Ö·û´®¡£
-¡®^¡¯£ºÖ¸Æ¥ÅäµÄ×Ö·û´®ÔÚÐÐÊ×£¬
-¡®$¡¯£ºÖ¸Æ¥ÅäµÄ×Ö·û´®ÔÚÐÐ Î²£¬
+è¿™é‡Œè¿˜æœ‰äº›ç”¨äºŽæœç´¢çš„ç‰¹æ®Šç¬¦å·ï¼š
+\< å’Œ \> åˆ†åˆ«æ ‡æ³¨å•è¯çš„å¼€å§‹ä¸Žç»“å°¾ã€‚
+ä¾‹å¦‚ï¼š
+grep man * ä¼šåŒ¹é… â€˜Batmanâ€™ã€â€™manicâ€™ã€â€™manâ€™ç­‰ï¼Œ
+grep â€˜\<manâ€™ * åŒ¹é…â€™manicâ€™å’Œâ€™manâ€™ï¼Œä½†ä¸æ˜¯â€™Batmanâ€™ï¼Œ
+grep â€˜\<man\>â€™ åªåŒ¹é…â€™manâ€™ï¼Œè€Œä¸æ˜¯â€™Batmanâ€™æˆ–â€™manicâ€™ç­‰å…¶ä»–çš„å­—ç¬¦ä¸²ã€‚
+â€˜^â€™ï¼šæŒ‡åŒ¹é…çš„å­—ç¬¦ä¸²åœ¨è¡Œé¦–ï¼Œ
+â€˜$â€™ï¼šæŒ‡åŒ¹é…çš„å­—ç¬¦ä¸²åœ¨è¡Œ å°¾ï¼Œ
 
 
 
-Grep ÃüÁî ÓÃ·¨´óÈ«
-1¡¢ ²ÎÊý£º
--I £ººöÂÔ´óÐ¡Ð´
--c £º´òÓ¡Æ¥ÅäµÄÐÐÊý
--l £º´Ó¶à¸öÎÄ¼þÖÐ²éÕÒ°üº¬Æ¥ÅäÏî
--v £º²éÕÒ²»°üº¬Æ¥ÅäÏîµÄÐÐ
--n£º´òÓ¡°üº¬Æ¥ÅäÏîµÄÐÐºÍÐÐ±ê
+Grep å‘½ä»¤ ç”¨æ³•å¤§å…¨
+1ã€ å‚æ•°ï¼š
+-I ï¼šå¿½ç•¥å¤§å°å†™
+-c ï¼šæ‰“å°åŒ¹é…çš„è¡Œæ•°
+-l ï¼šä»Žå¤šä¸ªæ–‡ä»¶ä¸­æŸ¥æ‰¾åŒ…å«åŒ¹é…é¡¹
+-v ï¼šæŸ¥æ‰¾ä¸åŒ…å«åŒ¹é…é¡¹çš„è¡Œ
+-nï¼šæ‰“å°åŒ…å«åŒ¹é…é¡¹çš„è¡Œå’Œè¡Œæ ‡
 
-2¡¢RE£¨ÕýÔò±í´ïÊ½£©
-\ ºöÂÔÕýÔò±í´ïÊ½ÖÐÌØÊâ×Ö·ûµÄÔ­ÓÐº¬Òå
-^ Æ¥ÅäÕýÔò±í´ïÊ½µÄ¿ªÊ¼ÐÐ
-$ Æ¥ÅäÕýÔò±í´ïÊ½µÄ½áÊøÐÐ
-\< ´ÓÆ¥ÅäÕýÔò±í´ïÊ½µÄÐÐ¿ªÊ¼
-\> µ½Æ¥ÅäÕýÔò±í´ïÊ½µÄÐÐ½áÊø
-[ ] µ¥¸ö×Ö·û£»Èç[A] ¼´A·ûºÏÒªÇó
-[ - ] ·¶Î§ £»Èç[A-Z]¼´A£¬B£¬CÒ»Ö±µ½Z¶¼·ûºÏÒªÇó
-. ËùÓÐµÄµ¥¸ö×Ö·û
-* ËùÓÐ×Ö·û£¬³¤¶È¿ÉÒÔÎª0
+2ã€REï¼ˆæ­£åˆ™è¡¨è¾¾å¼ï¼‰
+\ å¿½ç•¥æ­£åˆ™è¡¨è¾¾å¼ä¸­ç‰¹æ®Šå­—ç¬¦çš„åŽŸæœ‰å«ä¹‰
+^ åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„å¼€å§‹è¡Œ
+$ åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„ç»“æŸè¡Œ
+\< ä»ŽåŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„è¡Œå¼€å§‹
+\> åˆ°åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„è¡Œç»“æŸ
+[ ] å•ä¸ªå­—ç¬¦ï¼›å¦‚[A] å³Aç¬¦åˆè¦æ±‚
+[ - ] èŒƒå›´ ï¼›å¦‚[A-Z]å³Aï¼ŒBï¼ŒCä¸€ç›´åˆ°Zéƒ½ç¬¦åˆè¦æ±‚
+. æ‰€æœ‰çš„å•ä¸ªå­—ç¬¦
+* æ‰€æœ‰å­—ç¬¦ï¼Œé•¿åº¦å¯ä»¥ä¸º0
 
-3¡¢¾ÙÀý
+3ã€ä¸¾ä¾‹
 # ps -ef | grep in.telnetd
 root 19955 181 0 13:43:53 ? 0:00 in.telnetd
 
-# more size.txt sizeÎÄ¼þµÄÄÚÈÝ
+# more size.txt sizeæ–‡ä»¶çš„å†…å®¹
 b124230
 b034325
 a081016
@@ -563,7 +560,7 @@ M45678
 B103303
 BADc2345
 
-# more size.txt | grep '[a-b]' ·¶Î§ £»Èç[A-Z]¼´A£¬B£¬CÒ»Ö±µ½Z¶¼·ûºÏÒªÇó
+# more size.txt | grep '[a-b]' èŒƒå›´ ï¼›å¦‚[A-Z]å³Aï¼ŒBï¼ŒCä¸€ç›´åˆ°Zéƒ½ç¬¦åˆè¦æ±‚
 b124230
 b034325
 a081016
@@ -590,7 +587,7 @@ M45678
 B103303
 BADc2345
 
-# more size.txt | grep 'b' µ¥¸ö×Ö·û£»Èç[A] ¼´A·ûºÏÒªÇó
+# more size.txt | grep 'b' å•ä¸ªå­—ç¬¦ï¼›å¦‚[A] å³Aç¬¦åˆè¦æ±‚
 b124230
 b034325
 b103303
@@ -616,7 +613,7 @@ lp::8:root,lp,adm
 nuucp::9:root,nuucp
 daemon::12:root,daemon
 
-# grep '^root' /etc/group Æ¥ÅäÕýÔò±í´ïÊ½µÄ¿ªÊ¼ÐÐ
+# grep '^root' /etc/group åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„å¼€å§‹è¡Œ
 root::0:root
 
 # grep 'uucp' /etc/group
@@ -626,17 +623,17 @@ nuucp::9:root,nuucp
 # grep '\<uucp' /etc/group
 uucp::5:root,uucp
 
-# grep 'root$' /etc/group Æ¥ÅäÕýÔò±í´ïÊ½µÄ½áÊøÐÐ
+# grep 'root$' /etc/group åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼çš„ç»“æŸè¡Œ
 root::0:root
 mail::6:root
 
-# more size.txt | grep -i 'b1..*3' -i £ººöÂÔ´óÐ¡Ð´
+# more size.txt | grep -i 'b1..*3' -i ï¼šå¿½ç•¥å¤§å°å†™
 
 b124230
 b103303
 B103303
 
-# more size.txt | grep -iv 'b1..*3' -v £º²éÕÒ²»°üº¬Æ¥ÅäÏîµÄÐÐ
+# more size.txt | grep -iv 'b1..*3' -v ï¼šæŸ¥æ‰¾ä¸åŒ…å«åŒ¹é…é¡¹çš„è¡Œ
 
 b034325
 a081016
@@ -659,7 +656,7 @@ BADc2345
 
 # grep '$' /etc/init.d/nfs.server | wc -l
 128
-# grep '\$' /etc/init.d/nfs.server | wc ¨Cl ºöÂÔÕýÔò±í´ïÊ½ÖÐÌØÊâ×Ö·ûµÄÔ­ÓÐº¬Òå
+# grep '\$' /etc/init.d/nfs.server | wc â€“l å¿½ç•¥æ­£åˆ™è¡¨è¾¾å¼ä¸­ç‰¹æ®Šå­—ç¬¦çš„åŽŸæœ‰å«ä¹‰
 
 15
 # grep '\$' /etc/init.d/nfs.server
@@ -704,120 +701,120 @@ the test file
 
 ==================================================================
 
-1,¼ò½é
-Ê¹ÓÃÕýÔò±í´ïÊ½µÄÒ»¸ö¶àÓÃÍ¾ÎÄ±¾ËÑË÷¹¤¾ß.Õâ¸öphp?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t_tag">ÃüÁî±¾À´ÊÇedÐÐ±à¼­Æ÷ÖÐµÄÒ»¸öphp?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t_tag">ÃüÁî/¹ýÂËÆ÷:
+1,ç®€ä»‹
+ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼çš„ä¸€ä¸ªå¤šç”¨é€”æ–‡æœ¬æœç´¢å·¥å…·.è¿™ä¸ªphp?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t_tag">å‘½ä»¤æœ¬æ¥æ˜¯edè¡Œç¼–è¾‘å™¨ä¸­çš„ä¸€ä¸ªphp?name=%C3%FC%C1%EE" onclick="tagshow(event)" class="t_tag">å‘½ä»¤/è¿‡æ»¤å™¨:
         g/re/p -- global - regular expression - print.
-»ù±¾¸ñÊ½
+åŸºæœ¬æ ¼å¼
 grep pattern [file...]
-(1)grep ËÑË÷×Ö·û´® [filename]
-(2)grep ÕýÔò±í´ïÊ½ [filename]
-ÔÚÎÄ¼þÖÐËÑË÷ËùÓÐ pattern ³öÏÖµÄÎ»ÖÃ, pattern ¼È¿ÉÒÔÊÇÒªËÑË÷µÄ×Ö·û´®,Ò²¿ÉÒÔÊÇÒ»¸öÕýÔò±í´ïÊ½.
-×¢Òâ£ºÔÚÊäÈëÒªËÑË÷µÄ×Ö·û´®Ê±×îºÃÊ¹ÓÃË«ÒýºÅ/¶øÔÚÄ£Ê½Æ¥ÅäÊ¹ÓÃÕýÔò±í´ïÊ½Ê±£¬×¢ÒâÊ¹ÓÃµ¥ÒýºÅ
+(1)grep æœç´¢å­—ç¬¦ä¸² [filename]
+(2)grep æ­£åˆ™è¡¨è¾¾å¼ [filename]
+åœ¨æ–‡ä»¶ä¸­æœç´¢æ‰€æœ‰ pattern å‡ºçŽ°çš„ä½ç½®, pattern æ—¢å¯ä»¥æ˜¯è¦æœç´¢çš„å­—ç¬¦ä¸²,ä¹Ÿå¯ä»¥æ˜¯ä¸€ä¸ªæ­£åˆ™è¡¨è¾¾å¼.
+æ³¨æ„ï¼šåœ¨è¾“å…¥è¦æœç´¢çš„å­—ç¬¦ä¸²æ—¶æœ€å¥½ä½¿ç”¨åŒå¼•å·/è€Œåœ¨æ¨¡å¼åŒ¹é…ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼æ—¶ï¼Œæ³¨æ„ä½¿ç”¨å•å¼•å·
 
-2,grepµÄÑ¡Ïî
-    -c Ö»Êä³öÆ¥ÅäÐÐµÄ¼ÆÊý
-    -i ²»Çø·Ö´óÐ¡Ð´£¨ÓÃÓÚµ¥×Ö·û£©
-    -n ÏÔÊ¾Æ¥ÅäµÄÐÐºÅ
-    -v ²»ÏÔÊ¾²»°üº¬Æ¥ÅäÎÄ±¾µÄËùÒÔÓÐÐÐ
-    -s ²»ÏÔÊ¾´íÎóÐÅÏ¢
-    -E Ê¹ÓÃÀ©Õ¹ÕýÔò±í´ïÊ½
-    ¸ü¶àµÄÑ¡ÏîÇë²é¿´£ºman grep
+2,grepçš„é€‰é¡¹
+    -c åªè¾“å‡ºåŒ¹é…è¡Œçš„è®¡æ•°
+    -i ä¸åŒºåˆ†å¤§å°å†™ï¼ˆç”¨äºŽå•å­—ç¬¦ï¼‰
+    -n æ˜¾ç¤ºåŒ¹é…çš„è¡Œå·
+    -v ä¸æ˜¾ç¤ºä¸åŒ…å«åŒ¹é…æ–‡æœ¬çš„æ‰€ä»¥æœ‰è¡Œ
+    -s ä¸æ˜¾ç¤ºé”™è¯¯ä¿¡æ¯
+    -E ä½¿ç”¨æ‰©å±•æ­£åˆ™è¡¨è¾¾å¼
+    æ›´å¤šçš„é€‰é¡¹è¯·æŸ¥çœ‹ï¼šman grep
 
-3,³£ÓÃgrepÊµÀý
+3,å¸¸ç”¨grepå®žä¾‹
 
-(1)¶à¸öÎÄ¼þ²éÑ¯
-    grep "sort" *.doc       #¼ûÎÄ¼þÃûµÄÆ¥Åä
+(1)å¤šä¸ªæ–‡ä»¶æŸ¥è¯¢
+    grep "sort" *.doc       #è§æ–‡ä»¶åçš„åŒ¹é…
 
-(2)ÐÐÆ¥Åä:Êä³öÆ¥ÅäÐÐµÄ¼ÆÊý
-    grep -c "48" data.doc   #Êä³öÎÄµµÖÐº¬ÓÐ48×Ö·ûµÄÐÐÊý
+(2)è¡ŒåŒ¹é…:è¾“å‡ºåŒ¹é…è¡Œçš„è®¡æ•°
+    grep -c "48" data.doc   #è¾“å‡ºæ–‡æ¡£ä¸­å«æœ‰48å­—ç¬¦çš„è¡Œæ•°
 
-(3)ÏÔÊ¾Æ¥ÅäÐÐºÍÐÐÊý
-    grep -n "48" data.doc       #ÏÔÊ¾ËùÓÐÆ¥Åä48µÄÐÐºÍÐÐºÅ
+(3)æ˜¾ç¤ºåŒ¹é…è¡Œå’Œè¡Œæ•°
+    grep -n "48" data.doc       #æ˜¾ç¤ºæ‰€æœ‰åŒ¹é…48çš„è¡Œå’Œè¡Œå·
 
-(4)ÏÔÊ¾·ÇÆ¥ÅäµÄÐÐ
-    grep -vn "48" data.doc      #Êä³öËùÓÐ²»°üº¬48µÄÐÐ
+(4)æ˜¾ç¤ºéžåŒ¹é…çš„è¡Œ
+    grep -vn "48" data.doc      #è¾“å‡ºæ‰€æœ‰ä¸åŒ…å«48çš„è¡Œ
 
-(4)ÏÔÊ¾·ÇÆ¥ÅäµÄÐÐ
-    grep -vn "48" data.doc      #Êä³öËùÓÐ²»°üº¬48µÄÐÐ
+(4)æ˜¾ç¤ºéžåŒ¹é…çš„è¡Œ
+    grep -vn "48" data.doc      #è¾“å‡ºæ‰€æœ‰ä¸åŒ…å«48çš„è¡Œ
 
-(5)´óÐ¡Ð´Ãô¸Ð
-    grep -i "ab" data.doc       #Êä³öËùÓÐº¬ÓÐab»òAbµÄ×Ö·û´®µÄÐÐ
+(5)å¤§å°å†™æ•æ„Ÿ
+    grep -i "ab" data.doc       #è¾“å‡ºæ‰€æœ‰å«æœ‰abæˆ–Abçš„å­—ç¬¦ä¸²çš„è¡Œ
 
-4, ÕýÔò±í´ïÊ½µÄÓ¦ÓÃ
+4, æ­£åˆ™è¡¨è¾¾å¼çš„åº”ç”¨
 
-(1)ÕýÔò±í´ïÊ½µÄÓ¦ÓÃ (×¢Òâ£º×îºÃ°ÑÕýÔò±í´ïÊ½ÓÃµ¥ÒýºÅÀ¨ÆðÀ´)
-    grep '[239].' data.doc      #Êä³öËùÓÐº¬ÓÐÒÔ2,3»ò9¿ªÍ·µÄ£¬²¢ÇÒÊÇÁ½¸öÊý×ÖµÄÐÐ
+(1)æ­£åˆ™è¡¨è¾¾å¼çš„åº”ç”¨ (æ³¨æ„ï¼šæœ€å¥½æŠŠæ­£åˆ™è¡¨è¾¾å¼ç”¨å•å¼•å·æ‹¬èµ·æ¥)
+    grep '[239].' data.doc      #è¾“å‡ºæ‰€æœ‰å«æœ‰ä»¥2,3æˆ–9å¼€å¤´çš„ï¼Œå¹¶ä¸”æ˜¯ä¸¤ä¸ªæ•°å­—çš„è¡Œ
 
-(2)²»Æ¥Åä²âÊÔ
-    grep '^[^48]' data.doc      #²»Æ¥ÅäÐÐÊ×ÊÇ48µÄÐÐ
+(2)ä¸åŒ¹é…æµ‹è¯•
+    grep '^[^48]' data.doc      #ä¸åŒ¹é…è¡Œé¦–æ˜¯48çš„è¡Œ
 
-(3)Ê¹ÓÃÀ©Õ¹Ä£Ê½Æ¥Åä
+(3)ä½¿ç”¨æ‰©å±•æ¨¡å¼åŒ¹é…
     grep -E '219|216' data.doc
 
 (4) ...
-    ÕâÐèÒªÔÚÊµ¼ùÖÐ²»¶ÏÓ¦ÓÃºÍ×Ü½á£¬ÊìÁ·ÕÆÎÕÕýÔò±í´ïÊ½¡£
+    è¿™éœ€è¦åœ¨å®žè·µä¸­ä¸æ–­åº”ç”¨å’Œæ€»ç»“ï¼Œç†Ÿç»ƒæŽŒæ¡æ­£åˆ™è¡¨è¾¾å¼ã€‚
 
-5, Ê¹ÓÃÀàÃû
-¿ÉÒÔÊ¹ÓÃ¹ú¼ÊÄ£Ê½Æ¥ÅäµÄÀàÃû£º
+5, ä½¿ç”¨ç±»å
+å¯ä»¥ä½¿ç”¨å›½é™…æ¨¡å¼åŒ¹é…çš„ç±»åï¼š
 [[:upper:]]   [A-Z]
 [[:lower:]]   [a-z]
 [[:digit:]]   [0-9]
 [[:alnum:]]   [0-9a-zA-Z]
-[[:space:]]   ¿Õ¸ñ»òtab
+[[:space:]]   ç©ºæ ¼æˆ–tab
 [[:alpha:]]   [a-zA-Z]
 
-(1)Ê¹ÓÃ
-    grep '5[[:upper:]][[:upper:]]' data.doc     #²éÑ¯ÒÔ5¿ªÍ·ÒÔÁ½¸ö´óÐ´×ÖÄ¸½áÎ²µÄÐÐ 
+(1)ä½¿ç”¨
+    grep '5[[:upper:]][[:upper:]]' data.doc     #æŸ¥è¯¢ä»¥5å¼€å¤´ä»¥ä¸¤ä¸ªå¤§å†™å­—æ¯ç»“å°¾çš„è¡Œ 
 
 =======================
 
 pipe
 
- linux shell ¹ÜµÀÃüÁî(pipe)Ê¹ÓÃ¼°ÓëshellÖØ¶¨ÏòÇø±ð
+ linux shell ç®¡é“å‘½ä»¤(pipe)ä½¿ç”¨åŠä¸Žshellé‡å®šå‘åŒºåˆ«
 
 http://www.cnblogs.com/chengmo/archive/2010/10/21/1856577.html
 
-¿´ÁËÇ°ÃæÒ»½Ú£ºlinux shellÊý¾ÝÖØ¶¨Ïò£¨ÊäÈëÖØ¶¨ÏòÓëÊä³öÖØ¶¨Ïò£©ÏêÏ¸·ÖÎö ¹À¼Æ»¹ÓÐÒ»Ð©ÅóÓÑÊÇÍ·ÔÎÔÎµÄ£¬ºÃ¸´ÔÓµÄÖØ¶¨ÏòÁË¡£Õâ´ÎÎÒÃÇ¿´ÏÂ¹ÜµÀÃüÁîÁË¡£shell¹ÜµÀ£¬¿ÉÒÔËµÓÃ·¨¾Í¼òµ¥¶àÁË¡£
+çœ‹äº†å‰é¢ä¸€èŠ‚ï¼šlinux shellæ•°æ®é‡å®šå‘ï¼ˆè¾“å…¥é‡å®šå‘ä¸Žè¾“å‡ºé‡å®šå‘ï¼‰è¯¦ç»†åˆ†æž ä¼°è®¡è¿˜æœ‰ä¸€äº›æœ‹å‹æ˜¯å¤´æ™•æ™•çš„ï¼Œå¥½å¤æ‚çš„é‡å®šå‘äº†ã€‚è¿™æ¬¡æˆ‘ä»¬çœ‹ä¸‹ç®¡é“å‘½ä»¤äº†ã€‚shellç®¡é“ï¼Œå¯ä»¥è¯´ç”¨æ³•å°±ç®€å•å¤šäº†ã€‚
 
  
 
-¹ÜµÀÃüÁî²Ù×÷·ûÊÇ£º¡±|¡±,Ëü½öÄÜ´¦Àí¾­ÓÉÇ°ÃæÒ»¸öÖ¸Áî´«³öµÄÕýÈ·Êä³öÐÅÏ¢£¬Ò²¾ÍÊÇ standard output µÄÐÅÏ¢£¬¶ÔÓÚ stdandard
-error ÐÅÏ¢Ã»ÓÐÖ±½Ó´¦ÀíÄÜÁ¦¡£È»ºó£¬´«µÝ¸øÏÂÒ»¸öÃüÁî£¬×÷Îª±ê×¼µÄÊäÈë standard input.
+ç®¡é“å‘½ä»¤æ“ä½œç¬¦æ˜¯ï¼šâ€|â€,å®ƒä»…èƒ½å¤„ç†ç»ç”±å‰é¢ä¸€ä¸ªæŒ‡ä»¤ä¼ å‡ºçš„æ­£ç¡®è¾“å‡ºä¿¡æ¯ï¼Œä¹Ÿå°±æ˜¯ standard output çš„ä¿¡æ¯ï¼Œå¯¹äºŽ stdandard
+error ä¿¡æ¯æ²¡æœ‰ç›´æŽ¥å¤„ç†èƒ½åŠ›ã€‚ç„¶åŽï¼Œä¼ é€’ç»™ä¸‹ä¸€ä¸ªå‘½ä»¤ï¼Œä½œä¸ºæ ‡å‡†çš„è¾“å…¥ standard input.
 
  
 
-    ¹ÜµÀÃüÁîÊ¹ÓÃËµÃ÷£º 
+    ç®¡é“å‘½ä»¤ä½¿ç”¨è¯´æ˜Žï¼š 
 
-    ÏÈ¿´ÏÂÏÂÃæÍ¼£º
+    å…ˆçœ‹ä¸‹ä¸‹é¢å›¾ï¼š
 
     image
 
-    command1ÕýÈ·Êä³ö£¬×÷Îªcommand2µÄÊäÈë È»ºócomand2µÄÊä³ö×÷Îª£¬comand3µÄÊäÈë £¬comand3Êä³ö¾Í»áÖ±½ÓÏÔÊ¾ÔÚÆÁÄ»ÉÏÃæÁË¡£
+    command1æ­£ç¡®è¾“å‡ºï¼Œä½œä¸ºcommand2çš„è¾“å…¥ ç„¶åŽcomand2çš„è¾“å‡ºä½œä¸ºï¼Œcomand3çš„è¾“å…¥ ï¼Œcomand3è¾“å‡ºå°±ä¼šç›´æŽ¥æ˜¾ç¤ºåœ¨å±å¹•ä¸Šé¢äº†ã€‚
 
-    Í¨¹ý¹ÜµÀÖ®ºó£ºcomand1,comand2µÄÕýÈ·Êä³ö²»ÏÔÊ¾ÔÚÆÁÄ»ÉÏÃæ
+    é€šè¿‡ç®¡é“ä¹‹åŽï¼šcomand1,comand2çš„æ­£ç¡®è¾“å‡ºä¸æ˜¾ç¤ºåœ¨å±å¹•ä¸Šé¢
 
-    ×¢Òâ£º
+    æ³¨æ„ï¼š
 
-    1¡¢¹ÜµÀÃüÁîÖ»´¦ÀíÇ°Ò»¸öÃüÁîÕýÈ·Êä³ö£¬²»´¦Àí´íÎóÊä³ö
+    1ã€ç®¡é“å‘½ä»¤åªå¤„ç†å‰ä¸€ä¸ªå‘½ä»¤æ­£ç¡®è¾“å‡ºï¼Œä¸å¤„ç†é”™è¯¯è¾“å‡º
 
-    2¡¢¹ÜµÀÃüÁîÓÒ±ßÃüÁî£¬±ØÐëÄÜ¹»½ÓÊÕ±ê×¼ÊäÈëÁ÷ÃüÁî²ÅÐÐ¡£
+    2ã€ç®¡é“å‘½ä»¤å³è¾¹å‘½ä»¤ï¼Œå¿…é¡»èƒ½å¤ŸæŽ¥æ”¶æ ‡å‡†è¾“å…¥æµå‘½ä»¤æ‰è¡Œã€‚
 
-    ÊµÀý£º
+    å®žä¾‹ï¼š
     	
     [chengmo@centos5 shell]$ cat test.sh | grep -n 'echo'
     5:    echo "very good!";
     7:    echo "good!";
     9:    echo "pass!";
     11:    echo "no pass!";
-    #¶Á³ötest.shÎÄ¼þÄÚÈÝ£¬Í¨¹ý¹ÜµÀ×ª·¢¸øgrep ×÷ÎªÊäÈëÄÚÈÝ
+    #è¯»å‡ºtest.shæ–‡ä»¶å†…å®¹ï¼Œé€šè¿‡ç®¡é“è½¬å‘ç»™grep ä½œä¸ºè¾“å…¥å†…å®¹
      
     [chengmo@centos5 shell]$ cat test.sh test1.sh | grep -n 'echo'
-    cat: test1.sh: Ã»ÓÐÄÇ¸öÎÄ¼þ»òÄ¿Â¼
+    cat: test1.sh: æ²¡æœ‰é‚£ä¸ªæ–‡ä»¶æˆ–ç›®å½•
     5:    echo "very good!";
     7:    echo "good!";
     9:    echo "pass!";
     11:    echo "no pass!";
-    #cat test1.sh²»´æÔÚ£¬´íÎóÊä³ö´òÓ¡µ½ÆÁÄ»£¬ÕýÈ·Êä³öÍ¨¹ý¹ÜµÀ·¢ËÍ¸øgrep 
+    #cat test1.shä¸å­˜åœ¨ï¼Œé”™è¯¯è¾“å‡ºæ‰“å°åˆ°å±å¹•ï¼Œæ­£ç¡®è¾“å‡ºé€šè¿‡ç®¡é“å‘é€ç»™grep 
      
      
     [chengmo@centos5 shell]$ cat test.sh test1.sh 2>/dev/null | grep -n 'echo' 
@@ -825,44 +822,44 @@ error ÐÅÏ¢Ã»ÓÐÖ±½Ó´¦ÀíÄÜÁ¦¡£È»ºó£¬´«µÝ¸øÏÂÒ»¸öÃüÁî£¬×÷Îª±ê×¼µÄÊäÈë standard inpu
     7:    echo "good!";
     9:    echo "pass!";
     11:    echo "no pass!";
-    #½«test1.sh Ã»ÓÐÕÒµ½´íÎóÊä³öÖØ¶¨ÏòÊä³ö¸ø/dev/null ÎÄ¼þ£¬ÕýÈ·Êä³öÍ¨¹ý¹ÜµÀ·¢ËÍ¸øgrep
+    #å°†test1.sh æ²¡æœ‰æ‰¾åˆ°é”™è¯¯è¾“å‡ºé‡å®šå‘è¾“å‡ºç»™/dev/null æ–‡ä»¶ï¼Œæ­£ç¡®è¾“å‡ºé€šè¿‡ç®¡é“å‘é€ç»™grep
      
      
     [chengmo@centos5 shell]$ cat test.sh | ls
     catfile      httprequest.txt  secure  test            testfdread.sh  testpipe.sh    testsh.sh      testwhile2.sh
     envcron.txt  python           sh      testcase.sh     testfor2.sh    testselect.sh  test.txt       text.txt
     env.txt      release          sms     testcronenv.sh  testfor.sh     test.sh        testwhile1.sh
-    #¶ÁÈ¡test.shÄÚÈÝ£¬Í¨¹ý¹ÜµÀ·¢ËÍ¸ølsÃüÁî£¬ÓÉÓÚls ²»Ö§³Ö±ê×¼ÊäÈë£¬Òò´ËÊý¾Ý±»¶ªÆú
+    #è¯»å–test.shå†…å®¹ï¼Œé€šè¿‡ç®¡é“å‘é€ç»™lså‘½ä»¤ï¼Œç”±äºŽls ä¸æ”¯æŒæ ‡å‡†è¾“å…¥ï¼Œå› æ­¤æ•°æ®è¢«ä¸¢å¼ƒ
 
      
 
-    ÕâÀïÊµÀý¾ÍÊÇ¶ÔÉÏÃæ2µã×¢ÒâµÄÑéÖ¤¡£×÷ÓÃ½ÓÊÕ±ê×¼ÊäÈëµÄÃüÁî²Å¿ÉÒÔÓÃ×÷¹ÜµÀÓÒ±ß¡£·ñÔò´«µÝ¹ý³ÌÖÐÊý¾Ý»áÅ×Æú¡£ ³£ÓÃÀ´×÷Îª½ÓÊÕÊý¾Ý¹ÜµÀÃüÁîÓÐ£ºsed,awk,cut,head,top,less,more,wc,join,sort,split µÈµÈ£¬¶¼ÊÇÐ©ÎÄ±¾´¦ÀíÃüÁî¡£
+    è¿™é‡Œå®žä¾‹å°±æ˜¯å¯¹ä¸Šé¢2ç‚¹æ³¨æ„çš„éªŒè¯ã€‚ä½œç”¨æŽ¥æ”¶æ ‡å‡†è¾“å…¥çš„å‘½ä»¤æ‰å¯ä»¥ç”¨ä½œç®¡é“å³è¾¹ã€‚å¦åˆ™ä¼ é€’è¿‡ç¨‹ä¸­æ•°æ®ä¼šæŠ›å¼ƒã€‚ å¸¸ç”¨æ¥ä½œä¸ºæŽ¥æ”¶æ•°æ®ç®¡é“å‘½ä»¤æœ‰ï¼šsed,awk,cut,head,top,less,more,wc,join,sort,split ç­‰ç­‰ï¼Œéƒ½æ˜¯äº›æ–‡æœ¬å¤„ç†å‘½ä»¤ã€‚
 
-    ¹ÜµÀÃüÁîÓëÖØ¶¨ÏòÇø±ð 
+    ç®¡é“å‘½ä»¤ä¸Žé‡å®šå‘åŒºåˆ« 
 
-    Çø±ðÊÇ£º
+    åŒºåˆ«æ˜¯ï¼š
 
-    1¡¢×ó±ßµÄÃüÁîÓ¦¸ÃÓÐ±ê×¼Êä³ö | ÓÒ±ßµÄÃüÁîÓ¦¸Ã½ÓÊÜ±ê×¼ÊäÈë
-       ×ó±ßµÄÃüÁîÓ¦¸ÃÓÐ±ê×¼Êä³ö > ÓÒ±ßÖ»ÄÜÊÇÎÄ¼þ
-       ×ó±ßµÄÃüÁîÓ¦¸ÃÐèÒª±ê×¼ÊäÈë < ÓÒ±ßÖ»ÄÜÊÇÎÄ¼þ
+    1ã€å·¦è¾¹çš„å‘½ä»¤åº”è¯¥æœ‰æ ‡å‡†è¾“å‡º | å³è¾¹çš„å‘½ä»¤åº”è¯¥æŽ¥å—æ ‡å‡†è¾“å…¥
+       å·¦è¾¹çš„å‘½ä»¤åº”è¯¥æœ‰æ ‡å‡†è¾“å‡º > å³è¾¹åªèƒ½æ˜¯æ–‡ä»¶
+       å·¦è¾¹çš„å‘½ä»¤åº”è¯¥éœ€è¦æ ‡å‡†è¾“å…¥ < å³è¾¹åªèƒ½æ˜¯æ–‡ä»¶
 
      
 
-    2¡¢¹ÜµÀ´¥·¢Á½¸ö×Ó½ø³ÌÖ´ÐÐ"|"Á½±ßµÄ³ÌÐò£»¶øÖØ¶¨ÏòÊÇÔÚÒ»¸ö½ø³ÌÄÚÖ´ÐÐ
+    2ã€ç®¡é“è§¦å‘ä¸¤ä¸ªå­è¿›ç¨‹æ‰§è¡Œ"|"ä¸¤è¾¹çš„ç¨‹åºï¼›è€Œé‡å®šå‘æ˜¯åœ¨ä¸€ä¸ªè¿›ç¨‹å†…æ‰§è¡Œ
 
-    ÕâÐ©¶¼ÊÇÍøÉÏ×Ü½áºÜ¶àµÄ£¬ÆäÊµÖ»Òª¶à¼ÓÇå³þÓÃ·¨£¬Ò²Ò»¶¨ÓÐ×Ô¼ºµÄÒ»·Ý²»Í¬ÃèÊö¡£
+    è¿™äº›éƒ½æ˜¯ç½‘ä¸Šæ€»ç»“å¾ˆå¤šçš„ï¼Œå…¶å®žåªè¦å¤šåŠ æ¸…æ¥šç”¨æ³•ï¼Œä¹Ÿä¸€å®šæœ‰è‡ªå·±çš„ä¸€ä»½ä¸åŒæè¿°ã€‚
 
-    ÊµÀý:
+    å®žä¾‹:
     	
-    #¿ÉÒÔÏà»¥×ª»»Çé¿ö
-    #ÊäÈëÖØ¶¨Ïò
+    #å¯ä»¥ç›¸äº’è½¬æ¢æƒ…å†µ
+    #è¾“å…¥é‡å®šå‘
      
     [chengmo@centos5 shell]$ cat test.sh| grep -n 'echo'
     5:    echo "very good!";
     7:    echo "good!";
     9:    echo "pass!";
     11:    echo "no pass!";
-    #"|"¹ÜµÀÁ½±ß¶¼±ØÐëÊÇshellÃüÁî
+    #"|"ç®¡é“ä¸¤è¾¹éƒ½å¿…é¡»æ˜¯shellå‘½ä»¤
      
      
     [chengmo@centos5 shell]$ grep -n 'echo' <test.sh    
@@ -870,12 +867,12 @@ error ÐÅÏ¢Ã»ÓÐÖ±½Ó´¦ÀíÄÜÁ¦¡£È»ºó£¬´«µÝ¸øÏÂÒ»¸öÃüÁî£¬×÷Îª±ê×¼µÄÊäÈë standard inpu
     7:    echo "good!";
     9:    echo "pass!";
     11:    echo "no pass!";
-    #"ÖØ¶¨Ïò"·ûºÅ£¬ÓÒ±ßÖ»ÄÜÊÇÎÄ¼þ£¨ÆÕÍ¨ÎÄ¼þ£¬ÎÄ¼þÃèÊö·û£¬ÎÄ¼þÉè±¸£©
+    #"é‡å®šå‘"ç¬¦å·ï¼Œå³è¾¹åªèƒ½æ˜¯æ–‡ä»¶ï¼ˆæ™®é€šæ–‡ä»¶ï¼Œæ–‡ä»¶æè¿°ç¬¦ï¼Œæ–‡ä»¶è®¾å¤‡ï¼‰
      
      
     [chengmo@centos5 shell]$ mail -s 'test' 8292669@qq.com <test.sh
     [chengmo@centos5 shell]$ cat test.sh|mail -s 'test' 8292669@qq.com
-    #ÒÔÉÏ2¸öÒ²ÏàÍ¬£¬½«test.shÄÚÈÝ·¢ËÍµ½Ö¸¶¨ÓÊÏä¡£
+    #ä»¥ä¸Š2ä¸ªä¹Ÿç›¸åŒï¼Œå°†test.shå†…å®¹å‘é€åˆ°æŒ‡å®šé‚®ç®±ã€‚
      
      
     [chengmo@centos5 shell]$ (sed -n '1,$p'|grep -n 'echo')<test.sh 
@@ -883,136 +880,136 @@ error ÐÅÏ¢Ã»ÓÐÖ±½Ó´¦ÀíÄÜÁ¦¡£È»ºó£¬´«µÝ¸øÏÂÒ»¸öÃüÁî£¬×÷Îª±ê×¼µÄÊäÈë standard inpu
     7:    echo "good!";
     9:    echo "pass!";
     11:    echo "no pass!";
-    #Õâ¸ö½Å±¾±È½ÏÓÐÒâË¼ÁË¡£ÓÉÓÚÇ°ÃæÊÇ¹ÜµÀ£¬ºóÃæÐèÒª°Ñtest.shÄÚÈÝÖØ¶¨Ïòµ½ sed £¬È»ºósedÊä³öÍ¨¹ý¹ÜµÀ£¬ÊäÈë¸øgrep.ÐèÒª½«Ç°ÃæÓÃ"()"ÔËËã·ûÀ¨ÆðÀ´¡£ÔÚµ¥À¨ºÅÄÚµÄÃüÁî£¬¿ÉÒÔ°ÑËüÃÇ¿´×÷Ò»¸öÏóÒ»¸öÃüÁîÑù¡£Èç¹û²»¼ÓÀ¨ºÅtest.sh¾ÍÊÇgrep µÄÊäÈëÁË¡£
+    #è¿™ä¸ªè„šæœ¬æ¯”è¾ƒæœ‰æ„æ€äº†ã€‚ç”±äºŽå‰é¢æ˜¯ç®¡é“ï¼ŒåŽé¢éœ€è¦æŠŠtest.shå†…å®¹é‡å®šå‘åˆ° sed ï¼Œç„¶åŽsedè¾“å‡ºé€šè¿‡ç®¡é“ï¼Œè¾“å…¥ç»™grep.éœ€è¦å°†å‰é¢ç”¨"()"è¿ç®—ç¬¦æ‹¬èµ·æ¥ã€‚åœ¨å•æ‹¬å·å†…çš„å‘½ä»¤ï¼Œå¯ä»¥æŠŠå®ƒä»¬çœ‹ä½œä¸€ä¸ªè±¡ä¸€ä¸ªå‘½ä»¤æ ·ã€‚å¦‚æžœä¸åŠ æ‹¬å·test.shå°±æ˜¯grep çš„è¾“å…¥äº†ã€‚
      
      
-    #ÉÏÃæÒ»¸öµÈÍ¬ÓÚÕâ¸ö
+    #ä¸Šé¢ä¸€ä¸ªç­‰åŒäºŽè¿™ä¸ª
     [chengmo@centos5 shell]$ sed -n '1,$p'<test.sh | grep -n 'echo'
     5:    echo "very good!";
     7:    echo "good!";
     9:    echo "pass!";
     11:    echo "no pass!";
      
-    #ÖØ¶¨ÏòÔËËã·û£¬ÔÚshellÃüÁî½âÎöÇ°£¬Ê×ÏÈ¼ì²éµÄ£¨Ò»¸öÃüÁî£¬Ö´ÐÐÇ°Ò»¶¨¼ì²éºÃËüµÄÊäÈë£¬Êä³ö£¬Ò²¾ÍÊÇ0,1,2 Éè±¸ÊÇ·ñ×¼±¸ºÃ£©£¬ËùÒÔÓÅÏÈ¼¶»á×î¸ß
+    #é‡å®šå‘è¿ç®—ç¬¦ï¼Œåœ¨shellå‘½ä»¤è§£æžå‰ï¼Œé¦–å…ˆæ£€æŸ¥çš„ï¼ˆä¸€ä¸ªå‘½ä»¤ï¼Œæ‰§è¡Œå‰ä¸€å®šæ£€æŸ¥å¥½å®ƒçš„è¾“å…¥ï¼Œè¾“å‡ºï¼Œä¹Ÿå°±æ˜¯0,1,2 è®¾å¤‡æ˜¯å¦å‡†å¤‡å¥½ï¼‰ï¼Œæ‰€ä»¥ä¼˜å…ˆçº§ä¼šæœ€é«˜
      
      
     [chengmo@centos5 shell]$ sed -n '1,10p'<test.sh | grep -n 'echo' <testsh.sh
     10:echo $total;
     18:echo $total;
     21:     echo "ok";
-    #¹þ¹þ£¬Õâ¸ögrepÓÖ½ÓÊÜ¹ÜµÀÊäÈë£¬ÓÖÓÐtestsh.shÊäÈë£¬ÄÇÊÇ²»ÊÇ2¸ö¶¼½ÓÊÕÄØ¡£¸Õ²ÅËµÁË"<"ÔËËã·û»áÓÅÏÈ£¬¹ÜµÀ»¹Ã»ÓÐ·¢ËÍÊý¾ÝÇ°£¬grep°ó¶¨ÁËtestsh.shÊäÈë£¬ÕâÑùsedÃüÁîÊä³ö¾Í±»Å×ÆúÁË¡£ÕâÀïÒ»¶¨ÒªÐ¡ÐÄÊ¹ÓÃ
+    #å“ˆå“ˆï¼Œè¿™ä¸ªgrepåˆæŽ¥å—ç®¡é“è¾“å…¥ï¼Œåˆæœ‰testsh.shè¾“å…¥ï¼Œé‚£æ˜¯ä¸æ˜¯2ä¸ªéƒ½æŽ¥æ”¶å‘¢ã€‚åˆšæ‰è¯´äº†"<"è¿ç®—ç¬¦ä¼šä¼˜å…ˆï¼Œç®¡é“è¿˜æ²¡æœ‰å‘é€æ•°æ®å‰ï¼Œgrepç»‘å®šäº†testsh.shè¾“å…¥ï¼Œè¿™æ ·sedå‘½ä»¤è¾“å‡ºå°±è¢«æŠ›å¼ƒäº†ã€‚è¿™é‡Œä¸€å®šè¦å°å¿ƒä½¿ç”¨
      
-    #Êä³öÖØ¶¨Ïò
+    #è¾“å‡ºé‡å®šå‘
      
     [chengmo@centos5 shell]$ cat test.sh>test.txt
     [chengmo@centos5 shell] cat test.sh|tee test.txt &>/dev/null
-    #Í¨¹ý¹ÜµÀÊµÏÖ½«½á¹û´æÈëÎÄ¼þ,»¹ÐèÒª½èÖúÃüÁîtee£¬Ëü»á°Ñ¹ÜµÀ¹ýÀ´±ê×¼ÊäÈëÐ´ÈëÎÄ¼þtest.txt ,È»ºó½«±ê×¼ÊäÈë¸´ÖÆµ½±ê×¼Êä³ö(stdout),ËùÒÔÖØ¶¨Ïòµ½/dev/null ²»ÏÔÊ¾Êä³ö
-    #">"Êä³öÖØ¶¨Ïò£¬ÍùÍùÔÚÃüÁî×îÓÒ±ß£¬½ÓÊÕ×ó±ßÃüÁîµÄ£¬Êä³ö½á¹û£¬ÖØ¶¨Ïòµ½Ö¸¶¨ÎÄ¼þ¡£Ò²¿ÉÒÔÓÃµ½ÃüÁîÖÐ¼ä¡£
+    #é€šè¿‡ç®¡é“å®žçŽ°å°†ç»“æžœå­˜å…¥æ–‡ä»¶,è¿˜éœ€è¦å€ŸåŠ©å‘½ä»¤teeï¼Œå®ƒä¼šæŠŠç®¡é“è¿‡æ¥æ ‡å‡†è¾“å…¥å†™å…¥æ–‡ä»¶test.txt ,ç„¶åŽå°†æ ‡å‡†è¾“å…¥å¤åˆ¶åˆ°æ ‡å‡†è¾“å‡º(stdout),æ‰€ä»¥é‡å®šå‘åˆ°/dev/null ä¸æ˜¾ç¤ºè¾“å‡º
+    #">"è¾“å‡ºé‡å®šå‘ï¼Œå¾€å¾€åœ¨å‘½ä»¤æœ€å³è¾¹ï¼ŒæŽ¥æ”¶å·¦è¾¹å‘½ä»¤çš„ï¼Œè¾“å‡ºç»“æžœï¼Œé‡å®šå‘åˆ°æŒ‡å®šæ–‡ä»¶ã€‚ä¹Ÿå¯ä»¥ç”¨åˆ°å‘½ä»¤ä¸­é—´ã€‚
      
      
     [chengmo@centos5 shell]$ ls test.sh test1.sh testsh.sh 2>err.txt | grep 'test'
     test.sh
     testsh.sh
-    #Ä¿Â¼ÏÂÃæÓÐ£ºtest,testshÎÄ¼þ£¬test1.sh²»´æÔÚ£¬Òò´Ë½«ls ÃüÁî´íÎóÊä³öÊäÈëµ½err.txt ÕýÈ·Êä³ö£¬»¹»áÍ¨¹ý¹ÜµÀ·¢ËÍµ½grepÃüÁî¡£
+    #ç›®å½•ä¸‹é¢æœ‰ï¼štest,testshæ–‡ä»¶ï¼Œtest1.shä¸å­˜åœ¨ï¼Œå› æ­¤å°†ls å‘½ä»¤é”™è¯¯è¾“å‡ºè¾“å…¥åˆ°err.txt æ­£ç¡®è¾“å‡ºï¼Œè¿˜ä¼šé€šè¿‡ç®¡é“å‘é€åˆ°grepå‘½ä»¤ã€‚
     [chengmo@centos5 shell]$ ls test.sh test1.sh testsh.sh &>err.txt | grep 'test'
-    #Õâ´Î´òÓ¡½á¹ûÊÇ¿Õ£¬&´ú±íÕýÈ·Óë´íÎóÊä³ö ¶¼ÊäÈë¸øerr.txt£¬Í¨¹ý¹ÜµÀ¼ÌÐøÍùÏÂÃæ´«µÝÊý¾ÝÎª¿Õ,ËùÒÔÃ»ÓÐÊ²Ã´ÏÔÊ¾µÄ
+    #è¿™æ¬¡æ‰“å°ç»“æžœæ˜¯ç©ºï¼Œ&ä»£è¡¨æ­£ç¡®ä¸Žé”™è¯¯è¾“å‡º éƒ½è¾“å…¥ç»™err.txtï¼Œé€šè¿‡ç®¡é“ç»§ç»­å¾€ä¸‹é¢ä¼ é€’æ•°æ®ä¸ºç©º,æ‰€ä»¥æ²¡æœ‰ä»€ä¹ˆæ˜¾ç¤ºçš„
      
-    #Í¬Ñù">"Êä³öÖØ¶¨Ïò·û£¬ÓÅÏÈ¼¶Ò²ÊÇÏÈ½âÎö£¬µ±Ò»¸öÃüÁîÓÐÕâ¸ö×Ö·û£¬Ëü¾Í»áÓë×ó±ßÃüÁî±ê×¼Êä³ö°ó¶¨¡£×¼±¸ºÃÁËÕâÐ©£¬¾ÍµÈ´ýÃüÁîÖ´ÐÐÊä³öÊý¾Ý£¬Ëü¾Í¿ªÊ¼½ÓÊÕ
+    #åŒæ ·">"è¾“å‡ºé‡å®šå‘ç¬¦ï¼Œä¼˜å…ˆçº§ä¹Ÿæ˜¯å…ˆè§£æžï¼Œå½“ä¸€ä¸ªå‘½ä»¤æœ‰è¿™ä¸ªå­—ç¬¦ï¼Œå®ƒå°±ä¼šä¸Žå·¦è¾¹å‘½ä»¤æ ‡å‡†è¾“å‡ºç»‘å®šã€‚å‡†å¤‡å¥½äº†è¿™äº›ï¼Œå°±ç­‰å¾…å‘½ä»¤æ‰§è¡Œè¾“å‡ºæ•°æ®ï¼Œå®ƒå°±å¼€å§‹æŽ¥æ”¶
 
      
 
-    ÔÙ¸ÅÀ¨ÏÂ£º
+    å†æ¦‚æ‹¬ä¸‹ï¼š
 
-    ´ÓÉÏÃæÀý×Ó¿ÉÒÔ¿´£¬ÖØ¶¨ÏòÓë¹ÜµÀÔÚÊ¹ÓÃÊ±ºòºÜ¶àÊ±ºò¿ÉÒÔÍ¨ÓÃ£¬ÆäÊµ£¬ÔÚshellÀïÃæ£¬¾­³£ÊÇ¡¾ÌõÌõ´óÂ·Í¨ÂÞÂí¡¿µÄ¡£Ò»°ãÈç¹ûÊÇÃüÁî¼ä´«µÝ²ÎÊý£¬»¹ÊÇ¹ÜµÀµÄºÃ£¬Èç¹û´¦ÀíÊä³ö½á¹ûÐèÒªÖØ¶¨Ïòµ½ÎÄ¼þ£¬»¹ÊÇÓÃÖØ¶¨ÏòÊä³ö±È½ÏºÃ¡£
+    ä»Žä¸Šé¢ä¾‹å­å¯ä»¥çœ‹ï¼Œé‡å®šå‘ä¸Žç®¡é“åœ¨ä½¿ç”¨æ—¶å€™å¾ˆå¤šæ—¶å€™å¯ä»¥é€šç”¨ï¼Œå…¶å®žï¼Œåœ¨shellé‡Œé¢ï¼Œç»å¸¸æ˜¯ã€æ¡æ¡å¤§è·¯é€šç½—é©¬ã€‘çš„ã€‚ä¸€èˆ¬å¦‚æžœæ˜¯å‘½ä»¤é—´ä¼ é€’å‚æ•°ï¼Œè¿˜æ˜¯ç®¡é“çš„å¥½ï¼Œå¦‚æžœå¤„ç†è¾“å‡ºç»“æžœéœ€è¦é‡å®šå‘åˆ°æ–‡ä»¶ï¼Œè¿˜æ˜¯ç”¨é‡å®šå‘è¾“å‡ºæ¯”è¾ƒå¥½ã€‚
 
-    ÃüÁîÖ´ÐÐË³Ðò¿ÉÒÔ¿´ÏÂ£ºLinux Shell Í¨Åä·û¡¢Ôª×Ö·û¡¢×ªÒå·ûÊ¹ÓÃÊµÀý½éÉÜ
+    å‘½ä»¤æ‰§è¡Œé¡ºåºå¯ä»¥çœ‹ä¸‹ï¼šLinux Shell é€šé…ç¬¦ã€å…ƒå­—ç¬¦ã€è½¬ä¹‰ç¬¦ä½¿ç”¨å®žä¾‹ä»‹ç»
 
-    shell½Å±¾½ÓÊÕ¹ÜµÀÊäÈë 
+    shellè„šæœ¬æŽ¥æ”¶ç®¡é“è¾“å…¥ 
 
-    ÓÐÒâË¼µÄÎÊÌâ£º
+    æœ‰æ„æ€çš„é—®é¢˜ï¼š
 
-    ¼ÈÈ»×÷ÓÃ¹ÜµÀ½ÓÊÕÃüÁî£¬ÐèÒª¿ÉÒÔ½ÓÊÕ±ê×¼µÄÊäÈë£¬ÄÇÃ´ÎÒÃÇshell½Å±¾ÊÇ·ñ¿ÉÒÔ¿ª·¢³öÕâÑùµÄ»ù±¾³ÌÐòÄØ£¿£¨´ó¼Ò¾­³£¿´µ½µÄ£¬¶¼ÊÇÒ»Ð©ÏµÍ³µÄÃüÁî×÷Îª¹ÜµÀ½ÓÊÕ·½£©
+    æ—¢ç„¶ä½œç”¨ç®¡é“æŽ¥æ”¶å‘½ä»¤ï¼Œéœ€è¦å¯ä»¥æŽ¥æ”¶æ ‡å‡†çš„è¾“å…¥ï¼Œé‚£ä¹ˆæˆ‘ä»¬shellè„šæœ¬æ˜¯å¦å¯ä»¥å¼€å‘å‡ºè¿™æ ·çš„åŸºæœ¬ç¨‹åºå‘¢ï¼Ÿï¼ˆå¤§å®¶ç»å¸¸çœ‹åˆ°çš„ï¼Œéƒ½æ˜¯ä¸€äº›ç³»ç»Ÿçš„å‘½ä»¤ä½œä¸ºç®¡é“æŽ¥æ”¶æ–¹ï¼‰
 
-    ÊµÀý£¨testpipe.sh)£º
+    å®žä¾‹ï¼ˆtestpipe.sh)ï¼š
    
     	
     #!/bin/sh
       
      if [ $# -gt 0 ];then
          exec 0<$1;
-    #ÅÐ¶ÏÊÇ·ñ´«Èë²ÎÊý£ºÎÄ¼þÃû£¬Èç¹û´«Èë£¬½«¸ÃÎÄ¼þ°ó¶¨µ½±ê×¼ÊäÈë
+    #åˆ¤æ–­æ˜¯å¦ä¼ å…¥å‚æ•°ï¼šæ–‡ä»¶åï¼Œå¦‚æžœä¼ å…¥ï¼Œå°†è¯¥æ–‡ä»¶ç»‘å®šåˆ°æ ‡å‡†è¾“å…¥
      fi
       
      while read line
      do
          echo $line;
      done<&0;
-    #Í¨¹ý±ê×¼ÊäÈëÑ­»·¶ÁÈ¡ÄÚÈÝ
+    #é€šè¿‡æ ‡å‡†è¾“å…¥å¾ªçŽ¯è¯»å–å†…å®¹
      exec 0&-;
-    #½â³ý±ê×¼ÊäÈë°ó¶¨
+    #è§£é™¤æ ‡å‡†è¾“å…¥ç»‘å®š
 
-    ÔËÐÐ½á¹û£º
+    è¿è¡Œç»“æžœï¼š
     [chengmo@centos5 shell]$ cat testpipe.txt
     1,t,est pipe
     2,t,est pipe
     3,t,est pipe
     4,t,est pipe
-    #testpipe.txt Ö»ÊÇÐèÒª¶ÁÈ¡µÄ²âÊÔÎÄ±¾
+    #testpipe.txt åªæ˜¯éœ€è¦è¯»å–çš„æµ‹è¯•æ–‡æœ¬
      
     [chengmo@centos5 shell]$ cat testpipe.txt | sh testpipe.sh
     1,t,est pipe
     2,t,est pipe
     3,t,est pipe
     4,t,est pipe
-    #Í¨¹ýcat ¶ÁÈ¡ testpipe.txt ·¢ËÍ¸øtestpipe.sh ±ê×¼ÊäÈë
+    #é€šè¿‡cat è¯»å– testpipe.txt å‘é€ç»™testpipe.sh æ ‡å‡†è¾“å…¥
      
     [chengmo@centos5 shell]$ sh testpipe.sh testpipe.txt      
     1,t,est pipe
     2,t,est pipe
     3,t,est pipe
     4,t,est pipe
-    #testpipe.sh Í¨¹ý³öÈëÎÄ¼þÃû¶ÁÈ¡ÎÄ¼þÄÚÈÝ
+    #testpipe.sh é€šè¿‡å‡ºå…¥æ–‡ä»¶åè¯»å–æ–‡ä»¶å†…å®¹
 
-·ÖÀà: linux
+åˆ†ç±»: linux
 
 
 ========================
 
- linux¹ÜµÀÃüÁîÑ§Ï°£¨Ò»£©
+ linuxç®¡é“å‘½ä»¤å­¦ä¹ ï¼ˆä¸€ï¼‰
 
 http://www.cnblogs.com/mrzero/p/3985302.html
 
-¼ÌÐø¿´Äñ¸çË½·¿²Ë£¬¿´Ò»Ö±ºÜÏëÅª¶®µÄ¹ÜµÀÃüÁî(pipe)¡£µÚÒ»´ÎÖªµÀ¹ÜµÀÕâ¸ö´Ê»¹ÊÇÔÚÑ§djangoµÄÊ±ºò£¬Ä£°åÀïµÄ¹ýÂËÆ÷ºÜÏñÕâÀïµÄ¹ÜµÀ¡£¹ÜµÀ¾ÍÊÇ½«Êä³öÔÚ±ê×¼Êä³öÖÐµÄÐÅÏ¢Ò»´Î´Î´¦Àí×îÖÕ´òÓ¡ÔÚ±ê×¼Êä³öÖÐ£¬ËùÒÔ¹ÜµÀÃüÁî±ØÐëÊÇ½ÓÊÜ±ê×¼Êä³öµÄÃüÁî£¬cp mv ls¶¼²»ÊÇ¹ÜµÀÃüÁî¡£
-ºÃÓÃµÄlessºÍtail
+ç»§ç»­çœ‹é¸Ÿå“¥ç§æˆ¿èœï¼Œçœ‹ä¸€ç›´å¾ˆæƒ³å¼„æ‡‚çš„ç®¡é“å‘½ä»¤(pipe)ã€‚ç¬¬ä¸€æ¬¡çŸ¥é“ç®¡é“è¿™ä¸ªè¯è¿˜æ˜¯åœ¨å­¦djangoçš„æ—¶å€™ï¼Œæ¨¡æ¿é‡Œçš„è¿‡æ»¤å™¨å¾ˆåƒè¿™é‡Œçš„ç®¡é“ã€‚ç®¡é“å°±æ˜¯å°†è¾“å‡ºåœ¨æ ‡å‡†è¾“å‡ºä¸­çš„ä¿¡æ¯ä¸€æ¬¡æ¬¡å¤„ç†æœ€ç»ˆæ‰“å°åœ¨æ ‡å‡†è¾“å‡ºä¸­ï¼Œæ‰€ä»¥ç®¡é“å‘½ä»¤å¿…é¡»æ˜¯æŽ¥å—æ ‡å‡†è¾“å‡ºçš„å‘½ä»¤ï¼Œcp mv lséƒ½ä¸æ˜¯ç®¡é“å‘½ä»¤ã€‚
+å¥½ç”¨çš„lesså’Œtail
 less
 
-Èçls -al /etc | less¾ÍÄÜÓÃÀàËÆviµÄ·½Ê½ä¯ÀÀÔÚÆÁÄ»ÉÏ´òÓ¡µÄÄÚÈÝÁË¡£»¹ÄÜÓÃviÀïµÄ²éÕÒÃüÁî/¡¢?£¬¿ÉÒÔ±ÜÃâ¹öÆÁ£¬·Ç³£ºÃÓÃ¡£
+å¦‚ls -al /etc | lesså°±èƒ½ç”¨ç±»ä¼¼viçš„æ–¹å¼æµè§ˆåœ¨å±å¹•ä¸Šæ‰“å°çš„å†…å®¹äº†ã€‚è¿˜èƒ½ç”¨vié‡Œçš„æŸ¥æ‰¾å‘½ä»¤/ã€?ï¼Œå¯ä»¥é¿å…æ»šå±ï¼Œéžå¸¸å¥½ç”¨ã€‚
 tail
 
-    tail filenameÊä³öÎÄ¼þ×îºó10ÐÐ
-    tail -n 5 filenameÊä³öÎÄ¼þ×îºó5ÐÐ
-    tail -F filename¼àÊÓÎÄ¼þµÄ¸Ä±ä£¬Ò»ÓÐ±ä»¯¾ÍÏÔÊ¾³öÀ´
+    tail filenameè¾“å‡ºæ–‡ä»¶æœ€åŽ10è¡Œ
+    tail -n 5 filenameè¾“å‡ºæ–‡ä»¶æœ€åŽ5è¡Œ
+    tail -F filenameç›‘è§†æ–‡ä»¶çš„æ”¹å˜ï¼Œä¸€æœ‰å˜åŒ–å°±æ˜¾ç¤ºå‡ºæ¥
 
-ÔÚ·ÖÎöerror logµÄÊ±ºò·Ç³£ÓÐÓÃ£¬¿ÉÒÔ²é¿´×î½üµÄ´íÎóÐÅÏ¢¡£
-Ñ¡È¡ÃüÁîcutºÍgrep
+åœ¨åˆ†æžerror logçš„æ—¶å€™éžå¸¸æœ‰ç”¨ï¼Œå¯ä»¥æŸ¥çœ‹æœ€è¿‘çš„é”™è¯¯ä¿¡æ¯ã€‚
+é€‰å–å‘½ä»¤cutå’Œgrep
 cut
 
-cutÕë¶ÔµÄÊÇÊä³öµÄÃ¿Ò»ÐÐ£¬½âÊÍÁ½¸öÃüÁî£º
+cuté’ˆå¯¹çš„æ˜¯è¾“å‡ºçš„æ¯ä¸€è¡Œï¼Œè§£é‡Šä¸¤ä¸ªå‘½ä»¤ï¼š
 
     echo $PATH | cut -d ':' -f 5
-    -d Ñ¡ÏîºóÃæ½ô¸ú·Ö¸ô·û£¬-f±íÊ¾È¡µÚ5¶Î
+    -d é€‰é¡¹åŽé¢ç´§è·Ÿåˆ†éš”ç¬¦ï¼Œ-fè¡¨ç¤ºå–ç¬¬5æ®µ
     export | cut -c 12-
-    -c Ñ¡Ïî±íÊ¾Ñ¡È¡µÄ×Ö·ûÊý£¬´Ó12µ½½áÎ²£¬Ò²¿ÉÊÇÀàËÆ12-15ÕâÑù
+    -c é€‰é¡¹è¡¨ç¤ºé€‰å–çš„å­—ç¬¦æ•°ï¼Œä»Ž12åˆ°ç»“å°¾ï¼Œä¹Ÿå¯æ˜¯ç±»ä¼¼12-15è¿™æ ·
 
 grep
 
-grepÕæÊÇÉñÒ»°ãµÄÃüÁî£¬¿ÉÒÔÅäºÏps auxÕÒµ½ÏëÒªµÄ½ø³Ì¡£
-²ÎÊý
+grepçœŸæ˜¯ç¥žä¸€èˆ¬çš„å‘½ä»¤ï¼Œå¯ä»¥é…åˆps auxæ‰¾åˆ°æƒ³è¦çš„è¿›ç¨‹ã€‚
+å‚æ•°
 
-    -c¼ÆËãÕÒµ½µÄ±»²éÕÒ×Ö·û´®µÄ´ÎÊý
-    -iºöÂÔ´óÐ¡Ð´
-    -vÊä³ö²éÕÒ½á¹ûµÄ²¹¼¯
-    ÀýÈçlast | grep -v 'root'ÕÒ³ö·ÇrootµÄµÇÂ½
+    -cè®¡ç®—æ‰¾åˆ°çš„è¢«æŸ¥æ‰¾å­—ç¬¦ä¸²çš„æ¬¡æ•°
+    -iå¿½ç•¥å¤§å°å†™
+    -vè¾“å‡ºæŸ¥æ‰¾ç»“æžœçš„è¡¥é›†
+    ä¾‹å¦‚last | grep -v 'root'æ‰¾å‡ºéžrootçš„ç™»é™†
 
 =============================
 
