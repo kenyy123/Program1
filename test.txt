@@ -20,3 +20,13 @@ Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep有很小不同。egre
 --color=auto ：可以将找到的关键词部分加上颜色的显示喔！
 
 
+将/etc/passwd，有出现 root 的行取出来
+
+# grep root /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+operator:x:11:0:operator:/root:/sbin/nologin
+或
+# cat /etc/passwd | grep root 
+root:x:0:0:root:/root:/bin/bash
+operator:x:11:0:operator:/root:/sbin/nologin
+
