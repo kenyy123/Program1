@@ -1,0 +1,60 @@
+
+data structure
+
+http://blog.csdn.net/jianyuerensheng/article/details/51200274
+
+http://www.cnblogs.com/CherishFX/p/4608880.html
+
+http://blog.csdn.net/tayanxunhua/article/details/11100097/
+
+http://blog.csdn.net/jianyuerensheng/article/details/51200274
+
+http://www.cnblogs.com/nuoyaxingzhe/p/3494522.html
+
+List and Queue:
+http://www.cnblogs.com/CherishFX/p/4608880.html
+
+
+=================
+
+设某循环队列的容量为50，如果头指针front=45(指向队头元素的前一位置)，尾指针rear=10(指向队尾元素)，则该循环队列中共有元素个数为15。
+
+--》队列头指针为front，队列尾指针为rear，队列容量为M，则元素个数为|rear-front+M|%M,注意，这个%是求余运算。（10-45+50）%50 = 15。
+
+
+===============
+
+1、为什么会引入循环队列？
+
+       对于顺序队列，头指针和尾指针开始时刻都指向数组的0下标元素。当加入新元素以后，尾指针向后移动，指向最后一个元素的下一个位置。
+
+但是尾指针不能超过数组的最大范围。当有元素删除时，头指针向后移动。但是头指针不能低于数组的0下标。这样就会引入一种“假溢出”现象，
+
+数组中存在空余的空间，但是由于尾指针已经在最大位置，不能加入元素。
+
+2、循环队列是什么样的队列？
+
+解决假溢出的方法：后面的满了，就从头在开始，形成头尾相接的循环，即循环队列。
+
+存在的问题：front=rear即头指针和尾指针相等，但是对应两种情况：一种是队列是空，一种是队列是满。
+
+所以，我们定义循环队列中空出一个位置为满队列状态。front指向头元素，rear指向尾元素的下一个位置。
+
+3、循环队列达到队列满时的front和rear关系？
+
+Quesize是队列的长度
+
+(rear+1)%Quesize=front
+
+4、循环队列的长度计算？
+
+当rear大于front时，循环队列的长度：rear-front
+
+当rear小于front时，循环队列的长度:分为两类计算 0+rear和Quesize-front即rear-front+Quesize
+
+总的来说，总长度是(rear-front+Quesize)%Quesize
+
+===================
+
+
+
