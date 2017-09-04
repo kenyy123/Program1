@@ -5,10 +5,11 @@ public class LeetcodeTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] a = {1,2,2,5,4,3};
+		int[] aa1 = {2,2,2,2,2};
 //		int a1 = removeDuplicates2a(a);
 //		System.out.println(a1);
 		
-		int a2 = removeElement(a, 2);
+		int a2 = removeElement(aa1, 2);
 		System.out.println(a2);
 	}
 	
@@ -186,10 +187,10 @@ public class LeetcodeTest {
 	   return m;
    }
    
-   public int removeElement3(int[] A, int elem) {
+   public static int removeElement3(int[] A, int elem) {
 	   int len = A.length;    
 	   for(int i = 0; i < A.length; i++){	       
-	       if(A[i] == elem && i<len){
+	       if(A[i] == elem && i<=len){
 	           A[i] = A[--len];
 	       }
 	   }
