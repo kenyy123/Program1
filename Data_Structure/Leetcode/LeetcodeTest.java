@@ -4,7 +4,12 @@ public class LeetcodeTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		int[] a = {1,2,2,5,4,3};
+//		int a1 = removeDuplicates2a(a);
+//		System.out.println(a1);
+		
+		int a2 = removeElement(a, 2);
+		System.out.println(a2);
 	}
 	
 	
@@ -78,6 +83,9 @@ public class LeetcodeTest {
 	}   
    
    
+   
+   
+////////////////// 
 //   26. Remove Duplicates from Sorted Array 
   /* Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
 
@@ -86,7 +94,8 @@ public class LeetcodeTest {
 		   For example,
 		   Given input array nums = [1,1,2],
 
-		   Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn't matter what you leave beyond the new length.
+		   Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. 
+		   It doesn't matter what you leave beyond the new length.
    */
    public int removeDuplicates(int[] A) {
 	    if (A.length==0) return 0;
@@ -96,6 +105,96 @@ public class LeetcodeTest {
 	    return ++j;
 	}
    
+
+   public int removeDuplicates1(int[] nums)
+   {
+       int dupes = 0;
+       
+       for (int i = 1; i < nums.length; i++)
+       {
+           if (nums[i] == nums[i - 1])
+               dupes++;
+           
+           nums[i - dupes] = nums[i];
+       }
+       
+       return nums.length - dupes;
+   }
+  
+   
+   public static int removeDuplicates2(int[] nums) {
+	    int i = 0;
+	    for (int n : nums)
+	        if (i == 0 || n > nums[i-1])
+	            nums[i++] = n;
+	    return i;
+	}
+   
+   public static int removeDuplicates2a(int[] nums) {
+	    int i = 1;
+	    for (int n : nums)
+	        if (n != nums[i-1])
+	            nums[i++] = n;
+	    return i;
+	}
+   
+   public int removeDuplicates3(int[] nums) {
+	    int i = nums.length > 0 ? 1 : 0;
+	    for (int n : nums)
+	        if (n > nums[i-1])
+	            nums[i++] = n;
+	    return i;
+	}
+   
+   
+   
+   /////////////////////////
+   /*27. Remove Element 
+   Given an array and a value, remove all instances of that value in place and return the new length.
+
+		   Do not allocate extra space for another array, you must do this in place with constant memory.
+
+		   The order of elements can be changed. It doesn't matter what you leave beyond the new length.
+
+		   Example:
+		   Given input array nums = [3,2,2,3], val = 3
+
+		   Your function should return length = 2, with the first two elements of nums being 2.
+		   */
+	
+    
+		   
+   public static int removeElement(int[] nums, int val) {
+       int len = 0;
+       int i = 1;
+       for(int a1 : nums){
+    	   if(a1 != val ){
+    		   len++;
+    	    }
+    	   }
+        return len;
+   }	   
+   
+   public int removeElement2(int[] A, int elem) {
+	   int m = 0;    
+	   for(int i = 0; i < A.length; i++){	       
+	       if(A[i] != elem){
+	           A[m] = A[i];
+	           m++;
+	       }
+	   }
+	   return m;
+   }
+   
+   public int removeElement3(int[] A, int elem) {
+	   int len = A.length;    
+	   for(int i = 0; i < A.length; i++){	       
+	       if(A[i] == elem && i<len){
+	           A[i] = A[--len];
+	       }
+	   }
+	   return len;
+   }
    
    
    
