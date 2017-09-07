@@ -38,7 +38,10 @@ operator:x:11:0:operator:/root:/sbin/nologin
 1:root:x:0:0:root:/root:/bin/bash
 30:operator:x:11:0:operator:/root:/sbin/nologin
 
- 在关键字的显示方面，grep 可以使用 --color=auto 来将关键字部分使用颜色显示。 这可是个很不错的功能啊！但是如果每次使用 grep 都得要自行加上 --color=auto 又显的很麻烦～ 此时那个好用的 alias 就得来处理一下啦！你可以在 ~/.bashrc 内加上这行：『alias grep='grep --color=auto'』再以『 source ~/.bashrc 』来立即生效即可喔！ 这样每次运行 grep 他都会自动帮你加上颜色显示啦
+在关键字的显示方面，grep 可以使用 --color=auto 来将关键字部分使用颜色显示。这可是个很不错的功能啊！
+但是如果每次使用 grep 都得要自行加上 --color=auto 又显的很麻烦～ 此时那个好用的 alias 就得来处理一下啦！你可以在 ~/.bashrc 内加上这行：『alias grep='grep --color=auto'』再以『 source ~/.bashrc 』来立即生效即可喔！ 这样每次运行 grep 他都会自动帮你加上颜色显示啦
+
+
 
 
 
