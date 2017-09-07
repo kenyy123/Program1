@@ -310,22 +310,22 @@ public class Tree_good2 {
 	}
 	class Stack
 	{
-		private LinkedListStack listObj;
+		private LinkedListStack list;
 		public Stack()
 		{
-			listObj = new LinkedListStack();
+			list = new LinkedListStack();
 		}
 		public void push(Node num)
 		{
-			listObj.insert(num);
+			list.insert(num);
 		}
 		public Node pop()
 		{
-			return listObj.delete();
+			return list.delete();
 		}
 		public boolean isEmpty()
 		{
-			return listObj.isEmpty();
+			return list.isEmpty();
 		}
 	}
 
