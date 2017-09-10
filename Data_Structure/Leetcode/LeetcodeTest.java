@@ -198,6 +198,160 @@ public class LeetcodeTest {
    }
    
    
+   ////////////////////////
+	/*28. Implement strStr()
+	Implement strStr().
+	Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. 	
+    */
+
+   public int strStr(String haystack, String needle) {
+	   for (int i = 0; ; i++) {
+	     for (int j = 0; ; j++) {
+	       if (j == needle.length()) return i;
+	       if (i + j == haystack.length()) return -1;
+	       if (needle.charAt(j) != haystack.charAt(i + j)) break;
+	     }
+	   }
+	 }
+   
+   
+
+	    public int strStr1(String haystack, String needle) {
+	        int l1 = haystack.length(), l2 = needle.length();
+	        if (l1 < l2) {
+	            return -1;
+	        } else if (l2 == 0) {
+	            return 0;
+	        }
+	        int threshold = l1 - l2;
+	        for (int i = 0; i <= threshold; ++i) {
+	            if (haystack.substring(i,i+l2).equals(needle)) {
+	                return i;
+	            }
+	        }
+	        return -1;
+	    }
+
+	    public int strStr2(String s, String t) {
+	        if (t.isEmpty()) return 0; // edge case: "",""=>0  "a",""=>0
+	        for (int i = 0; i <= s.length() - t.length(); i++) {
+	            for (int j = 0; j < t.length() && s.charAt(i + j) == t.charAt(j); j++)
+	                if (j == t.length() - 1) return i;
+	        }
+	        return -1;
+	    }
+	    
+   //////////////////////////////
+  /*  29. Divide Two Integer
+    Divide two integers without using multiplication, division and mod operator.
+    If it is overflow, return MAX_INT. 	*/    
+	    public int divide(int dividend, int divisor) {
+	    	//Reduce the problem to positive long integer to make it easier.
+	    	//Use long to avoid integer overflow cases.
+	    	int sign = 1;
+	    	if ((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0))
+	    		sign = -1;
+	    	long ldividend = Math.abs((long) dividend);
+	    	long ldivisor = Math.abs((long) divisor);
+	    	
+	    	//Take care the edge cases.
+	    	if (ldivisor == 0) return Integer.MAX_VALUE;
+	    	if ((ldividend == 0) || (ldividend < ldivisor))	return 0;
+	    	
+	    	long lans = ldivide(ldividend, ldivisor);
+	    	
+	    	int ans;
+	    	if (lans > Integer.MAX_VALUE){ //Handle overflow.
+	    		ans = (sign == 1)? Integer.MAX_VALUE : Integer.MIN_VALUE;
+	    	} else {
+	    		ans = (int) (sign * lans);
+	    	}
+	    	return ans;
+	    }
+
+	    private long ldivide(long ldividend, long ldivisor) {
+	    	// Recursion exit condition
+	    	if (ldividend < ldivisor) return 0;
+	    	
+	    	//  Find the largest multiple so that (divisor * multiple <= dividend), 
+	    	//  whereas we are moving with stride 1, 2, 4, 8, 16...2^n for performance reason.
+	    	//  Think this as a binary search.
+	    	long sum = ldivisor;
+	    	long multiple = 1;
+	    	while ((sum+sum) <= ldividend) {
+	    		sum += sum;
+	    		multiple += multiple;
+	    	}
+	    	//Look for additional value for the multiple from the reminder (dividend - sum) recursively.
+	    	return multiple + ldivide(ldividend - sum, ldivisor);
+	    }
+	    
+	    
+	 
+	    
+	  ////// 29 ////////////////////////    
+        public int divide1(int dividend, int divisor) {
+    		if(dividend==Integer.MIN_VALUE && divisor==-1) return Integer.MAX_VALUE;
+            if(dividend > 0 && divisor > 0) return divideHelper(-dividend, -divisor);
+            else if(dividend > 0) return -divideHelper(-dividend,divisor);
+            else if(divisor > 0) return -divideHelper(dividend,-divisor);
+            else return divideHelper(dividend, divisor);
+        }
+        
+        private int divideHelper(int dividend, int divisor){
+            // base case
+            if(divisor < dividend) return 0;
+            // get highest digit of divisor
+            int cur = 0, res = 0;
+            while((divisor << cur) >= dividend && divisor << cur < 0 && cur < 31) cur++;
+            res = dividend - (divisor << cur-1);
+            if(res > divisor) return 1 << cur-1;
+            return (1 << cur-1)+divide(res, divisor);
+        }
+	    
+        ////// 29 ////////////////////////    
+        public int divide2(int dividend, int divisor) {
+            if (dividend == Integer.MIN_VALUE && divisor == -1) {
+                return Integer.MAX_VALUE;
+            }
+
+            if (dividend > 0 && divisor > 0) {
+                return divideHelper2(-dividend, -divisor);
+            } else if (dividend > 0) {
+                return -divideHelper2(-dividend, divisor);
+            }
+            else if(divisor > 0) {
+                return -divideHelper2(dividend, -divisor);
+            }
+            else {
+                return divideHelper2(dividend, divisor);
+            }
+        }
+
+
+        private int divideHelper2(int dividend, int divisor) {
+            int result = 0;
+            int currentDivisor = divisor;
+            while(true) {
+                if(dividend > divisor) {
+                    break;
+                }
+                int temp = 1;
+                while(dividend <= currentDivisor << 1 && currentDivisor << 1 < 0) {
+                    temp = temp << 1;
+                    currentDivisor = currentDivisor << 1;
+                }
+                dividend -= currentDivisor;
+                result += temp;
+                currentDivisor = divisor;
+            }
+            return result;
+        }
+        
+        
+        
+        
+        
    
 
 }
