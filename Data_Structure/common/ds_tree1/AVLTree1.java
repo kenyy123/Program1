@@ -1,10 +1,9 @@
-package ds_tree;
+package ds_tree1;
 
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import ds_tree.AVLTree2.Node;
 
 public class AVLTree1 {
 
@@ -114,13 +113,13 @@ public class AVLTree1 {
 	            root = newNode;
 	      else
 	         {	
-	          root=avlInsert(newNode, root);	
+	          root=avlinsert(newNode, root);	
 	          }
      }  // end insert()
 
    
 	  
-	  public Node avlInsert(Node newNode, Node par)
+	  public Node avlinsert(Node newNode, Node par)
 	   {
 	   Node newpar = par;  // root of subtree par
 	   if (newNode.data < par.data)
@@ -133,7 +132,7 @@ public class AVLTree1 {
 	       }
 	     else {
 
-	         par.leftChild = avlInsert(newNode, par.leftChild);   // branch left
+	         par.leftChild = avlinsert(newNode, par.leftChild);   // branch left
 
 	         if ((height(par.leftChild) - height(par.rightChild)) == 2) {
 
@@ -161,7 +160,7 @@ public class AVLTree1 {
 	       }
 	     else {
 
-	           par.rightChild = avlInsert(newNode, par.rightChild);  // branch right
+	           par.rightChild = avlinsert(newNode, par.rightChild);  // branch right
 
 	           if ((height(par.rightChild) - height(par.leftChild)) == 2) {
 

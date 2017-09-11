@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import ds_tree.AVLTree3.Node;
+
 
 public class AVLTree2 {
 
@@ -89,59 +91,211 @@ public class AVLTree2 {
 //		} 
 //	} 
 	
-	 public void insert(int data){
-			Node newNode = new Node();
-			newNode.item = data;
-//			Node currentNode;
-			if(root == null){
-				root = newNode;
-				return;
-			}
-			else{
-				Node current= root;
-				Node parent;
-				
-				while (true){ 
-					parent = current;
-				if(data < current.item){
-//					current = current.leftChild ;
-//					if(current == null){
-//						parent.leftChild =	newNode; 
-//					  return;
+//	 public void insert(int data){
+//			Node newNode = new Node();
+//			newNode.item = data;
+////			Node currentNode;
+//			if(root == null){
+//				root = newNode;
+//				return;
+//			}
+//			else{
+//				Node current= root;
+//				Node parent;
+//				
+//				while (true){ 
+//					parent = current;
+//				if(data < current.item){
+////					current = current.leftChild ;
+////					if(current == null){
+////						parent.leftChild =	newNode; 
+////					  return;
+////					}
+////					
+//					if(current.leftChild == null){
+//						current.leftChild =	newNode; 
+//						return;
+//					}else{
+//						current = current.leftChild;
 //					}
 //					
-					if(current.leftChild == null){
-						current.leftChild =	newNode; 
-						return;
-					}else{
-						current = current.leftChild;
-					}
-					
-												
-				}else{
-//					current = current.rightChild;
-//					if(current == null){
-//						parent.rightChild = newNode;
-//					  return;
+//												
+//				}else{
+////					current = current.rightChild;
+////					if(current == null){
+////						parent.rightChild = newNode;
+////					  return;
+////					}
+//									
+//					if(current.rightChild == null){
+//						current.rightChild =	newNode; 
+//						return;
+//					}else{
+//						current = current.rightChild;
 //					}
-									
-					if(current.rightChild == null){
-						current.rightChild =	newNode; 
-						return;
-					}else{
-						current = current.rightChild;
-					}
-					
-				 }
-				}
-			}		
-		}
+//					
+//				 }
+//				}
+//			}		
+//		}
+//	
 	
+	 public int height(Node x)  // return height of tree rooted at x
+     {
+       if (x == null) return -1;
+       else 
+        	 return x.height;
+     }  
+	 	 
+	   public Node rotatewithleft(Node c)
+	   {
+	     Node p;  // left child of c
+
+	     p = c.leftChild;
+	     c.leftChild = p.rightChild;
+	     p.rightChild = c;
+
+	     c.height = Math.max(height(c.leftChild), height(c.rightChild)) + 1;
+	     p.height = Math.max(height(p.leftChild), height(p.rightChild)) + 1;
+
+	     return p;
+
+	   }
+
+	   public Node rotatewithright(Node c)
+	   {
+
+	     Node p;  // right child of c
+
+	     p = c.rightChild;
+	     c.rightChild = p.leftChild;
+	     p.leftChild = c;
+
+	     c.height = Math.max(height(c.leftChild), height(c.rightChild)) + 1;
+	     p.height = Math.max(height(p.leftChild), height(p.rightChild)) + 1;
+
+	     return p;
+
+	   }
+
+	   public Node doublerotatewithleft(Node c)
+	   {
+
+	     Node tmp;
+
+	     c.leftChild = rotatewithright(c.leftChild);
+	     tmp = rotatewithleft(c);
+	     return tmp;
+	   }
+
+	   public Node doublerotatewithright(Node c)
+	   {
+
+	    Node tmp;
+
+	    c.rightChild = rotatewithleft(c.rightChild);
+	    tmp = rotatewithright(c);
+
+	    return tmp;
+
+	   }
+
+	
+	  public void insert(int data) // Recursive insert
+      {
+	      Node newNode = new Node(data);    // make new node	
+	      if(root == null)
+	            root = newNode;
+	      else
+	         {	
+	          root = avlInsert(newNode, root);	
+	          }
+       }  // end insert()
+
+     
+	  
+	  public Node avlInsert(Node newNode, Node parent)
+	  {
+	    Node newParent = parent;  // root of subtree parent
+	   
+	   if (newNode.data < parent.data)
+	   {
+	     if (parent.leftChild == null)
+	       {
+
+	    	 parent.leftChild = newNode;  //attach new node as leaf
+
+	       }
+	     else {
+
+	    	 parent.leftChild = avlInsert(newNode, parent.leftChild);   // branch left
+
+	         if ((height(parent.leftChild) - height(parent.rightChild)) == 2) {
+
+	            if (newNode.data < parent.leftChild.data) {
+
+	            	newParent = rotatewithleft(parent);
+
+	            }
+	            else {
+
+	            	newParent = doublerotatewithleft(parent);
+
+	            } //else
+	         } //if
+	      } // else
+	   } // if
+
+	   else if (newNode.data > parent.data)  // branch right
+	   {
+	        if (parent.rightChild == null)
+	       {
+
+	        	parent.rightChild = newNode;   // attach new node as leaf
+
+	       }
+	     else {
+
+	    	 parent.rightChild = avlInsert(newNode, parent.rightChild);  // branch right
+
+	           if ((height(parent.rightChild) - height(parent.leftChild)) == 2) {
+
+	            if (newNode.data > parent.rightChild.data) {
+
+	            	newParent = rotatewithright(parent);
+
+
+	            } //if
+	            else {
+
+	            	newParent = doublerotatewithright(parent);
+
+	            } //else
+	           } //if
+	        } //else
+	   }  // else if
+
+	   else System.out.println("Duplicate Key");
+
+	 // Update the height, just in case
+
+	   if ((parent.leftChild == null) && (parent.rightChild != null))
+		   parent.height = parent.rightChild.height + 1;
+	   else if ((parent.rightChild == null) && (parent.leftChild != null))
+		   parent.height = parent.leftChild.height + 1;
+	   else
+		   parent.height = Math.max(height(parent.leftChild), height(parent.rightChild)) + 1;
+
+	   return newParent; // return new root of this subtree
+
+	 }  // end avlinsert
+
+	  
 	public void preOrder(Node Root)
 	{
 		if(Root != null)
 		{	
-			System.out.print(Root.item + " ");
+			System.out.print(Root.data + " ");
 			preOrder(Root.leftChild);
 			preOrder(Root.rightChild);
 		}
@@ -151,7 +305,7 @@ public class AVLTree2 {
 		if(Root != null)
 		{
 			inOrder(Root.leftChild);
-			System.out.print(Root.item + " ");
+			System.out.print(Root.data + " ");
 			inOrder(Root.rightChild);
 		}
 	}
@@ -161,7 +315,7 @@ public class AVLTree2 {
 		{
 			postOrder(Root.leftChild);
 			postOrder(Root.rightChild);
-			System.out.print(Root.item + " ");
+			System.out.print(Root.data + " ");
 		}
 	}
 	
@@ -171,7 +325,7 @@ public class AVLTree2 {
 		 
 		 while(!level.isEmpty()){
 			 Node node = level.poll();
-			 System.out.print(node.item + " ");
+			 System.out.print(node.data + " ");
 			 if(node.leftChild!= null)
 			 level.add(node.leftChild);
 			 if(node.rightChild!= null)
@@ -198,7 +352,7 @@ public class AVLTree2 {
 				Node temp = globalStack.pop();
 				if(temp != null)
 				{
-					System.out.print(temp.item);
+					System.out.print(temp.data);
 					localStack.push(temp.leftChild);
 					localStack.push(temp.rightChild);
 					if(temp.leftChild != null ||temp.rightChild != null)
@@ -237,12 +391,18 @@ public class AVLTree2 {
 //		theTree.insert(99);
 //		theTree.insert(9);
 
-		theTree.insert(1);
-		theTree.insert(2);
-		theTree.insert(3);
-		theTree.insert(4);
+//		theTree.insert(1);
+//		theTree.insert(2);
+//		theTree.insert(3);
+//		theTree.insert(4);
+//		theTree.insert(5);
+		
 		theTree.insert(5);
-	
+		theTree.insert(4);
+		theTree.insert(3);
+		theTree.insert(2);
+		theTree.insert(1);
+		
 		System.out.println("Displaying the tree");
 		theTree.displayTree();
 
@@ -265,13 +425,20 @@ public class AVLTree2 {
 	
 	class Node
 	{
-		public int item;
+		public int data;
+		public int height;
 		public Node leftChild;
 		public Node rightChild;
+		
+		public Node(int data){
+			this.data = data;			
+		}
+		
+			
 		public void displayNode()
 		{
 			System.out.print("[");
-			System.out.print(item);
+			System.out.print(data);
 			System.out.print("]");
 		}
 	}

@@ -1,16 +1,18 @@
-package ds_tree;
+package ds_tree1;
 
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import ds_tree.AVLTree2.Node;
 
-public class AVLTree1 {
+public class AVLTree3 {
 
 	public Node root;
-	public AVLTree1()
-	{ root = null; }
+	public AVLTree3()
+	{ 
+		root = null; 
+	}
+	
 	public Node returnRoot()
 	{
 		return root;
@@ -51,156 +53,116 @@ public class AVLTree1 {
 //		} 
 //	} 
 	
-	 public Node rotatewithleft(Node c)
-	   {
-	     Node p;  // left child of c
-
-	     p = c.leftChild;
-	     c.leftChild = p.rightChild;
-	     p.rightChild = c;
-
-	     c.height = Math.max(height(c.leftChild), height(c.rightChild)) + 1;
-	     p.height = Math.max(height(p.leftChild), height(p.rightChild)) + 1;
-
-	     return p;
-
-	   }
-
-	   public Node rotatewithright(Node c)
-	   {
-
-	     Node p;  // right child of c
-
-	     p = c.rightChild;
-	     c.rightChild = p.leftChild;
-	     p.leftChild = c;
-
-	     c.height = Math.max(height(c.leftChild), height(c.rightChild)) + 1;
-	     p.height = Math.max(height(p.leftChild), height(p.rightChild)) + 1;
-
-	     return p;
-
-	   }
-
-	   public Node doublerotatewithleft(Node c)
-	   {
-
-	     Node tmp;
-
-	     c.leftChild = rotatewithright(c.leftChild);
-	     tmp = rotatewithleft(c);
-
-	     return tmp;
-
-	   }
-
-	   public Node doublerotatewithright(Node c)
-	   {
-
-	    Node tmp;
-
-	    c.rightChild = rotatewithleft(c.rightChild);
-	    tmp = rotatewithright(c);
-
-	    return tmp;
-
-	   }
-
+//	public void insert(int id)
+//	{
+//		Node newNode = new Node();
+//		newNode.item = id;
+//		if(root==null)
+//			root = newNode;
+//		else
+//		{
+//			Node current = root;
+//			Node parent;
+//			while(true)
+//			{
+//				parent = current;
+//				if(id < current.item)
+//				{
+//					current = current.leftChild;
+//					if(current == null)
+//					{
+//						parent.leftChild = newNode;
+//						return;
+//					}
+//					
+//				} 
+//				else
+//				{
+//					current = current.rightChild;
+//					if(current == null) 
+//					{
+//						parent.rightChild = newNode;
+//						return;
+//					}
+//				} 
+//			} 
+//		} 
+//	} 
 	
-	  public void insert(int data) // Recursive insert
-    {
-	      Node newNode = new Node(data);    // make new node	
-	      if(root==null)
-	            root = newNode;
-	      else
-	         {	
-	          root=avlInsert(newNode, root);	
-	          }
-     }  // end insert()
-
-   
-	  
-	  public Node avlInsert(Node newNode, Node par)
-	   {
-	   Node newpar = par;  // root of subtree par
-	   if (newNode.data < par.data)
-	   {
-	     if (par.leftChild == null)
-	       {
-
-	         par.leftChild = newNode;  //attach new node as leaf
-
-	       }
-	     else {
-
-	         par.leftChild = avlInsert(newNode, par.leftChild);   // branch left
-
-	         if ((height(par.leftChild) - height(par.rightChild)) == 2) {
-
-	            if (newNode.data < par.leftChild.data) {
-
-	              newpar=rotatewithleft(par);
-
-	            }
-	            else {
-
-	              newpar=doublerotatewithleft(par);
-
-	            } //else
-	         } //if
-	      } // else
-	   } // if
-
-	   else if (newNode.data > par.data)  // branch right
-	   {
-	        if (par.rightChild == null)
-	       {
-
-	         par.rightChild = newNode;   // attach new node as leaf
-
-	       }
-	     else {
-
-	           par.rightChild = avlInsert(newNode, par.rightChild);  // branch right
-
-	           if ((height(par.rightChild) - height(par.leftChild)) == 2) {
-
-	            if (newNode.data > par.rightChild.data) {
-
-	              newpar=rotatewithright(par);
-
-
-	            } //if
-	            else {
-
-	              newpar=doublerotatewithright(par);
-
-	            } //else
-	           } //if
-	        } //else
-	   }  // else if
-
-	   else System.out.println("Duplicate Key");
-
-	 // Update the height, just in case
-
-	   if ((par.leftChild == null) && (par.rightChild != null))
-	      par.height = par.rightChild.height + 1;
-	   else if ((par.rightChild == null) && (par.leftChild != null))
-	      par.height = par.leftChild.height + 1;
-	   else
-	      par.height = Math.max(height(par.leftChild), height(par.rightChild)) + 1;
-
-	   return newpar; // return new root of this subtree
-
-	 }  // end avlinsert
-
-	  
-	  public int height(Node x)  // return height of tree rooted at x
-   {
-    if (x == null) return -1;
-       else return x.height;
-   }  
+//	 public void insert(int data){
+//			Node newNode = new Node();
+//			newNode.item = data;
+////			Node currentNode;
+//			if(root == null){
+//				root = newNode;
+//				return;
+//			}
+//			else{
+//				Node current= root;
+//				Node parent;
+//				
+//				while (true){ 
+//					parent = current;
+//				if(data < current.item){
+//					current = current.leftChild ;
+//					if(current == null){
+//						parent.leftChild =	newNode; 
+//					  return;
+//					}
+////					else{
+////						currentNode = currentNode.rightChild ;
+////					}
+//												
+//				}else{
+//					current = current.rightChild;
+//					if(current == null){
+//						parent.rightChild = newNode;
+//					  return;
+//					}
+////					else{
+////						 currentNode = currentNode.rightChild; 
+////					}
+//				 }
+//				}
+//			}		
+//		}
+	
+	
+	public void insert(int data){
+		Node newNode = new Node(data);
+		Node current= root;
+		Node parent;
+		if(root == null){
+			root = newNode;
+			return;
+		}
+		else{
+//			Node current= root;
+//			Node parent;
+//			
+			while (true){ 
+				parent = current;
+			if(data < current.data){
+				if(current.leftChild == null){
+					current.leftChild =	newNode; 
+				  return;
+				}
+				else{
+					current = current.leftChild ;
+				}
+											
+			}else{
+				if(current.rightChild == null){
+					current.rightChild = newNode;
+				  return;
+				}
+				else{
+					 current = current.rightChild; 
+				}
+			 }
+			}
+		}		
+	}
 	
 	
 	public void preOrder(Node Root)
@@ -283,14 +245,46 @@ public class AVLTree1 {
 			emptyLeaf /= 2;
 			while(localStack.isEmpty()==false)
 				globalStack.push( localStack.pop() );
-		}
-	      System.out.println("****......................................................****");
+	 	}
+	 System.out.println("****......................................................****");
 	} 
+	
+	/**
+	 * Finds a Node in the AVL tree that contains the integer, data
+	 * @return true if a Node is found in the AVL tree that contains
+	 * the int value, data
+	 * @return false if a Node is not found in the AVL tree that
+	 * contains the int value, data
+	 */
+	public Node find(int data) {
+		Node current = root;
+		if (current == null) {
+			return null;
+		}
+		if (current.data == data) {
+			return current;
+		}
+		
+		while (current != null && data != current.data) {
+			if (data < current.getData()) {
+				current = current.leftChild;
+			} else {
+				current = current.rightChild;
+			}
+		}
+		
+		return current;
+	}
+
+	
+	
+	
+	
 	
 	public static void main(String[] args) throws IOException
 	{
 		int value;
-		AVLTree1 theTree = new AVLTree1();
+		AVLTree3 theTree = new AVLTree3();
 //		theTree.insert(42);
 //		theTree.insert(25);
 //		theTree.insert(65);
@@ -302,7 +296,7 @@ public class AVLTree1 {
 //		theTree.insert(87);
 //		theTree.insert(99);
 //		theTree.insert(9);
-		
+        		
 //		theTree.insert(1);
 //		theTree.insert(2);
 //		theTree.insert(3);
@@ -314,25 +308,26 @@ public class AVLTree1 {
 		theTree.insert(3);
 		theTree.insert(2);
 		theTree.insert(1);
+		
 
 		System.out.println("Displaying the tree");
 		theTree.displayTree();
 
-		System.out.println("Inorder traversal");
-		theTree.inOrder(theTree.returnRoot());
-		System.out.println(" ");
-
-		System.out.println("Preorder traversal");
-		theTree.preOrder(theTree.returnRoot());
-		System.out.println(" ");
-			
-		System.out.println("Postorder traversal");
-		theTree.postOrder(theTree.returnRoot());
-		System.out.println(" ");
-		
-		System.out.println("By Level");
-		theTree.byLevel(theTree.returnRoot());
-		System.out.println(" ");
+//		System.out.println("Inorder traversal");
+//		theTree.inOrder(theTree.returnRoot());
+//		System.out.println(" ");
+//
+//		System.out.println("Preorder traversal");
+//		theTree.preOrder(theTree.returnRoot());
+//		System.out.println(" ");
+//			
+//		System.out.println("Postorder traversal");
+//		theTree.postOrder(theTree.returnRoot());
+//		System.out.println(" ");
+//		
+//		System.out.println("By Level");
+//		theTree.byLevel(theTree.returnRoot());
+//		System.out.println(" ");
 	} 
 	
 	class Node
@@ -346,14 +341,44 @@ public class AVLTree1 {
 			this.data = data;			
 		}
 		
-			
+		 public int height(Node x)  // return height of tree rooted at x
+	     {
+	      if (x == null) return -1;
+	         else return x.height;
+	     }
+		 
 		public void displayNode()
 		{
 			System.out.print("[");
 			System.out.print(data);
 			System.out.print("]");
 		}
-	
+
+		public int getData() {
+			return data;
+		}
+
+		public void setData(int data) {
+			this.data = data;
+		}
+
+		public Node getLeftChild() {
+			return leftChild;
+		}
+
+		public void setLeftChild(Node leftChild) {
+			this.leftChild = leftChild;
+		}
+
+		public Node getRightChild() {
+			return rightChild;
+		}
+
+		public void setRightChild(Node rightChild) {
+			this.rightChild = rightChild;
+		}
+		
+		
 	}
 	class StackNode
 	{
@@ -363,7 +388,6 @@ public class AVLTree1 {
 		{
 			item = val;
 		}
-
 	}
 	class LinkedListStack
 	{
@@ -391,22 +415,22 @@ public class AVLTree1 {
 	}
 	class Stack
 	{
-		private LinkedListStack list;
+		private LinkedListStack listObj;
 		public Stack()
 		{
-			list = new LinkedListStack();
+			listObj = new LinkedListStack();
 		}
 		public void push(Node num)
 		{
-			list.insert(num);
+			listObj.insert(num);
 		}
 		public Node pop()
 		{
-			return list.delete();
+			return listObj.delete();
 		}
 		public boolean isEmpty()
 		{
-			return list.isEmpty();
+			return listObj.isEmpty();
 		}
 	}
 

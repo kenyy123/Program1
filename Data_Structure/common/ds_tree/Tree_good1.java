@@ -147,6 +147,18 @@ public class Tree_good1 {
 		theTree.insert(87);
 		theTree.insert(99);
 		theTree.insert(9);
+		
+//		theTree.insert(1);
+//		theTree.insert(2);
+//		theTree.insert(3);
+//		theTree.insert(4);
+//		theTree.insert(5);
+		
+		theTree.insert(5);
+		theTree.insert(4);
+		theTree.insert(3);
+		theTree.insert(2);
+		theTree.insert(1);
 
 		System.out.println("Displaying the tree");
 		theTree.displayTree();

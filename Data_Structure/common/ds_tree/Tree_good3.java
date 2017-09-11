@@ -1,4 +1,4 @@
-package dsTree;
+package ds_tree;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -129,7 +129,6 @@ public class Tree_good3 {
 	
 	public void insert(int data){
 		Node newNode = new Node(data);
-//		newNode.data = data;
 //		Node currentNode;
 		Node current= root;
 		Node parent;
@@ -144,28 +143,29 @@ public class Tree_good3 {
 			while (true){ 
 				parent = current;
 			if(data < current.data){
-				current = current.leftChild ;
-				if(current == null){
-					parent.leftChild =	newNode; 
+//				current = current.leftChild ;
+				if(current.leftChild == null){
+					current.leftChild =	newNode; 
 				  return;
 				}
-//				else{
-//					currentNode = currentNode.rightChild ;
-//				}
+				else{
+					current = current.leftChild ;
+				}
 											
 			}else{
-				current = current.rightChild;
-				if(current == null){
-					parent.rightChild = newNode;
+//				current = current.rightChild;
+				if(current.rightChild == null){
+					current.rightChild = newNode;
 				  return;
 				}
-//				else{
-//					 currentNode = currentNode.rightChild; 
-//				}
+				else{
+					 current = current.rightChild; 
+				}
 			 }
 			}
 		}		
 	}
+	
 	
 	public void preOrder(Node Root)
 	{
@@ -247,9 +247,41 @@ public class Tree_good3 {
 			emptyLeaf /= 2;
 			while(localStack.isEmpty()==false)
 				globalStack.push( localStack.pop() );
-		}
-	System.out.println("****......................................................****");
+	 	}
+	 System.out.println("****......................................................****");
 	} 
+	
+	/**
+	 * Finds a Node in the AVL tree that contains the integer, data
+	 * @return true if a Node is found in the AVL tree that contains
+	 * the int value, data
+	 * @return false if a Node is not found in the AVL tree that
+	 * contains the int value, data
+	 */
+	public Node find(int data) {
+		Node current = root;
+		if (current == null) {
+			return null;
+		}
+		if (current.data == data) {
+			return current;
+		}
+		
+		while (current != null && data != current.data) {
+			if (data < current.getData()) {
+				current = current.leftChild;
+			} else {
+				current = current.rightChild;
+			}
+		}
+		
+		return current;
+	}
+
+	
+	
+	
+	
 	
 	public static void main(String[] args) throws IOException
 	{
@@ -266,14 +298,18 @@ public class Tree_good3 {
 //		theTree.insert(87);
 //		theTree.insert(99);
 //		theTree.insert(9);
-        
+        		
+//		theTree.insert(1);
+//		theTree.insert(2);
+//		theTree.insert(3);
+//		theTree.insert(4);
+//		theTree.insert(5);
 		
-		theTree.insert(1);
-		theTree.insert(2);
-		theTree.insert(3);
-		theTree.insert(4);
 		theTree.insert(5);
-		
+		theTree.insert(4);
+		theTree.insert(3);
+		theTree.insert(2);
+		theTree.insert(1);
 
 		System.out.println("Displaying the tree");
 		theTree.displayTree();
@@ -298,6 +334,7 @@ public class Tree_good3 {
 	class Node
 	{
 		public int data;
+		public int height;
 		public Node leftChild;
 		public Node rightChild;
 		
@@ -305,12 +342,44 @@ public class Tree_good3 {
 			this.data = data;			
 		}
 		
+		 public int height(Node x)  // return height of tree rooted at x
+	     {
+	      if (x == null) return -1;
+	         else return x.height;
+	     }
+		 
 		public void displayNode()
 		{
 			System.out.print("[");
 			System.out.print(data);
 			System.out.print("]");
 		}
+
+		public int getData() {
+			return data;
+		}
+
+		public void setData(int data) {
+			this.data = data;
+		}
+
+		public Node getLeftChild() {
+			return leftChild;
+		}
+
+		public void setLeftChild(Node leftChild) {
+			this.leftChild = leftChild;
+		}
+
+		public Node getRightChild() {
+			return rightChild;
+		}
+
+		public void setRightChild(Node rightChild) {
+			this.rightChild = rightChild;
+		}
+		
+		
 	}
 	class StackNode
 	{
