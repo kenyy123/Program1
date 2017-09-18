@@ -340,20 +340,20 @@ public class DS01BstToDLL1 {
 //    }
  
 	private static class PreviousDLLNode{
-	        DllNode val;
+		DLLNode val;
 	 }
 	
-    private static DllNode convert(Node t){
-        DllNode d =convert(t,new PreviousDLLNode());
+    private static DLLNode convert(Node t){
+    	DLLNode d =convert(t,new PreviousDLLNode());
         while(d.prev!=null){
             d = d.prev;
         }
         return d;
     }
-    private static DllNode convert(Node t, PreviousDLLNode d){
+    private static DLLNode convert(Node t, PreviousDLLNode d){
         if(t==null) return null;
         convert(t.leftChild,d);
-        DllNode dn = new DllNode(t.data);
+        DLLNode dn = new DLLNode(t.data);
         if(d.val!=null){
             d.val.setNext(dn);
         }
@@ -365,6 +365,43 @@ public class DS01BstToDLL1 {
     } 
 	
   
+    public DoublyListNode bstToDoublyList(Node root) {  
+        if (root == null) {
+            return null;
+        }
+        //Init stack
+        Stack stack = new Stack();
+        
+        Node node = root;    
+        stack.push(node);
+        //Create DoublyListNode header
+        DoublyListNode dummy = new DoublyListNode(0);
+        DoublyListNode dNode = dummy;
+        
+            
+        while(!stack.isEmpty()) {
+            while (node != null && node.leftChild != null) {
+                stack.push(node.leftChild);
+                node = node.leftChild;
+            }
+            //add node
+            node = stack.pop();
+            DoublyListNode curr = new DoublyListNode(node.data);
+            dNode.next = curr;
+            curr.prev = dNode;
+            dNode = dNode.next;
+            
+            //check right node and add to stack
+            node = node.rightChild;
+            if (node != null) {
+                stack.push(node);
+            }  
+        }
+        
+        return dummy.next;
+        
+    }
+    
 	
 	public static void main(String[] args) throws IOException
 	{
@@ -420,9 +457,12 @@ public class DS01BstToDLL1 {
 //		printList(head);
 		
 		
-		DllNode dll = convert(theTree.root);
+		DLLNode dll = convert(theTree.root);
         dll.print();
-		
+        System.out.println();
+        
+        DoublyListNode d1 = theTree.bstToDoublyList(theTree.root);
+		d1.print();
 	} 
 	
 	class Node
@@ -455,6 +495,7 @@ public class DS01BstToDLL1 {
 		}
 
 	}
+	
 	class LinkedListStack
 	{
 		private StackNode first;
@@ -479,6 +520,7 @@ public class DS01BstToDLL1 {
 			return temp.data;
 		}
 	}
+	
 	class Stack
 	{
 		private LinkedListStack list;
@@ -509,39 +551,50 @@ public class DS01BstToDLL1 {
 	         this.prev = null;
 	         this.next = null;
 	     }
+	     
+	     public void print() {
+	    	 DoublyListNode tmpNode = this;
+
+	         while (tmpNode != null) {
+	             System.out.print(tmpNode.val + " -> ");
+	             tmpNode = tmpNode.next;
+	         }
+
+	         System.out.print("null");
 	 }
+	}
 	
-	  static class DllNode{
+	  static class DLLNode{
 	        int data;
-	        DllNode next;
-	        DllNode prev;
+	        DLLNode next;
+	        DLLNode prev;
 	 
-	        public DllNode(int data) {
+	        public DLLNode(int data) {
 	            this.data = data;
 	        }
-	        public DllNode() {
+	        public DLLNode() {
 	        }
 	        public int getData() {
 	            return data;
 	        }
-	        public DllNode getPrev() {
+	        public DLLNode getPrev() {
 	            return prev;
 	        }
-	        public void setPrev(DllNode prev) {
+	        public void setPrev(DLLNode prev) {
 	            this.prev = prev;
 	        }
 	 
 	        public void setData(int data) {
 	            this.data = data;
 	        }
-	        public DllNode getNext() {
+	        public DLLNode getNext() {
 	            return next;
 	        }
-	        public void setNext(DllNode next) {
+	        public void setNext(DLLNode next) {
 	            this.next = next;
 	        }
 	        public void print(){
-	            DllNode t = this;
+	        	DLLNode t = this;
 	            while(t!=null){
 	                System.out.print(t.getData()+"->");
 	                t = t.getNext();
@@ -549,7 +602,13 @@ public class DS01BstToDLL1 {
 	        }
 	    }
 	  
-	  
-	  
+//	  public class DLLNode {
+//		    int data;
+//		    DoublyListNode next, prev;
+//		    DLLNode(int val) {
+//		        this.data = val;
+//		        this.next = this.prev = null;
+//		   }
+//	  }
 
 }
