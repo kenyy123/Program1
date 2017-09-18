@@ -290,67 +290,72 @@ public class DS01BstToDLL1 {
 	} 
 	
 	
-//	public static Node bstToDLL(Node root){
-//		if(root == null){
-//			return null;
-//		}
-//		
-//		//convert left subtree to DLL and connect last node (=predecessor of current root) to current root 
-//		if(root.leftChild != null){
-//			//convert left subtree
-//			Node left = bstToDLL(root.leftChild);
-//			
-//			//find last node of the left DLL
-//			while(left.rightChild != null){
-//				left = left.rightChild;
-//			}
-//			
-//			//connect left DLL to root
-//			left.rightChild = root;
-//			root.leftChild = left;
-//		}
-//		//convert right subtree to DLL and connect root to the first node (=successor of current root)
-//		if(root.rightChild != null){
-//			//convert left subtree
-//			Node right = bstToDLL(root.rightChild);
-//			
-//			//find first node of the right DLL
-//			while(right.rightChild != null){
-//				right = right.leftChild;
-//			}
-//			
-//			//connect left DLL to root
-//			right.leftChild = root;
-//			root.rightChild = right;
-//		}
-//		
-//		return root;
-//		
-//	}
+	public static Node bstToDLL(Node root){
+		if(root == null){
+			return null;
+		}
+		
+		//convert left subtree to DLL and connect last node (=predecessor of current root) to current root 
+		if(root.leftChild != null){
+			//convert left subtree
+			Node left = bstToDLL(root.leftChild);
+			
+			//find last node of the left DLL
+			while(left.rightChild != null){
+				left = left.rightChild;
+			}
+			
+			//connect left DLL to root
+			left.rightChild = root;
+			root.leftChild = left;
+		}
+		//convert right subtree to DLL and connect root to the first node (=successor of current root)
+		if(root.rightChild != null){
+			//convert left subtree
+			Node right = bstToDLL(root.rightChild);
+			
+			//find first node of the right DLL
+			while(right.rightChild != null){
+				right = right.leftChild;
+			}
+			
+			//connect left DLL to root
+			right.leftChild = root;
+			root.rightChild = right;
+		}
+		
+		return root;
+		
+	}
 	
- // Utility function for printing double linked list.
-//    public static void printList(Node head) 
-//    {
-//        System.out.println("Extracted Double Linked List is : ");
-//        while (head != null) 
-//        {
+//  Utility function for printing double linked list.
+    public static void printList(Node root) 
+    {
+        System.out.println("Extracted Double Linked List is : ");
+        while (root.leftChild != null) 
+        {
 //            System.out.print(head.data + " ");
-////            head = head;
-//        }
-//    }
+            root = root.leftChild;
+        }
+        while (root != null) 
+        {
+            System.out.print(root.data + " >> ");
+            root = root.rightChild;
+        }
+    }
  
-	private static class PreviousDLLNode{
+	public static class PreviousDLLNode{
 		DLLNode val;
 	 }
 	
-    private static DLLNode convert(Node t){
+	public static DLLNode convert(Node t){
     	DLLNode d =convert(t,new PreviousDLLNode());
         while(d.prev!=null){
             d = d.prev;
         }
         return d;
     }
-    private static DLLNode convert(Node t, PreviousDLLNode d){
+	public static DLLNode convert(Node t, PreviousDLLNode d){
         if(t==null) return null;
         convert(t.leftChild,d);
         DLLNode dn = new DLLNode(t.data);
@@ -452,17 +457,17 @@ public class DS01BstToDLL1 {
 		
 //		Node root = null;
 //		theTree.root = Node(5);
-//		Node head = bstToDLL(theTree.root);
-////		theTree.displayTree();
-//		printList(head);
+		Node head = bstToDLL(theTree.root);
+//		theTree.displayTree();
+		printList(head);
 		
 		
-		DLLNode dll = convert(theTree.root);
-        dll.print();
-        System.out.println();
-        
-        DoublyListNode d1 = theTree.bstToDoublyList(theTree.root);
-		d1.print();
+//		DLLNode dll = convert(theTree.root);
+//        dll.print();
+//        System.out.println();
+//        
+//        DoublyListNode d1 = theTree.bstToDoublyList(theTree.root);
+//		d1.print();
 	} 
 	
 	class Node
