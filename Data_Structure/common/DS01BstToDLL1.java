@@ -1,4 +1,4 @@
-package ds_mshundred;
+package ds_hundred;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -7,7 +7,6 @@ import java.util.Queue;
 public class DS01BstToDLL1 {
 
 	public Node root;
-	
 	public DS01BstToDLL1()
 	{ root = null; }
 	public Node returnRoot()
@@ -316,7 +315,7 @@ public class DS01BstToDLL1 {
 			Node right = bstToDLL(root.rightChild);
 			
 			//find first node of the right DLL
-			while(right.leftChild != null){
+			while(right.rightChild != null){
 				right = right.leftChild;
 			}
 			
@@ -325,7 +324,8 @@ public class DS01BstToDLL1 {
 			root.rightChild = right;
 		}
 		
-		return root;		
+		return root;
+		
 	}
 	
 //  Utility function for printing double linked list.
@@ -343,44 +343,13 @@ public class DS01BstToDLL1 {
             root = root.rightChild;
         }
     }
-    
-    
-    /** 
-     * 将二叉树转换为双向链表 
-     */  
-    private Node last = null;;  
-  
-    public void convertNode(Node node) {  
-  
-        if (node == null)  
-            return;  
-  
-          if (node.leftChild != null)  
-              convertNode(node.leftChild);  
-              node.leftChild = last;  
-    
-          if (last != null)  
-              last.rightChild = node;  
-              last = node;  
-          if (node.rightChild != null)  
-              convertNode(node.rightChild);  
-    
-      }  
-    
-      public void print1(Node node) {    
-          Node r = node;  
-          while (r != null) {  
-              System.out.print(r.data + " ");  
-              r = r.rightChild;  
-          }  
-      }  
  
 	public static class PreviousDLLNode{
 		DLLNode val;
 	 }
 	
 	public static DLLNode convert(Node t){
-    	DLLNode d = convert(t,new PreviousDLLNode());
+    	DLLNode d =convert(t,new PreviousDLLNode());
         while(d.prev!=null){
             d = d.prev;
         }
@@ -400,8 +369,7 @@ public class DS01BstToDLL1 {
    
     } 
 	
-	
-    ///////////////////////////////////////
+  
     public DoublyListNode bstToDoublyList(Node root) {  
         if (root == null) {
             return null;
@@ -414,8 +382,8 @@ public class DS01BstToDLL1 {
         //Create DoublyListNode header
         DoublyListNode dummy = new DoublyListNode(0);
         DoublyListNode dNode = dummy;
-        DoublyListNode curr;
         
+            
         while(!stack.isEmpty()) {
             while (node != null && node.leftChild != null) {
                 stack.push(node.leftChild);
@@ -423,7 +391,7 @@ public class DS01BstToDLL1 {
             }
             //add node
             node = stack.pop();
-            curr = new DoublyListNode(node.data);
+            DoublyListNode curr = new DoublyListNode(node.data);
             dNode.next = curr;
             curr.prev = dNode;
             dNode = dNode.next;
@@ -489,8 +457,9 @@ public class DS01BstToDLL1 {
 		
 //		Node root = null;
 //		theTree.root = Node(5);
-//		Node head = bstToDLL(theTree.root);
-//		printList(head);
+		Node head = bstToDLL(theTree.root);
+//		theTree.displayTree();
+		printList(head);
 		
 		
 //		DLLNode dll = convert(theTree.root);
@@ -499,9 +468,6 @@ public class DS01BstToDLL1 {
 //        
 //        DoublyListNode d1 = theTree.bstToDoublyList(theTree.root);
 //		d1.print();
-				
-		theTree.convertNode(theTree.root);
-		theTree.print1(theTree.root);
 	} 
 	
 	class Node

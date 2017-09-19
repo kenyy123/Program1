@@ -4,21 +4,19 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class DS01BstToDLL1 {
+public class AVLTree2 {
 
 	public Node root;
+	public AVLTree2()
+	{ 
+		root = null; 
+	}
 	
-	public DS01BstToDLL1()
-	{ root = null; }
 	public Node returnRoot()
 	{
 		return root;
 	}
 	
-	// 'head' - reference to head node of created
-    //double linked list
-    Node head;
- 
 //	public void insert(int id)
 //	{
 //		Node newNode = new Node();
@@ -54,7 +52,91 @@ public class DS01BstToDLL1 {
 //		} 
 //	} 
 	
-	 public Node rotatewithleft(Node c)
+//	public void insert(int id)
+//	{
+//		Node newNode = new Node();
+//		newNode.item = id;
+//		if(root==null)
+//			root = newNode;
+//		else
+//		{
+//			Node current = root;
+//			Node parent;
+//			while(true)
+//			{
+//				parent = current;
+//				if(id < current.item)
+//				{
+//					current = current.leftChild;
+//					if(current == null)
+//					{
+//						parent.leftChild = newNode;
+//						return;
+//					}
+//					
+//				} 
+//				else
+//				{
+//					current = current.rightChild;
+//					if(current == null) 
+//					{
+//						parent.rightChild = newNode;
+//						return;
+//					}
+//				} 
+//			} 
+//		} 
+//	} 
+	
+//	 public void insert(int data){
+//			Node newNode = new Node();
+//			newNode.item = data;
+////			Node currentNode;
+//			if(root == null){
+//				root = newNode;
+//				return;
+//			}
+//			else{
+//				Node current= root;
+//				Node parent;
+//				
+//				while (true){ 
+//					parent = current;
+//				if(data < current.item){
+////					current = current.leftChild ;
+////					if(current == null){
+////						parent.leftChild =	newNode; 
+////					  return;
+////					}
+////					
+//					if(current.leftChild == null){
+//						current.leftChild =	newNode; 
+//						return;
+//					}else{
+//						current = current.leftChild;
+//					}
+//					
+//												
+//				}else{
+////					current = current.rightChild;
+////					if(current == null){
+////						parent.rightChild = newNode;
+////					  return;
+////					}
+//									
+//					if(current.rightChild == null){
+//						current.rightChild =	newNode; 
+//						return;
+//					}else{
+//						current = current.rightChild;
+//					}
+//					
+//				 }
+//				}
+//			}		
+//		}
+//	
+	   public Node rotatewithleft(Node c)
 	   {
 	     Node p;  // left child of c
 
@@ -111,19 +193,19 @@ public class DS01BstToDLL1 {
 
 	
 	  public void insert(int data) // Recursive insert
-    {
+      {
 	      Node newNode = new Node(data);    // make new node	
 	      if(root==null)
 	            root = newNode;
 	      else
 	         {	
-	          root=avlInsert(newNode, root);	
+	          root=avlinsert(newNode, root);	
 	          }
-     }  // end insert()
+       }  // end insert()
 
-   
+     
 	  
-	  public Node avlInsert(Node newNode, Node par)
+	  public Node avlinsert(Node newNode, Node par)
 	   {
 	   Node newpar = par;  // root of subtree par
 	   if (newNode.data < par.data)
@@ -136,7 +218,7 @@ public class DS01BstToDLL1 {
 	       }
 	     else {
 
-	         par.leftChild = avlInsert(newNode, par.leftChild);   // branch left
+	         par.leftChild = avlinsert(newNode, par.leftChild);   // branch left
 
 	         if ((height(par.leftChild) - height(par.rightChild)) == 2) {
 
@@ -164,7 +246,7 @@ public class DS01BstToDLL1 {
 	       }
 	     else {
 
-	           par.rightChild = avlInsert(newNode, par.rightChild);  // branch right
+	           par.rightChild = avlinsert(newNode, par.rightChild);  // branch right
 
 	           if ((height(par.rightChild) - height(par.leftChild)) == 2) {
 
@@ -200,12 +282,11 @@ public class DS01BstToDLL1 {
 
 	  
 	  public int height(Node x)  // return height of tree rooted at x
-   {
-    if (x == null) return -1;
-       else return x.height;
-   }  
-	
-	
+     {
+      if (x == null) return -1;
+         else return x.height;
+     }  
+
 	public void preOrder(Node Root)
 	{
 		if(Root != null)
@@ -287,163 +368,13 @@ public class DS01BstToDLL1 {
 			while(localStack.isEmpty()==false)
 				globalStack.push( localStack.pop() );
 		}
-	      System.out.println("****......................................................****");
+	System.out.println("****......................................................****");
 	} 
-	
-	
-	public static Node bstToDLL(Node root){
-		if(root == null){
-			return null;
-		}
-		
-		//convert left subtree to DLL and connect last node (=predecessor of current root) to current root 
-		if(root.leftChild != null){
-			//convert left subtree
-			Node left = bstToDLL(root.leftChild);
-			
-			//find last node of the left DLL
-			while(left.rightChild != null){
-				left = left.rightChild;
-			}
-			
-			//connect left DLL to root
-			left.rightChild = root;
-			root.leftChild = left;
-		}
-		//convert right subtree to DLL and connect root to the first node (=successor of current root)
-		if(root.rightChild != null){
-			//convert left subtree
-			Node right = bstToDLL(root.rightChild);
-			
-			//find first node of the right DLL
-			while(right.leftChild != null){
-				right = right.leftChild;
-			}
-			
-			//connect left DLL to root
-			right.leftChild = root;
-			root.rightChild = right;
-		}
-		
-		return root;		
-	}
-	
-//  Utility function for printing double linked list.
-    public static void printList(Node root) 
-    {
-        System.out.println("Extracted Double Linked List is : ");
-        while (root.leftChild != null) 
-        {
-//            System.out.print(head.data + " ");
-            root = root.leftChild;
-        }
-        while (root != null) 
-        {
-            System.out.print(root.data + " >> ");
-            root = root.rightChild;
-        }
-    }
-    
-    
-    /** 
-     * 将二叉树转换为双向链表 
-     */  
-    private Node last = null;;  
-  
-    public void convertNode(Node node) {  
-  
-        if (node == null)  
-            return;  
-  
-          if (node.leftChild != null)  
-              convertNode(node.leftChild);  
-              node.leftChild = last;  
-    
-          if (last != null)  
-              last.rightChild = node;  
-              last = node;  
-          if (node.rightChild != null)  
-              convertNode(node.rightChild);  
-    
-      }  
-    
-      public void print1(Node node) {    
-          Node r = node;  
-          while (r != null) {  
-              System.out.print(r.data + " ");  
-              r = r.rightChild;  
-          }  
-      }  
- 
-	public static class PreviousDLLNode{
-		DLLNode val;
-	 }
-	
-	public static DLLNode convert(Node t){
-    	DLLNode d = convert(t,new PreviousDLLNode());
-        while(d.prev!=null){
-            d = d.prev;
-        }
-        return d;
-    }
-	public static DLLNode convert(Node t, PreviousDLLNode d){
-        if(t==null) return null;
-        convert(t.leftChild,d);
-        DLLNode dn = new DLLNode(t.data);
-        if(d.val!=null){
-            d.val.setNext(dn);
-        }
-        dn.setPrev(d.val);
-        d.val = dn;
-        convert(t.rightChild,d);
-        return dn; // this node will be in the middle of the dll.    }
-   
-    } 
-	
-	
-    ///////////////////////////////////////
-    public DoublyListNode bstToDoublyList(Node root) {  
-        if (root == null) {
-            return null;
-        }
-        //Init stack
-        Stack stack = new Stack();
-        
-        Node node = root;    
-        stack.push(node);
-        //Create DoublyListNode header
-        DoublyListNode dummy = new DoublyListNode(0);
-        DoublyListNode dNode = dummy;
-        DoublyListNode curr;
-        
-        while(!stack.isEmpty()) {
-            while (node != null && node.leftChild != null) {
-                stack.push(node.leftChild);
-                node = node.leftChild;
-            }
-            //add node
-            node = stack.pop();
-            curr = new DoublyListNode(node.data);
-            dNode.next = curr;
-            curr.prev = dNode;
-            dNode = dNode.next;
-            
-            //check right node and add to stack
-            node = node.rightChild;
-            if (node != null) {
-                stack.push(node);
-            }  
-        }
-        
-        return dummy.next;
-        
-    }
-    
 	
 	public static void main(String[] args) throws IOException
 	{
 		int value;
-		DS01BstToDLL1 theTree = new DS01BstToDLL1();
+		AVLTree2 theTree = new AVLTree2();
 //		theTree.insert(42);
 //		theTree.insert(25);
 //		theTree.insert(65);
@@ -455,7 +386,7 @@ public class DS01BstToDLL1 {
 //		theTree.insert(87);
 //		theTree.insert(99);
 //		theTree.insert(9);
-		
+
 //		theTree.insert(1);
 //		theTree.insert(2);
 //		theTree.insert(3);
@@ -467,7 +398,7 @@ public class DS01BstToDLL1 {
 		theTree.insert(3);
 		theTree.insert(2);
 		theTree.insert(1);
-
+		
 		System.out.println("Displaying the tree");
 		theTree.displayTree();
 
@@ -486,22 +417,6 @@ public class DS01BstToDLL1 {
 //		System.out.println("By Level");
 //		theTree.byLevel(theTree.returnRoot());
 //		System.out.println(" ");
-		
-//		Node root = null;
-//		theTree.root = Node(5);
-//		Node head = bstToDLL(theTree.root);
-//		printList(head);
-		
-		
-//		DLLNode dll = convert(theTree.root);
-//        dll.print();
-//        System.out.println();
-//        
-//        DoublyListNode d1 = theTree.bstToDoublyList(theTree.root);
-//		d1.print();
-				
-		theTree.convertNode(theTree.root);
-		theTree.print1(theTree.root);
 	} 
 	
 	class Node
@@ -522,19 +437,16 @@ public class DS01BstToDLL1 {
 			System.out.print(data);
 			System.out.print("]");
 		}
-	
 	}
 	class StackNode
 	{
-		public Node data;
+		public Node item;
 		public StackNode next;
 		public StackNode(Node val)
 		{
-			data = val;
+			item = val;
 		}
-
 	}
-	
 	class LinkedListStack
 	{
 		private StackNode first;
@@ -556,10 +468,9 @@ public class DS01BstToDLL1 {
 		{
 			StackNode temp = first;
 			first = first.next;
-			return temp.data;
+			return temp.item;
 		}
 	}
-	
 	class Stack
 	{
 		private LinkedListStack list;
@@ -580,74 +491,5 @@ public class DS01BstToDLL1 {
 			return list.isEmpty();
 		}
 	}
-	
-	public class DoublyListNode {
-	     int val;
-	     DoublyListNode prev;
-	     DoublyListNode next;
-	     DoublyListNode(int val) {
-	         this.val = val;
-	         this.prev = null;
-	         this.next = null;
-	     }
-	     
-	     public void print() {
-	    	 DoublyListNode tmpNode = this;
-
-	         while (tmpNode != null) {
-	             System.out.print(tmpNode.val + " -> ");
-	             tmpNode = tmpNode.next;
-	         }
-
-	         System.out.print("null");
-	 }
-	}
-	
-	  static class DLLNode{
-	        int data;
-	        DLLNode next;
-	        DLLNode prev;
-	 
-	        public DLLNode(int data) {
-	            this.data = data;
-	        }
-	        public DLLNode() {
-	        }
-	        public int getData() {
-	            return data;
-	        }
-	        public DLLNode getPrev() {
-	            return prev;
-	        }
-	        public void setPrev(DLLNode prev) {
-	            this.prev = prev;
-	        }
-	 
-	        public void setData(int data) {
-	            this.data = data;
-	        }
-	        public DLLNode getNext() {
-	            return next;
-	        }
-	        public void setNext(DLLNode next) {
-	            this.next = next;
-	        }
-	        public void print(){
-	        	DLLNode t = this;
-	            while(t!=null){
-	                System.out.print(t.getData()+"->");
-	                t = t.getNext();
-	            }
-	        }
-	    }
-	  
-//	  public class DLLNode {
-//		    int data;
-//		    DoublyListNode next, prev;
-//		    DLLNode(int val) {
-//		        this.data = val;
-//		        this.next = this.prev = null;
-//		   }
-//	  }
 
 }
