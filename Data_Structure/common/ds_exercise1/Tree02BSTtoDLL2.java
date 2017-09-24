@@ -92,7 +92,7 @@ public class Tree02BSTtoDLL2 {
             node = node.right;
             if (node != null) {
                 stack.push(node);
-            } 
+            }  
         }
 //        while (dummy.leftChild != null) 
 //        {
