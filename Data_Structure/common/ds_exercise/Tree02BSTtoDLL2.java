@@ -13,7 +13,7 @@ public class Tree02BSTtoDLL2 {
         tree.root.right = new TreeNode(5);
         tree.root.left.left = new TreeNode(1);
         tree.root.left.right = new TreeNode(3);
-//        tree.root.right.left = new TreeNode(40);
+        tree.root.right.right = new TreeNode(8);
         
 //        tree.inOrder(tree.root);
         
